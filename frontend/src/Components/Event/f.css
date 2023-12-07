@@ -1,0 +1,54 @@
+ .home-slider-decor img{height:auto;max-height:490px}
+
+ .ff{
+    /* display: flex;
+    flex-direction: row; */
+font-family: 'poppins';
+padding: 20px;
+ }
+
+ .text h2 a {
+    color: #1162fb;
+}
+
+
+
+.text h3.speaker-name {
+    font-size: 20px;
+    font-weight: 600;
+}
+.text .position {
+    font-size: 18px;
+    color: rgba(0, 0, 0, 0.4);
+}
+.text .location {
+    font-size: 18px;
+    font-weight: 300;
+    color: #000000;
+}
+.speaker-wrap .text .location {
+    font-size: 18px;
+    font-weight: 300;
+    color: #000000;
+}
+.text .time {
+    font-weight: 600;
+    color: #1162fb;
+    font-size: 20px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.text {
+    width: calc(100% - 180px);
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: flex-start;
+}
+
+
+.blackk{
+    color: black;
+    }
+    

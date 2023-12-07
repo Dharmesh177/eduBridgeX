@@ -1,0 +1,375 @@
+{
+    "columns": [
+        "Name",
+        "Followers",
+        "Rating",
+        "rev",
+        "Domain1",
+        "Domain2",
+        "Domain3"
+    ],
+    "index": [
+        0,
+        1,
+        3,
+        4,
+        5,
+        8,
+        13,
+        14,
+        15,
+        16,
+        57,
+        64,
+        67,
+        75,
+        76,
+        78,
+        81,
+        89,
+        98,
+        103,
+        104,
+        105,
+        126,
+        135,
+        137,
+        139,
+        146,
+        147,
+        155,
+        158,
+        169,
+        171,
+        173,
+        174,
+        175,
+        176
+    ],
+    "data": [
+        [
+            "Farzad Khosravi",
+            1,
+            5.0,
+            "[]",
+            "customerexperience",
+            "customersuccess",
+            "marketingstrategy"
+        ],
+        [
+            "Abbas Alighanbari",
+            2,
+            5.0,
+            "['::\\nAbbas has tremendous knowledge about the investment management industry. Always extremely helpful, generous with his time, and would go above my expectations during our calls. A great person and mentor!\\n', '::\\nIncredibly positive experience! Abbas is very personable. He listened carefully before putting together a plan to help me reach my goals. He knows the investment management industry very intimately and has a wealth of knowledge when it comes to building a career in the space. Excited to maintain our relationship, could not recommend enough =)\\n']",
+            "hedgefunds",
+            "marketresearch",
+            "macroresearch"
+        ],
+        [
+            "Jason Aiginitis",
+            8,
+            5.0,
+            "['::\\nJason is great mentor. Patient, helpful, has huge knowledge, always ready to support and he is clear in explanations. I definitely recommend Jason to everyone who seeks valuable & active support. Best one I met so far.\\n', \"::\\nQuick to respond. Very helpful. I'm at the early stage of my marketing career so being able to have someone very experienced to refer to was super helpful.\\n\", '::\\nJason is a great mentor!\\n']",
+            "marketing",
+            "digitalmarketing",
+            "googleads"
+        ],
+        [
+            "Ziga Berce",
+            1,
+            5.0,
+            "['::\\nZiga is very knowledgeable about Marketing Automation and very professional. I enjoyed working with him\\n']",
+            "marketingautomation",
+            "emailmarketing",
+            "kickstarter"
+        ],
+        [
+            "Agnieszka Wojtkun",
+            1,
+            5.0,
+            "[\"::\\nI was feeling a little stuck with my job and professional life - I wanted to grow but I wasn't sure where to actually start. Aga has helped me find love for my career again, I'm excited to keep learning, Aga has made it easy to process :)\\n\"]",
+            "marketingautomation",
+            "emailmarketing",
+            "digitalmarketing"
+        ],
+        [
+            "Andre Havro",
+            2,
+            5.0,
+            "[\"::\\nAndre has been an incredible mentor and help as I continue to advance in my marketing journey. He's always available to answer questions, and his insight and experience have been invaluable. I couldn't have done it without him. Thanks a lot, Andre.\\n\", '::\\nAndre is a great mentor. Always gives the best advice and tools that will improve specific case. Would highly recommend Andre if you are looking for a mentor in the marketing area.\\n']",
+            "digitalmarketingstrategy",
+            "seoanddomainauthoritybuilding",
+            "organicandpaidsocialmediastrategy"
+        ],
+        [
+            "Rafal Gemza",
+            3,
+            5.0,
+            "['::\\nRafal is a resourceful and highly knowledgeable mentor. He is also tolerant, respectful and he is a very good teacher. He helped me a lot on my new journey in SEO. I have learned a lot from him and he has changed my trajectory highly positively. I strongly suggest him to anybody who wants to have an SEO Mentor. Cheers\\n']",
+            "seo",
+            "searchengineoptimisation",
+            "marketingstrategy"
+        ],
+        [
+            "Denise Edwards",
+            1,
+            5.0,
+            "['NAN']",
+            "marketing",
+            "sales",
+            "saasmarketing"
+        ],
+        [
+            "Deborah Ubochi",
+            2,
+            5.0,
+            "['NAN']",
+            "digitalmarketing",
+            "marketing",
+            "onlinemarketing"
+        ],
+        [
+            "Robert Perez",
+            1,
+            5.0,
+            "['::\\nGreat mentor\\nPractical seo tips and tricks\\n']",
+            "seo",
+            "digitalmarketing",
+            "googleads"
+        ],
+        [
+            " Robert Perez",
+            1,
+            5.0,
+            "['::\\nGreat mentor\\nPractical seo tips and tricks\\n']",
+            "seo",
+            "digitalmarketing",
+            "googleads"
+        ],
+        [
+            "Aaron Drotts",
+            4,
+            5.0,
+            "['::\\nAaron gave me very useful feedback for my work! I had a clearer view of a roadmap after our session.\\n', '::\\nAaron is a responsive and attentive individual! I appreciate him for being able to follow up and be available when needed!\\n', '::\\nAaron is very easy going guy who allows any question to be asked. I\u2019ve learned a lot about SEO and would definitely recommend him.\\n']",
+            "digitalmarketing",
+            "marketing",
+            "socialmedia"
+        ],
+        [
+            "Sandeep Medisetti",
+            3,
+            5.0,
+            "[\"::\\nI'm thankful for Sandeep's help in figuring out and kickstarting some of my sales knowledge. Now it's one me and translating that knowledge into actions \ud83d\udd25\\n\", '::\\nawesome work\\n']",
+            "saas",
+            "bbsales",
+            "marketing"
+        ],
+        [
+            "Gustavo Imhof",
+            1,
+            5.0,
+            "['::\\nExcellent.\\n']",
+            "customerexperience",
+            "marketresearch",
+            "personalfinance"
+        ],
+        [
+            "Karyn Corrigan",
+            7,
+            5.0,
+            "['::\\nKaryn was patient, knowledge and showed me some great ways to increase organic fast.\\n', '::\\nKaryn is a great expert with deep knowledge of technical and programmatic SEO. I was working with her to identify the steps needed to scale the SEO traffic of my hobby project, and from day one she proposed a clear and actionable strategy.\\n', \"::\\nI had Karyn help me with SEO for my bootstrapped business and she is such an expert, such a professional, that she is among my favorites of the 15 or so mentors I've worked with this year. She could explain things into terms that I could understand, develop a strategy for my unique situation while taking into consideration all my constraints. I can't underscore how important this is to a business starting out that is low on time, money, and resources\u2014other consultants will give advice that isn't tailored to your situation and those actions end up taking away other areas and doesn't have the intended result anyways because it didn't fit your business.\\nBut what is most surprising about Karyn is how much business understanding she has that she doesn't recognize. Karyn is relentless about learning everything related to SEO\u2014writing, marketing, branding, financial models, and even programming. I've found that her broad understanding of how small to medium SaSS companies work mean that she has offered actionable advice in many areas that I need even though it isn't her main area of expertise.\\nI now consider her a business consulting generalist who I can present a myriad of problems and she can help me make progress with them.\\n\"]",
+            "seo",
+            "digitalmarketing",
+            "contentmarketing"
+        ],
+        [
+            "Daniel Proctor",
+            11,
+            5.0,
+            "['::\\nI highly recommend Daniels mentorship. For anyone interested in doing SEO i recommend to get help from Daniel. I got some great nuggets learning from him.. Highly recommended\\n', '::\\nDaniel is very knowledgeable about Affiliate marketing and provided me with tons of valuable practical advice. Danial prompted me to focus my efforts and gave advice that I could use to take action. I look forward to continuing to be mentored by Daniel.\\n', '::\\nIt has been very fruitful. Daniel is a good mentor and has good insights into Affiliate marketing.\\n']",
+            "affiliatemarketing",
+            "seo",
+            "digitalmarketing"
+        ],
+        [
+            "Yaron Been",
+            1,
+            5.0,
+            "['::\\nOutstanding call, non-stop help for the full hour.\\nWill book another.\\n']",
+            "ecommerce",
+            "dropshipping",
+            "facebookads"
+        ],
+        [
+            "Yaron Been",
+            1,
+            5.0,
+            "['::\\n Outstanding call, non-stop help for the full hour.\\nWill book another.\\n']",
+            "ecommerce",
+            "dropshipping",
+            "facebookads"
+        ],
+        [
+            "Bob Snarey",
+            1,
+            5.0,
+            "['NAN']",
+            "advertising",
+            "digitalmarketing",
+            "branding"
+        ],
+        [
+            "Mo Ghahroudi",
+            2,
+            5.0,
+            "['::\\nMo is highly intelligent and a great communicator with lots of ideas. He epitomises what a true teacher and mentor is.\\nThank you for the excellent advice and mentoring.\\n', '::\\nMo is highly intelligent and a great communicator, always ready to listen, provide recommendations and support whenever needed.\\nOverall a great mentor\\n']",
+            "discovery",
+            "customerobsession",
+            "productdevelopment"
+        ],
+        [
+            "Gus Veiga",
+            3,
+            5.0,
+            "[\"::\\nGus is amazing!!!\\nI loved working with him.\\nHe's a marketing Guru.\\n\", \"::\\nGus is a very great mentor! In less than 3 months, most of my team shared their perspective on how I have grown to become a better support system for them. Gus is no ordinary marketer, he's very effective with his communication, his approach are super practical and I bet you'll be blown away how he treats you as a person.\\n\"]",
+            "strategicmarketing",
+            "bbmarketing",
+            "developscoaches"
+        ],
+        [
+            "Tanvi Shah",
+            2,
+            5.0,
+            "[\"::\\nShe is the friendliest person i dealt with. Very easy to communicate with and explanation methods she uses are very useful as she breaks down the subjects to simple language for me to understand.\\nI can totally feel her passion when we practiced.. it's like she is practicing herself.\\nAmazing experience. and i highly recommend her\\n\"]",
+            "consumerpm",
+            "ecommerce",
+            "abtesting"
+        ],
+        [
+            "Eric Jude",
+            29,
+            5.0,
+            "[\"::\\nEric is very friendly and helpful. Has great experience, and a very extensive network. Even if he doesn't know he gathers information from his network for you, without you even realising. Willing to take the extra step. Good experience.\\n\", '::\\nEric is my 1st mentor and it was a great experience with him.\\nHe helped me to sharpen my goal with different techniques and questions. He shared his experience which benefit me to make my own decision.\\n', \"::\\nI just can't say enough good things about Eric! He is very experienced and knowledgeable. He helped me with setting up my personal and business goals, and work towards the goals.\\nHe was my accountability partner, always checking on me where I stand with the tasks :)\\nAdditionally, he is a very kind person.\\n\"]",
+            "entrepreneurship",
+            "marketing",
+            "socialmedia"
+        ],
+        [
+            "Semir Jahic",
+            3,
+            5.0,
+            "['::\\nSemir is amazing! He has great ideas and experience and very helpful\\n', '::\\nSemir has been very generous with his assistance and has shared not only best practices but also shared practical examples from his work experiences to bring theory into practice.\\n']",
+            "sales",
+            "hiring",
+            "business"
+        ],
+        [
+            "Diana Fox",
+            5,
+            5.0,
+            "[\"::\\nlimited. She's great but I can't justify the spend at this stage.\\n\", '::\\nDiana is super awesome, great listener and has knowledge in many topics. She can give you an honest feedback and strategic advice for next steps. Definitely recommend her to startups that need advice.\\n', '::\\nAmazing call with Diana! She quickly realized what things were wrong with the project and provided useful feedback on how to fix them.\\n']",
+            "businessdevelopment",
+            "sales",
+            "agreements"
+        ],
+        [
+            "Akram Riahi",
+            7,
+            5.0,
+            "['::\\nAkram is a brilliant mentor!!\\nRight from the beginning,\\n- We set specific goals\\n- Scheduled follow ups\\n- And worked on a regular cadence to meet and resolve specific technical challenges.\\nLoved the engagement!!\\n', '::\\nAkram is really kind and helpful regardless of your level of experience, always there to help you. I have learned a lot with Akram. Thank you so much!\\n', '::\\nAkram is really kind and helpful regardless of your level of experience, always there to help you. I have learned a lot with Akram. Thank you so much!\\n']",
+            "sre",
+            "observability",
+            "kubernetes"
+        ],
+        [
+            "Thierry Ruiz",
+            1,
+            5.0,
+            "[\"::\\nThierry is a great mentor and is someone I'd definitely recommend to others. He takes an all-encompassing approach to help you achieve your goals and sees the bigger picture. I've found him to be very easy to talk to and appreciated his perspectives on all the questions I ran by him. If you're looking for a mentor who's experienced, approachable, has great insights, and is someone who will support you on your journey, get in contact with Thierry!\\n\"]",
+            "sales",
+            "technology",
+            "career"
+        ],
+        [
+            "Eric Crawford",
+            47,
+            5.0,
+            "['::\\nEric has helped me a lot when I struggle to start a new job as a junior Product Manager. He understands all the difficult emotions and tasks that happened to me, and his advice is useful and easy to follow. After a few months with him, I have successfully become a key member of my new team and now have opportunities to discuss strategy with high-level stakeholders. Thank you Eric, for being my reliable supporter this whole time.\\n', '::\\nI would highly recommend Eric. He spent lots of time working with me and made some awesome changes to my resume. He helped with some strategies that ultimately landed me a new job!\\n', '::\\nThank you Eric for helping me with your deep understanding and experience of the business world.\\n']",
+            "productmanagement",
+            "userexperience",
+            "marketing"
+        ],
+        [
+            "Stelios Tigkas",
+            10,
+            5.0,
+            "['::\\nStelios is a great mentor: knowledgeable, open minded, active though humble. You should definitely use your chance to meet him. Thanks\\n', '::\\nBest of all\\n', \"::\\nStelios is a wonderfully inspiring mentor! He listens attentively to all concerns and gives out a very professional and a well-tailored guide to ultimate success in the field of cybersecurity; that fit very perfectly to my day-to-day schedule. He always makes sure to know first about the tracks of his mentees' interests before proposing the path where they'd shine in most. I've had the privilege to learn and get inspired from his vast expertise on the subject, and I've been truly motivated by all his passion and hard-work! Truly thankful to have met such a resourceful and inspiring person both on a professional and personal level.\\n\"]",
+            "penetrationtesting",
+            "socialengineering",
+            "anonymity"
+        ],
+        [
+            "Liam Atkinson",
+            7,
+            5.0,
+            "['::\\nLiam was a great mentor. he identified a problem that I never knew I have as a designer and taught me how to surpass it\\n', '::\\nReal nice and professional bloke! His works are amazingvg\\n', '::\\nLiam has been helping me a lot. He is patient and always available to help.\\n']",
+            "branding",
+            "typography",
+            "creativethinking"
+        ],
+        [
+            "Nitisha Agrawal",
+            3,
+            5.0,
+            "['::\\nNitisha is a wonderful mentor and has super valuable insight especially if you are preparing for an Amazon interview.\\n', \"::\\nOne thing that you can notice in Nitisha's profile is that - she carries a niche set of skills among the whole bunch of mentors available in Mentorcruise. These skills are very difficult to learn from academic setup, which can be learned by experience only. Thanks to her for bringing in her expertise to the goodness of the community.\\nAnd one more thing... When you speak to her - it is not that she will exhibit her skills first - rather she would show her empathy to the mentee and what they want to do in their career. That makes Nitisha a greatest mentors in this platform.\\n\"]",
+            "cvwriting",
+            "interviewpreparation",
+            "businesscasewriting"
+        ],
+        [
+            "Jerry Liu",
+            4,
+            5.0,
+            "['::\\nSuper valuable, he helped me understand deeper the data science paradigm\\n', \"::\\nSuper Mentor. Jerry is one of the sharpest people I know. I've been doing mentoring for a year now or so, and have spoken to many people. But so far, I think Jerry has the most thinking capacity in his upper chamber :D\\n\", '::\\nThe mentorship was awesome. Jerry was super professional.\\nMy level of understanding was not easy as I\u2019d just landed in the data science paradigm.\\nBut without any judgment, he gave me clear insights that help me to go further on specific tasks.\\nEven if we hadn\u2019t included in our basic requirements, Jerry had not hesitated to correct my Python\u2019s code.\\nIn every aspect of our exchanges, I could felt the experiences he had from the Silicon Valley. I feel so blessed !\\nAnd for another project, I\u2019ll come back again to Jerry with no hesitation.\\n']",
+            "startup",
+            "productmanagement",
+            "marketresearch"
+        ],
+        [
+            "Jerry Liu",
+            4,
+            5.0,
+            "['::\\nSuper valuable, he helped me understand deeper the data science paradigm\\n', \"::\\nSuper Mentor. Jerry is one of the sharpest people I know. I've been doing mentoring for a year now or so, and have spoken to many people. But so far, I think Jerry has the most thinking capacity in his upper chamber :D\\n\", '::\\n The mentorship was awesome. Jerry was super professional.\\nMy level of understanding was not easy as I\u2019d just landed in the data science paradigm.\\nBut without any judgment, he gave me clear insights that help me to go further on specific tasks.\\nEven if we hadn\u2019t included in our basic requirements, Jerry had not hesitated to correct my Python\u2019s code.\\nIn every aspect of our exchanges, I could felt the experiences he had from the Silicon Valley. I feel so blessed !\\nAnd for another project, I\u2019ll come back again to Jerry with no hesitation.\\n']",
+            "startup",
+            "productmanagement",
+            "marketresearch"
+        ],
+        [
+            "Salem Smith",
+            4,
+            4.5,
+            "['::\\nTopline: working with him paid off - I got the job!!\\nThe details: Salem is a fantastic mentor both in terms of inspiring me and really making me believe that I could make the transition to product management after 6 months of getting nowhere. And he was exceptional at breaking down my experience and framing in a way that showcased my product experience and achievements and really changing the way that I spoke and even thought about my work. His feedback on my LinkedIn generated -no lie- at least 1-2 recruiters cold reaching out to me every single day for weeks. I had 11 interviews in a single week. Really top notch guy and really happy to be working with him. My one critique is that it was a bit challenging to hear back from him sometimes as life circumstances got in the way.\\n']",
+            "productstrategy",
+            "saas",
+            "userresearch"
+        ],
+        [
+            "Lloyd Jacob",
+            9,
+            5.0,
+            "['::\\nAmazing mentor.\\nHe helped me set up goals, and track them to get to where I want\\n', \"::\\nLloyd's been very accommodating.\\n\", \"::\\nLloyd is an experienced entrepreneur with a ton of experience in the startup space and was an absolute pleasure to talk to. I'll be seeking out his advice again when I'm working on my go to market approach for my products or trying to understand my customer better.\\n\"]",
+            "product",
+            "ycombinator",
+            "marketing"
+        ],
+        [
+            "Chris Ellinas",
+            1,
+            5.0,
+            "['::\\nChris is a great mentor and he loves to get to know you and help you with your goals.\\n', '::\\nChris was amazing! In a very short time he helped me stay on track with my goals and stay motivated to achieve them. I definitely recommend working with him.\\nHe is a great listener that will help you find focus.\\n']",
+            "graphicdesign",
+            "branding",
+            "webdesign"
+        ]
+    ]
+}
