@@ -323,7 +323,7 @@ const DynamicForm = () => {
         </div>
 
         <div>
-          <label className="sr-only" for="message">
+          <label className="sr-only" htmlFor="message" >
             Details
           </label>
 
@@ -337,7 +337,7 @@ const DynamicForm = () => {
           ></textarea>
         </div>
         <div>
-          <label className="sr-only" for="message">
+          <label className="sr-only" htmlFor="message">
             Benefits
           </label>
 
@@ -491,7 +491,7 @@ const DynamicForm = () => {
           </button>
         </div>
         <div>
-          <label className="sr-only" for="name">
+          <label className="sr-only" htmlFor="name">
             Ref
           </label>
           <input
