@@ -43,6 +43,12 @@ const scholarSchipSchema = new mongoose.Schema({
     },
     FAQ: {
         type: [faqSchema],
+    },
+    reference: {
+        type: String,
+    },
+    tags: {
+        type: [String],
     }
 });
 

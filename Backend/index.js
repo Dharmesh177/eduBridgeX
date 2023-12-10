@@ -33,6 +33,7 @@ const historyRouter = require('./routes/historyRouter')
 const resourceRouter=require('./routes/resourcesRouter')
 const blogRouter=require('./routes/blogRouter')
 const roadmapRoute=require('./routes/roadmap-routes');
+const schemeRouter = require('./routes/schemeRoute');
 
 app.use('/api/auth', signupLoginRoute);
 app.use('/api/mentors', mentorRoute);
@@ -41,6 +42,7 @@ app.use('/api/history', historyRouter);
 app.use('/api/resources', resourceRouter);
 app.use('/api/blog', blogRouter);
 app.use('/api/roadmap' , roadmapRoute);
+app.use('/api/schemes', schemeRouter)
 
 const verifyToken = async (token) => verify(token, process.env.Key);
 
