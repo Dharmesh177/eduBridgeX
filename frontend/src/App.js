@@ -13,7 +13,7 @@ import UniProfile from './Components/UniversityProfile/UniProfile';
 // import Developerlogin from "./Components/loginsigninuser/login";
 // import Developersignin from "./Components/loginsigninuser/signin";
 // import Developerforgot from "./Components/loginsigninuser/forgot1";
-// import Login from "./Components/loginsigninuser/login";
+// import Login from "./Components/loginsigninuser/login"
 import AddBlog from './Components/Blog/AddBlog';
 import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
@@ -41,6 +41,7 @@ import SignUp from './Components/SignUp/SignUp';
 import LLogin from './Components/stulogin/Login';
 import SSignUp from './Components/stulogin/SignUp';
 import VoiceSearch from './Components/VoiceSearch/VoiceSearch';
+import UploadFile from './Components/Common/UploadFile';
 function App() {
   return (
     <div className="App">
@@ -72,7 +73,7 @@ function App() {
       <Route index path="/FullRoadmapShow" element={<FullRoadmapShow/>} />
       <Route path="/:adminid" element={<Dashboard />} />
       <Route index path="/becomementor" element={<BecomeMenter/>} />
-
+      <Route index path="/tmp" element={<UploadFile/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />
       </Routes>
   
