@@ -1,10 +1,10 @@
 const scholarShipModel = require('../models/scholarShipModel');
-const scheme = require('../routes/schemeRoute');
+const Scheme = require('../models/scholarShipModel');
 
 exports.addNewScheme = async(req,res)=> {
     try {
         const formData = req.body;
-
+        // console.log("hello");
         const que = req.body.questions;
         const ans = req.body.answers;
         const newScheme = new scholarShipModel({
@@ -28,7 +28,52 @@ exports.addNewScheme = async(req,res)=> {
             res.status(500).json({"success": false, "msg": "server error while adding new Scheme"});
         }
     } catch (error) {
+        console.log("error while adding new scheme");
         console.log(error);
     }
+};
 
+exports.getAllSChemes = async (req,res) => {
+    try {
+        // console.log("hello");
+        const allSchemes = await Scheme.find();
+        // console.log(allSchemes);
+        if(allSchemes) {
+            res.status(200).json({allSchemes});
+        } else {
+            res.status(500).json({"success":false,"msg":"server error while fetching allSchemes"});
+        }
+    } catch (err) {
+        res.status(500).json({"msg":"internal server error"});
+        console.log("error while fetching allSchemes");
+        console.log(err);
+    }
+};
+
+exports.deleteAllScheme = async (req,res) => {
+    try {
+        console.log("hello");
+        await Scheme.deleteMany();
+        res.status(200).json({"msg": "deleted all messages"});
+    } catch (error) {
+        res.status(500).json({"msg":"internal server error"});
+        console.log("error while deleting ALL SCHEMES");
+    }
+}
+
+exports.getSchemesFromTag = async (req,res) => {
+    try {
+        const tag = req.params.tag;
+        console.log(tag);
+        const result = await Scheme.find({tags: {$in: [tag]}});
+        console.log(result);
+        if(result.length > 0) {
+            res.status(200).json({result});
+        } else {
+            res.status(200).json({"msg":"no scheme for given tag"});
+        }
+    } catch (err) {
+        res.status(500);
+        console.log("error while getSchemesFromTag");
+    }
 }
