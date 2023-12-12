@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+
 import "./form.css";
+import Header from "../Common/Header";
 const DynamicForm = () => {
   const [formData, setFormData] = useState({
     // Initialize your form fields here
@@ -294,7 +296,8 @@ const DynamicForm = () => {
   }
   return (
     <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-      <form action="" className="space-y-4" onSubmit={handleSubmit}>
+      <Header />
+      <form action="" className="space-y-4 w-[70%] m-auto mt-5" onSubmit={handleSubmit}>
         <div>
           <label className="sr-only" htmlFor="name">
             Name
