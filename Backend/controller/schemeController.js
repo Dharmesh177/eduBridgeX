@@ -66,7 +66,6 @@ exports.getSchemesFromTag = async (req,res) => {
         const tag = req.params.tag;
         console.log(tag);
         const result = await Scheme.find({tags: {$in: [tag]}});
-        console.log(result);
         if(result.length > 0) {
             res.status(200).json({result});
         } else {
@@ -75,5 +74,33 @@ exports.getSchemesFromTag = async (req,res) => {
     } catch (err) {
         res.status(500);
         console.log("error while getSchemesFromTag");
+    }
+};
+
+exports.getSchemesFromOrg = async(req, res) => {
+    try {
+        const result = await Scheme.find({organization: req.params.org});
+        if(result.length > 0) {
+            res.status(200).json({ "Schemes": result.length, result});
+        } else {
+            res.status(200).json({"msg": "no Schemes from given organization"});
+        }
+    } catch (err) {
+        res.status(500).json({"msg": "internal server error"});
+        console.log("error while getSchemesFromOrg");
+    }
+};
+
+exports.getSchemFromEligibility = async(req,res) => {
+    try {
+        const result = await Scheme.find({eligibility: {$in: [req.params.eligibility]}});
+        if(result.length > 0) {
+            res.status(200).json({ "Schemes": result.length, result});
+        } else {
+            res.status(200).json({"msg": "no Schemes for given eligibility"});
+        }
+    } catch (Err) {
+        res.status(500).json({"msg": "internal server error"});
+        console.log("error while getSchemFromEligibility");
     }
 }
