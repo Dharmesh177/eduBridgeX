@@ -52,7 +52,6 @@ exports.getAllSChemes = async (req,res) => {
 
 exports.deleteAllScheme = async (req,res) => {
     try {
-        console.log("hello");
         await Scheme.deleteMany();
         res.status(200).json({"msg": "deleted all messages"});
     } catch (error) {

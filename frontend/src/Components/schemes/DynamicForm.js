@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import "./form.css";
 import Header from "../Common/Header";
+import Axios from "axios";
 const DynamicForm = () => {
   const [formData, setFormData] = useState({
     // Initialize your form fields here
@@ -26,7 +27,9 @@ const DynamicForm = () => {
   })
   const [answers, setanswers] = useState({
     answers:[]
-  })
+  });
+
+  const [loading, setLoading] = useState(false);
 
   const application_step_change_event = (e) => {
     var main_div = document.getElementById("Application Process");
@@ -144,20 +147,37 @@ const DynamicForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-  const handleSubmit = (e) => {
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     // Call the function to send data to the backend
     var data = {
-      'questions':questions,
-      'answers':answers,
-      'eligibility':eligibility,
-      'documents':documents,
-      'application step':application_step
+      questions,
+      answers,
+      eligibility,
+      documents,
+      application_step
     }
     var main_data = { ...data, ...formData };
-    console.log(main_data);
-    
+    // console.log(main_data);
+    try {
+      setLoading(true);
+      const res = await Axios.post('http://localhost:5000/api/schemes/addnewScheme', main_data);
+      if(res.data.success === true) {
+        alert("New Scheme Uploaded Successfully");
+        setLoading(false);
+        }
+      else {
+        alert("There Was Error While Uploading New Scheme");
+        setLoading(false);
+      }
+    } catch (err) {
+        console.log("error in adding new scheme");
+    }
+
+  
   };
   function add_documents() {
     var newEligibilityDiv = document.createElement("div");
@@ -295,8 +315,15 @@ const DynamicForm = () => {
     input_tag[1].addEventListener("change", answerChangeIvent);
   }
   return (
+    <>
+    <Header />
+    {loading ? <div style={{display:"flex", flexDirection:"column", justifyContent:"center", height:"50vh",fontSize:"4rem"}}>
+      Loading...
+    </div> : 
+  
+
     <div className="rounded-lg bg-white p-8 shadow-lg lg:col-span-3 lg:p-12">
-      <Header />
+      {/* <Header /> */}
       <form action="" className="space-y-4 w-[70%] m-auto mt-5" onSubmit={handleSubmit}>
         <div>
           <label className="sr-only" htmlFor="name">
@@ -516,6 +543,8 @@ const DynamicForm = () => {
         </div>
       </form>
     </div>
+    }
+   </>
   );
 };
 

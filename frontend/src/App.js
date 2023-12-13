@@ -41,7 +41,6 @@ import SignUp from './Components/SignUp/SignUp';
 import LLogin from './Components/stulogin/Login';
 import SSignUp from './Components/stulogin/SignUp';
 import VoiceSearch from './Components/VoiceSearch/VoiceSearch';
-import { Component } from 'react';
 function App() {
   return (
     <div className="App">

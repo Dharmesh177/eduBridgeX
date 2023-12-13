@@ -39,7 +39,6 @@ export default function Header(props) {
 
   return (
     <>
-    
       <div>
         <div className="main-container-header">
           <div style={{}}>
