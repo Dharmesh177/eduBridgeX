@@ -42,6 +42,9 @@ import LLogin from './Components/stulogin/Login';
 import SSignUp from './Components/stulogin/SignUp';
 import VoiceSearch from './Components/VoiceSearch/VoiceSearch';
 import UploadFile from './Components/Common/UploadFile';
+import AddJob from './Components/recruitment/AddJob';
+import RecruiterLogin from './Components/recruitment/RecruiterLogin';
+import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
 function App() {
   return (
     <div className="App">
@@ -73,7 +76,9 @@ function App() {
       <Route index path="/FullRoadmapShow" element={<FullRoadmapShow/>} />
       <Route path="/:adminid" element={<Dashboard />} />
       <Route index path="/becomementor" element={<BecomeMenter/>} />
-      <Route index path="/tmp" element={<UploadFile/>} />
+      <Route index path="/tmp" element={<AddJob/>} />
+      <Route index path="/tmp2" element={<RecruiterLogin/>} />
+      <Route index path="/tmp3" element={<RecruiterSignUp/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />
       </Routes>
   
