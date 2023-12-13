@@ -20,9 +20,9 @@ import EditBlog from './Components/Blog/EditBlogPage';
 import Dashboard from "./Components/admindashboard/dash";
 
 import MEvents from './Components/UniversityProfile/MEvents';
-
-
-
+import Schemes from './Components/schemes/Schemes';
+import SchemesCard from './Components/schemes/SchemesCard';
+import DynamicForm from './Components/schemes/DynamicForm';
 import EventPage from './Components/Event/EventPage';
 import ResourcePage from './Components/Resource/ResourcePage';
 import MHistory from './Components/UniversityProfile/MHistory';
@@ -41,6 +41,7 @@ import SignUp from './Components/SignUp/SignUp';
 import LLogin from './Components/stulogin/Login';
 import SSignUp from './Components/stulogin/SignUp';
 import VoiceSearch from './Components/VoiceSearch/VoiceSearch';
+import { Component } from 'react';
 function App() {
   return (
     <div className="App">
@@ -72,7 +73,8 @@ function App() {
       <Route index path="/FullRoadmapShow" element={<FullRoadmapShow/>} />
       <Route path="/:adminid" element={<Dashboard />} />
       <Route index path="/becomementor" element={<BecomeMenter/>} />
-
+      <Route index path="/schemes" element={<Schemes/>} />
+      <Route index path="/schemes_form" element={<DynamicForm/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />
       </Routes>
   
