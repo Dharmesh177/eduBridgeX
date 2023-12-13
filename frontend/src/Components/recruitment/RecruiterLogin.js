@@ -28,7 +28,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection:"row",
     alignItems:"center",
-    justifyContent:"center"
+    justifyContent:"center",
+    borderRadius: "21px",
+    backgroundColor: "#f4f4f4"
   },
   inputBox: {
     width: "300px",
@@ -78,11 +80,11 @@ const RecruiterLogin = (props) => {
   };
 
   const handleLogin = async () => {
-    const res = await axios.post("http://localhost:5000/recruiter/recruiter/login", loginDetails);
+    const res = await axios.post("http://localhost:5000/recruiter/login", loginDetails);
     if (res.status === 200) {
       console.log("res.data", res.data);
       alert("You're Login successfully, now Please Move on !!!")
-    //   navigate("/slogin");
+    //   navigate("/recuriterDashboard");
     } else {
       console.log("res.message", res.message);
       alert("Failed to Register !!!!")

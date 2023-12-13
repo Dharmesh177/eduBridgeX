@@ -32,6 +32,8 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: "21px",
+    backgroundColor: "#f4f4f4"
   },
   inputBox: {
     width: "300px",
