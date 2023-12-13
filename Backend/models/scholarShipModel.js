@@ -49,6 +49,10 @@ const scholarSchipSchema = new mongoose.Schema({
     },
     tags: {
         type: [String],
+    },
+    type: {
+        type: String,
+        required: true,
     }
 });
 

@@ -75,6 +75,7 @@ function App() {
       <Route index path="/schemes" element={<Schemes/>} />
       <Route index path="/schemes_form" element={<DynamicForm/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />
+      <Route index path="/schemesPath" element={<SchemesCard />} />
       </Routes>
   
     <Routes>  

@@ -20,6 +20,7 @@ exports.addNewScheme = async(req,res)=> {
             }), 
             tags: formData.tags,
             reference: formData.ref,
+            type: formData.type,
         });
         const temp = newScheme.save();
         if(temp) {
@@ -36,10 +37,17 @@ exports.addNewScheme = async(req,res)=> {
 exports.getAllSChemes = async (req,res) => {
     try {
         // console.log("hello");
-        const allSchemes = await Scheme.find();
+        var allSchemes;
+        if(req.params.type === "all") {
+            allSchemes = await Scheme.find();
+        } else if (req.params.type === "gov") {
+            allSchemes = await Scheme.find({type: "government"});
+        } else {
+            allSchemes = await Scheme.find({type: "private"});
+        }
         // console.log(allSchemes);
         if(allSchemes) {
-            res.status(200).json({allSchemes});
+            res.status(200).json(allSchemes);
         } else {
             res.status(500).json({"success":false,"msg":"server error while fetching allSchemes"});
         }
@@ -63,7 +71,6 @@ exports.deleteAllScheme = async (req,res) => {
 exports.getSchemesFromTag = async (req,res) => {
     try {
         const tag = req.params.tag;
-        console.log(tag);
         const result = await Scheme.find({tags: {$in: [tag]}});
         if(result.length > 0) {
             res.status(200).json({result});
@@ -96,7 +103,7 @@ exports.getSchemFromEligibility = async(req,res) => {
         if(result.length > 0) {
             res.status(200).json({ "Schemes": result.length, result});
         } else {
-            res.status(200).json({"msg": "no Schemes for given eligibility"});
+            res.status(200).json({"success":false,"msg": "no Schemes for given eligibility"});
         }
     } catch (Err) {
         res.status(500).json({"msg": "internal server error"});
