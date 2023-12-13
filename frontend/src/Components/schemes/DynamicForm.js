@@ -175,6 +175,7 @@ const DynamicForm = () => {
       }
     } catch (err) {
         console.log("error in adding new scheme");
+        setLoading(false);
     }
 
   
