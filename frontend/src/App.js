@@ -20,9 +20,9 @@ import EditBlog from './Components/Blog/EditBlogPage';
 import Dashboard from "./Components/admindashboard/dash";
 
 import MEvents from './Components/UniversityProfile/MEvents';
-
-
-
+import Schemes from './Components/schemes/Schemes';
+import SchemesCard from './Components/schemes/SchemesCard';
+import DynamicForm from './Components/schemes/DynamicForm';
 import EventPage from './Components/Event/EventPage';
 import ResourcePage from './Components/Resource/ResourcePage';
 import MHistory from './Components/UniversityProfile/MHistory';
@@ -79,7 +79,10 @@ function App() {
       <Route index path="/tmp" element={<AddJob/>} />
       <Route index path="/tmp2" element={<RecruiterLogin/>} />
       <Route index path="/tmp3" element={<RecruiterSignUp/>} />
+      <Route index path="/schemes" element={<Schemes/>} />
+      <Route index path="/schemes_form" element={<DynamicForm/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />
+      <Route index path="/schemesPath" element={<SchemesCard />} />
       </Routes>
   
     <Routes>  
