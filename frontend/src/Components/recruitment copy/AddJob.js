@@ -88,7 +88,7 @@ const AddJob = (props) => {
         style={{
           padding: "30px",
           minHeight: "93vh",
-          // width: "60%",
+          width: "60%",
           margin: "auto",
         }}
       >
