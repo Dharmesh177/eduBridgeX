@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Axios from 'axios';
 import Header from "../Common/Header";
+import { useNavigate } from 'react-router-dom';
 
 export default function SchemesCard() {
 
@@ -10,6 +11,7 @@ export default function SchemesCard() {
   const [tag, setTag] = useState("");
   const [eli, setEli] = useState("");
   const eligibility = ["10th", "12th","Diploma", "BCom", "BBA", "BCA", "B.Tech","Bsc","MBA","MBBS","BHMS","BAMS"];
+  const navigate = useNavigate();
 
   const fetchAllSchemes = async() => {
     try {
@@ -17,7 +19,7 @@ export default function SchemesCard() {
       var res;
       if(type === "gov") {
         res = await Axios.get('http://localhost:5000/api/schemes/getAllSchemes/gov');
-        console.log(res.data);
+        // console.log(res.data);
         if(res.status === 200) {
           setSchemes(res.data)
           setLoading(false);
@@ -28,7 +30,7 @@ export default function SchemesCard() {
         }
       } else if(type === "private") {
         res = await Axios.get('http://localhost:5000/api/schemes/getAllSchemes/private');
-        console.log(res.data);
+        // console.log(res.data);
         if(res.status === 200) {
           setSchemes(res.data)
           setLoading(false);
@@ -39,7 +41,7 @@ export default function SchemesCard() {
         }
       } else {
         res = await Axios.get('http://localhost:5000/api/schemes/getAllSchemes/all');
-        console.log(res.data);
+        // console.log(res.data);
         if(res.status === 200) {
           setSchemes(res.data)
           setLoading(false);
@@ -167,7 +169,9 @@ export default function SchemesCard() {
             </div>
             <div class="text-left mt-1">
               <p>
-                <a href="" class="no-underline text-slate-500 text-lg font-bold">
+                <a href="" class="no-underline text-slate-500 text-lg font-bold"
+                  onClick={()=>navigate('/schemes', {state: {id: itm._id}})}
+                >
                 {itm?.title}
                 </a>
               </p>
