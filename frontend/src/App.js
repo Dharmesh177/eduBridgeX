@@ -18,7 +18,6 @@ import AddBlog from './Components/Blog/AddBlog';
 import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
 import Dashboard from "./Components/admindashboard/dash";
-import Employ_Dashboard from "./Components/Employment/Dashboard"
 import MEvents from './Components/UniversityProfile/MEvents';
 import Schemes from './Components/schemes/Schemes';
 import SchemesCard from './Components/schemes/SchemesCard';
@@ -45,7 +44,7 @@ import UploadFile from './Components/Common/UploadFile';
 import AddJob from './Components/recruitment/AddJob';
 import RecruiterLogin from './Components/recruitment/RecruiterLogin';
 import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
-import Employ_Dashboard from './Components/recruitment/Dashboard';
+import Employ_Dashboard from './Components/Employment/Dashboard';
 import ViewAllJobs from './Components/recruitment/ViewAllJobs';
 import JobList from './Components/Employment/users/Jobs';
 function App() {

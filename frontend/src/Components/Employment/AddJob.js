@@ -12,7 +12,6 @@ import {
 import axios from "axios";
 import ChipInput from "material-ui-chip-input";
 
-
 const useStyles = makeStyles((theme) => ({
   body: {
     height: "inherit",
@@ -28,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 
 const AddJob = (props) => {
   const classes = useStyles();
-//   const setPopup = useContext(SetPopupContext);
+  //   const setPopup = useContext(SetPopupContext);
 
   const [jobDetails, setJobDetails] = useState({
     title: "",
@@ -39,8 +38,9 @@ const AddJob = (props) => {
       .substr(0, 16),
     skillsets: [],
     jobType: "Full Time",
-    duration: 0,
+    apply_link: "",
     salary: 0,
+    others: "",
   });
 
   const handleInput = (key, value) => {
@@ -50,41 +50,32 @@ const AddJob = (props) => {
     });
   };
 
-  const handleUpdate = () => {
-//     console.log(jobDetails);
-//     axios
-//       .post(apiList.jobs, jobDetails, {
-//         headers: {
-//           Authorization: `Bearer ${localStorage.getItem("token")}`,
-//         },
-//       })
-//       .then((response) => {
-//         setPopup({
-//           open: true,
-//           severity: "success",
-//           message: response.data.message,
-//         });
-//         setJobDetails({
-//           title: "",
-//           maxApplicants: 100,
-//           maxPositions: 30,
-//           deadline: new Date(new Date().getTime() + 10 * 24 * 60 * 60 * 1000)
-//             .toISOString()
-//             .substr(0, 16),
-//           skillsets: [],
-//           jobType: "Full Time",
-//           duration: 0,
-//           salary: 0,
-//         });
-//       })
-//       .catch((err) => {
-//         setPopup({
-//           open: true,
-//           severity: "error",
-//           message: err.response.data.message,
-//         });
-//         console.log(err.response);
-//       });
+  const handleUpdate = async () => {
+    const name_recruiter = "Koinx";
+    const email_recruiter = "dvala453@koinx.com";
+    const dataa = {
+      title: jobDetails.title,
+      name_recruiter: name_recruiter,
+      email_recruiter: email_recruiter,
+      max_applications: jobDetails.maxApplicants,
+      max_positions: jobDetails.maxPositions,
+      deadline_of_application: jobDetails.deadline,
+      required_skills: jobDetails.skillsets,
+      type_of_job: jobDetails.jobType,
+      salary_per_month: jobDetails.salary,
+      apply_link: jobDetails.apply_link,
+      others: jobDetails.others,
+    };
+
+    const res = await axios.post("http://localhost:5000/jobs/job/add", dataa);
+    if (res.status === 200) {
+      console.log("res.data", res.data);
+      alert("You're Added Job successfully !!!");
+      //   navigate("/slogin");
+    } else {
+      console.log("res.message", res.message);
+      alert("Failed to Register !!!!");
+    }
   };
 
   return (
@@ -94,7 +85,12 @@ const AddJob = (props) => {
         item
         direction="column"
         alignItems="center"
-        style={{ padding: "30px", minHeight: "93vh", width: "" }}
+        style={{
+          padding: "30px",
+          minHeight: "93vh",
+          // width: "60%",
+          margin: "auto",
+        }}
       >
         <Grid item>
           <Typography variant="h2">Add Job</Typography>
@@ -242,12 +238,36 @@ const AddJob = (props) => {
                     fullWidth
                   />
                 </Grid>
+                <Grid item>
+                  <TextField
+                    label="Apply Link"
+                    type="text"
+                    variant="outlined"
+                    value={jobDetails.apply_link}
+                    onChange={(event) => {
+                      handleInput("apply_link", event.target.value);
+                    }}
+                    fullWidth
+                  />
+                </Grid>
+                <Grid item>
+                  <TextField
+                    label="Other Details to mention"
+                    type="text"
+                    variant="outlined"
+                    value={jobDetails.others}
+                    onChange={(event) => {
+                      handleInput("others", event.target.value);
+                    }}
+                    fullWidth
+                  />
+                </Grid>
               </Grid>
               <Button
                 variant="contained"
                 color="primary"
                 style={{ padding: "10px 50px", marginTop: "30px" }}
-                onClick={() => handleUpdate()}
+                onClick={handleUpdate}
               >
                 Create Job
               </Button>
