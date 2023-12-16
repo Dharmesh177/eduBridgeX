@@ -45,126 +45,58 @@ export default function Login(props) {
   // };
   return (
     <>
-      {/* <div className="row justify-content-center align-items-center  " style={search}> */}
-      <div
-        style={{
-          fontSize: 36,
-          fontWeight: "bold",
-          fontFamily: '"Poppins"',
-          textAlign: "center",
-          marginTop: 38,
-        }}
-      >
-        Login
-      </div>
-      <div style={{ display: "flex", justifyContent: "center" }}>
-        <div
-          style={{
-            background: "#F6F7FB",
-            borderRadius: 10,
-            paddingLeft: 68,
-            paddingRight: 68,
-            paddingTop: 61,
-            paddingBottom: 61,
-            width: "fit-content",
-            marginTop: 25,
-          }}
-        >
-          <div className="w-100 text-center">
-            <form className="form-inline" 
-            // onSubmit={loginUser}
-            >
-              <div className="col m-auto">
-                <div
-                  className="sign-in-input-field-container"
-                  style={{ marginTop: 15 }}
-                >
-                  <input
-                    type="email"
-                    className="sign-in-input-fields"
-                    placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                  />
-                </div>
+     
+     <section>
+  <div class="mx-auto max-w-screen-xl px-4 py-8 sm:px-2 sm:py-12 lg:px-8 h-[400px] w-2/4">
+    <header>
+      <h2 class="text-xl font-bold text-gray-900 sm:text-3xl">Who you are</h2>
+    </header>
 
-                <div
-                  className="sign-in-input-field-container"
-                  style={{ marginTop: 15 }}
-                >
-                  <input
-                    type="password"
-                    className="sign-in-input-fields"
-                    placeholder="Password"
-                    onChange={(e) => setPass(e.target.value)}
-                    value={pass}
-                  />
-                </div>
+    <ul class="mt-8 flex flex-row justify-between p-2">
+      <li>
+        <a href="#" class="group block overflow-hidden">
+          <img
+            src="./img/icons8-user-64.png"
+            alt=""
+            class="h-[120px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[150px]"
+          />
 
-                <div
-                  style={{
-                    textAlign: "center",
-                    marginTop: 25,
-                    fontFamily: "poppins",
-                    fontWeight: 800,
-                    display: "flex",
-                    flexDirection: "row",
-                  }}
-                >
-                  <div>Dont Have Account?</div>
-                  <NavLink
-                    className=""
-                    style={{ textDecoration: "none" }}
-                    to="/signup"
-                  >
-                    <div
-                      style={{
-                        color: "#2C5EFF",
-                        fontWeight: "bolder",
-                        marginLeft: 5,
-                      }}
-                    >
-                      Sign Up there..
-                    </div>
-                  </NavLink>
-                </div>
-                <div style={{ textAlign: "center" }}>
-                  <button
-                    type="submit"
-                    className="sign-in-button"
-                    style={{ width: "80%", height: "6vh", marginTop: 17 }}
-                  >
-                    Login
-                  </button>
-                </div>
+          <p>User</p>
+        </a>
+      </li>
 
-                <div
-                  style={{
-                    textAlign: "center",
-                    marginTop: 25,
-                    fontFamily: "poppins",
-                    fontWeight: 800,
-                    display: "flex",
-                    flexDirection: "row",
-                    justifyContent: "center",
-                  }}
-                >
-                  <div>Forgot Password?</div>
-                  <div
-                    style={{
-                      color: "#2C5EFF",
-                      fontWeight: "bolder",
-                      marginLeft: 5,
-                    }}
-                  >
-                    Click here
-                  </div>
-                </div>
-              </div>
-            </form>
+      <li>
+        <a href="#" class="group block overflow-hidden">
+          <img
+            src="./img/icons8-mentor-64.png"
+            alt=""
+            class="h-[120px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[150px]"
+          />
+
+          <div class="relative bg-white pt-3">
+            
           </div>
-        </div>
-      </div>
+        </a>
+      </li>
+
+      <li>
+        <a href="#" class="group block overflow-hidden">
+          <img
+            src="./img/icons8-recruitment-60.png"
+            alt=""
+            class="h-[100px] w-full object-cover transition duration-500 group-hover:scale-105 sm:h-[150px]"
+          />
+
+          <div class="relative bg-white pt-3">
+            
+          </div>
+        </a>
+      </li>
+
+      
+    </ul>
+  </div>
+</section>
     </>
   );
 }
