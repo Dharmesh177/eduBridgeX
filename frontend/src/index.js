@@ -3,8 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import LogCompo from "./Components/logincontext/authcontext";
-import LogCompo1 from "./Loginsignincontext/context";
+
 import store from './store';
 import { Provider } from 'react-redux';
 import './i18n';
@@ -12,11 +11,9 @@ import './i18n';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <LogCompo1>
-      <LogCompo>
+    
         <App />
-      </LogCompo>
-    </LogCompo1>
+     
   </Provider>
 );
 
