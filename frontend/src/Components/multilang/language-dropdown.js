@@ -1,6 +1,6 @@
 const Languageoption = (props) => {
     return(
-        <div style={{marginTop:'50px'}}>
+        <div style={{marginTop:'30px'}}>
             <select onChange={props.onChange}>
                 <option>Select Language</option>
                 <option value={'en'}>English</option>

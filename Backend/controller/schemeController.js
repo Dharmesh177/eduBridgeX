@@ -109,4 +109,17 @@ exports.getSchemFromEligibility = async(req,res) => {
         res.status(500).json({"msg": "internal server error"});
         console.log("error while getSchemFromEligibility");
     }
+};
+
+exports.getSchemeById = async (req,res) => {
+    try {
+        // console.log(req.params.id);
+        const result = await Scheme.findById(req.params.id);
+        if(result) {
+            res.status(200).json(result);
+        }
+    } catch (err) {
+        console.log("error while getSchemeById");
+        res.status(500).json({"msg":"internal server error"});
+    }
 }
