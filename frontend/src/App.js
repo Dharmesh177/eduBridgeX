@@ -18,6 +18,7 @@ import AddBlog from './Components/Blog/AddBlog';
 import MyBlogs from './Components/Blog/MyblogsPage';
 import EditBlog from './Components/Blog/EditBlogPage';
 import Dashboard from "./Components/admindashboard/dash";
+
 import MEvents from './Components/UniversityProfile/MEvents';
 import Schemes from './Components/schemes/Schemes';
 import SchemesCard from './Components/schemes/SchemesCard';
@@ -47,6 +48,8 @@ import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
 import Employ_Dashboard from './Components/Employment/Dashboard';
 import ViewAllJobs from './Components/recruitment/ViewAllJobs';
 import JobList from './Components/Employment/users/Jobs';
+import AddCourse from './Components/Course/AddCourse'
+import CourseList from './Components/Course/CourseList'
 function App() {
   return (
     <div className="App">
@@ -88,6 +91,11 @@ function App() {
       <Route index path="/schemesPath" element={<SchemesCard />} />
       <Route index path="/employ_dashboard" element={<Employ_Dashboard/>} />
       <Route index path="/jobs" element={<JobList/>} />
+      <Route index path="/course" element={<CourseList/>} />
+      <Route index path="/add_course" element={<AddCourse/>} />
+
+      
+
 
       </Routes>
   

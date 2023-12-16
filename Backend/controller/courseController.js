@@ -35,7 +35,7 @@ exports.getAllCourses = async (req,res) => {
     try {
         const result = await Course.find();
         if(result.length == 0) {
-            res.status(200).json({"msg": "NO Courses awailable"});
+            res.status(500).json({"msg": "NO Courses awailable"});
             return;
         } else {
             res.status(200).json(result);
