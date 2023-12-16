@@ -39,7 +39,6 @@ export default function Header(props) {
 
   return (
     <>
-    
       <div>
         <div className="main-container-header">
           <div style={{}}>
@@ -104,6 +103,11 @@ export default function Header(props) {
               <div className="tab-container">
               <NavLink className={(index == 8) ? "nav-link active" : "nav-link"} to="/contact">
                {t("Admin Login")}
+              </NavLink>
+            </div>
+            <div className="tab-container">
+              <NavLink className={(index == 9) ? "nav-link active" : "nav-link"} to="/jobs">
+               {t("Jobs")}
               </NavLink>
             </div>
               

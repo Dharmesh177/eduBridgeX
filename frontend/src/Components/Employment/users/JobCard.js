@@ -4,19 +4,20 @@ function formatDeadline(dateString) {
   const day = date.getDate().toString().padStart(2, "0");
   const month = (date.getMonth() + 1).toString().padStart(2, "0"); // Months are zero-based
   const year = date.getFullYear();
-
+  
   return `${day}-${month}-${year}`;
 }
 
-export default function JobsCard({ job, fun, set_job_id }) {
+export default function JobsCard({ job }) {
   const deadline = formatDeadline(job.deadline_of_application);
   const skills = job.required_skills.join(", ");
   
+  
+ 
   var other_detail = null;
   if (job.others){
     other_detail=job.others;
   }
-
   function formatTimeAgo(dateString) {
     const currentDate = new Date();
     const postDate = new Date(dateString);
@@ -39,10 +40,6 @@ export default function JobsCard({ job, fun, set_job_id }) {
       return `${months} ${months === 1 ? "month" : "months"} ago`;
     }
   }
-  const call = () =>{
-    fun()
-    set_job_id(job._id)
-  }
 
   // console.log(time_ago);
   return (
@@ -61,15 +58,14 @@ export default function JobsCard({ job, fun, set_job_id }) {
             <a
               class="inline-block rounded w-20 border border-black bg-white px-3 py-2 text-sm font-medium text-black hover:bg-black hover:text-white  mr-1"
               href="#"
-              onClick={call}
             >
-              DELETE
+              SAVE
             </a>
             <a
               class="inline-block rounded w-20 border border-indigo-600 bg-black px-3 py-2 text-sm font-medium text-white hover:bg-white hover:text-indigo-600 "
               href={job.apply_link}
             >
-              EDIT
+              APPLY
             </a>
           </div>
         </div>
