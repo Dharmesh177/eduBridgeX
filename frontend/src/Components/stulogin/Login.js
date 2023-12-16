@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import './Login.css';
-// import axios from "axios";
-// import Cookies from "universal-cookie";
+import "./Login.css";
+import axios from "../../helpers/axios";
+import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 // var inp = {
 //   marginTop: "1rem",
@@ -10,39 +11,40 @@ import './Login.css';
 // };
 
 export default function Login(props) {
+  let navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
-  // const cookies = new Cookies();
-  // const sendReq = async () => {
-  //   const res = await axios
-  //     .post(`http://localhost:5000/api/user/login`, {
-  //       Email: email,
-  //       Password: pass,
-  //     })
-  //     .catch((err) => console.log(err));
-  //   const data = await res.data;
-  //   return data;
-  // };
+  const [error, setError] = useState();
+  const submitLoginForm = async (e) => {
+    e.preventDefault();
+    const data = {
+      email: email,
+      password: pass,
+    };
+    console.log("res.data", data);
+    try {
+      const res = await axios.post("/auth/studentlogin", data);
+      if (res.status === 200) {
+        console.log("res.data", res.data);
+        alert("You are Sign in successfully !!!");
+        
+        const cookies = new Cookies();
 
-  // const loginUser = (event) => {
-  //   event.preventDefault();
-  //   console.log(email, pass);
-  //   sendReq().then((data) => {
-  //     const cookies = new Cookies();
-
-  //     cookies.set("authToken", data.authToken, { path: "/" });
-  //     cookies.set("userId", data.userId, { path: "/" });
-  //     cookies.set("userType", data.userType, { path: "/" });
-  //     cookies.set("uTypeId", data.uTypeId, { path: "/" });
-  //     console.log(data);
-
-  //     if (data.userType == "College-admin")
-  //       window.location.href = "/collegeprofile";
-  //     else if (data.userType == "Student") window.location.href = "/myProfile";
-  //     else if (data.userType == "Professor") window.location.href = "/faculty";
-  //     else window.location.href = "/";
-  //   });
-  // };
+        cookies.set("authToken", res.data.token, { path: "/" });
+        cookies.set("isAuth", "true", { path: "/" });
+        
+        
+        navigate("/");
+      } else {
+        console.log("res.message", res.message);
+        setError(res.message);
+      }
+    } catch (err) {
+      console.log("error", err);
+    }
+    console.log("res.data", data);
+  };
+  
   return (
     <>
       {/* <div className="row justify-content-center align-items-center  " style={search}> */}
@@ -55,7 +57,7 @@ export default function Login(props) {
           marginTop: 38,
         }}
       >
-        Login
+        Student Login
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div
@@ -72,7 +74,7 @@ export default function Login(props) {
         >
           <div className="w-100 text-center">
             <form className="form-inline" 
-            // onSubmit={loginUser}
+            onSubmit={submitLoginForm}
             >
               <div className="col m-auto">
                 <div
