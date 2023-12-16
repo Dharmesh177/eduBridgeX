@@ -37,7 +37,18 @@ const courseSchema = new mongoose.Schema({
     instructor: {
         type: String,
         required: true
+    },
+    rating: {
+        type: Number, 
+    },
+    numRating: {
+        type: Number,
+    },
+    courseLink: {
+        type: String,
+        required: true,
+        default: "link.to.course",
     }
-});
+},{timestamps: true},);
 
 module.exports = mongoose.model('Course', courseSchema);

@@ -14,6 +14,9 @@ exports.addNewCourse = async (req,res) => {
             requirements: formdata.requirements,
             videos: formdata.videos,
             instructor: formdata.instructor,
+            rating: formdata.rating,
+            numRating: formdata.numOfRating,
+            courseLink: formdata.courseLink,
         });
         const result = await newCourse.save();
         if(result) {
@@ -23,6 +26,7 @@ exports.addNewCourse = async (req,res) => {
         }
     } catch (err) {
         console.log("error while addNewCourse");
+        console.log(err);
         res.status(500).json({"msg":"internal server error"});
     }
 };
@@ -31,7 +35,7 @@ exports.getAllCourses = async (req,res) => {
     try {
         const result = await Course.find();
         if(result.length == 0) {
-            res.status(500).json({"msg": "NO Courses awailable"});
+            res.status(200).json({"msg": "NO Courses awailable"});
             return;
         } else {
             res.status(200).json(result);
@@ -69,5 +73,16 @@ exports.deleteCourseById = async (req,res) => {
     } catch (err) {
         console.log("error while deleteCourseById");
         res.status(500).json({"msg":"internal server error"});
+    }
+};
+
+exports.deleteAllCourse = async (req,res) => {
+    try {
+        await Course.deleteMany();
+        res.status(200).json({"msg": "deleted all courses"});
+    } catch (error) {
+        res.status(500).json({"msg":"internal server error"});
+        console.log(err);
+        console.log("error while deleteAllCourse");
     }
 }

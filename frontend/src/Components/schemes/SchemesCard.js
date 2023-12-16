@@ -114,7 +114,7 @@ export default function SchemesCard() {
   return (
     <>
     <Header />
-    {loading===true ? <div className="flex-col h-screen justify-center bg-red-300 items-center">loading...</div> :
+    {loading===true ? <div className="h-screen w-screen text-5xl flex flex-col justify-center items-center">loading...</div> :
       <div className="flex w-full justify-between mt-3 h-[60%]">
       <div className="w-[30%] bg-gray-100 ml-2 rounded-lg flex flex-col" style={{Height:"42rem", border:"1px solid gray"}}>
         <h1 className="text-3xl ml-[-70%] mt-3 mb-3">
