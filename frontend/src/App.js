@@ -47,6 +47,8 @@ import RecruiterLogin from './Components/recruitment/RecruiterLogin';
 import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
 import Employ_Dashboard from './Components/recruitment/Dashboard';
 import ViewAllJobs from './Components/recruitment/ViewAllJobs';
+import LobbyScreen from './Components/videoChat/Lobby';
+import RoomPage from './Components/videoChat/room';
 function App() {
   return (
     <div className="App">
@@ -87,6 +89,8 @@ function App() {
       <Route index path="/dashboard" element={<Dashboard/>} />
       <Route index path="/schemesPath" element={<SchemesCard />} />
       <Route index path="/recruiter/page" element={<Employ_Dashboard />} />
+      <Route index path="/videochatLobby" element={<LobbyScreen />} />
+      <Route index path="/room/:id" element={<RoomPage />} />
       </Routes>
   
     <Routes>  
