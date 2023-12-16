@@ -46,6 +46,8 @@ import UploadFile from './Components/Common/UploadFile';
 import AddJob from './Components/recruitment/AddJob';
 import RecruiterLogin from './Components/recruitment/RecruiterLogin';
 import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
+import Employ_Dashboard from './Components/recruitment/Dashboard';
+import ViewAllJobs from './Components/recruitment/ViewAllJobs';
 function App() {
   return (
     <div className="App">
@@ -73,6 +75,7 @@ function App() {
       <Route index path="/profilehistory" element={<StudentProfile/>} />
       <Route index path="/0" element={<MyProfile/>} />
       <Route index path="/pop" element={<Pop/>} />
+      <Route index path="/viewalljobs" element={<ViewAllJobs/>} />
       <Route index path="/roadmap" element={<Roadmap/>} />
       <Route index path="/FullRoadmapShow" element={<FullRoadmapShow/>} />
       <Route path="/:adminid" element={<Dashboard />} />

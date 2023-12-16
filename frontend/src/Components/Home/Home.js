@@ -12,6 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllMentors } from '../../actions/mentor.action';
 import SearchInterestBasedMentors from '../Project/SearchBar';
 import RecommendedMentor from './RecommendedMentor';
+import Cookies from "universal-cookie";
 
 export default function Home() {
 
@@ -20,6 +21,10 @@ export default function Home() {
     const { mentors } = useSelector(state => state.mentor)
     mentors ? console.log('mentors', mentors) : console.log('nothing');
 
+    const cookies = new Cookies();
+    const token = cookies.get('authToken')
+    const isAuth = cookies.get('isAuth')
+    console.log(token + "      ---   " + isAuth);
 
     useEffect(() => {
         dispatch(getAllMentors())
@@ -35,83 +40,12 @@ export default function Home() {
 
     const [searchinput, searchinputUpdate] = useState("");
 
-    // const getSearch = async()=>{
-    //   const res = await axios.get(`http://localhost:5000/api/Project/serach/${searchinput}`)
-    //   .catch((err)=>{console.log(err)})
+    
 
-    //   const data = await res.data;
-
-    //   return data.projects;
-    // }
-    // const searchfunc = () => {
-    //   console.log(searchinput);
-    //   if(searchinput == "") {
-    //       alert("Please Insert Input");
-    //   }
-
-    //   console.log(searchinput);
-    //   getSearch().then((data)=>{
-    //     data.forEach((d)=>{
-    //       setProjectArray(d);
-    //     })
-    //   })
-
-    //   console.log("-");
-    //   console.log(projectArray);
-    // }
-    // setProjectArray = (data)=>{
-    //   projectArray.push(data);
-    // }
-    // const getIds = async()=>{
-    //   const res = await axios
-    //   .get(`http://localhost:5000/api/recommendedProject`)
-    //   .catch((err) => console.log(err));
-    // const data = await res.data;
-    // console.log("------------");
-    // console.log(data);
-    // return data.projectId;
-    // }
-
-    // const sendReq = async (myId) => {
-    //   const res = await axios
-    //     .get(`http://localhost:5000/api/project/${myId}`)
-    //     .catch((err) => console.log(err));
-    //   const data = await res.data;
-    //   return data.project;
-    // }
-
-    // useEffect(() => {
-
-    //   getIds().then((data)=>{
-    //     setIdArray(data);
-    //     console.log(idArray);
-    //     idArray.forEach(myID => {
-    //        sendReq(myID).then((data) => {
-    //          setProjectArray(data);
-    //        });
-    //     });
-    //   })
-    // }, []);
-
+    
 
 
     const [projects, setProjects] = useState();
-
-    // const sendReq = async () => {
-    //     const res = await axios
-    //         .get("http://localhost:5000/api/project")
-    //         .catch((err) => console.log(err));
-    //     const data = await res.data;
-
-    //     console.log(data);
-    //     return data;
-    // };
-
-    // useEffect(() => {
-    //     sendReq().then((data) => {
-    //         setProjects(data.projects);
-    //     });
-    // }, []);
 
 
     // const [searchinput, searchinputUpdate] = useState("");

@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import "./Login.css";
 import axios from "../../helpers/axios";
 import { useNavigate } from "react-router-dom";
+import Cookies from "universal-cookie";
 
 // var inp = {
 //   marginTop: "1rem",
@@ -25,7 +26,14 @@ export default function Login(props) {
       const res = await axios.post("/auth/studentlogin", data);
       if (res.status === 200) {
         console.log("res.data", res.data);
-        alert("You are Sign in successfully !!!")
+        alert("You are Sign in successfully !!!");
+        
+        const cookies = new Cookies();
+
+        cookies.set("authToken", res.data.token, { path: "/" });
+        cookies.set("isAuth", "true", { path: "/" });
+        
+        
         navigate("/");
       } else {
         console.log("res.message", res.message);
