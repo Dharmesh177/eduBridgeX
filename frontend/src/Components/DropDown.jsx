@@ -25,11 +25,11 @@ const DropDown = () => {
             </div>
 
             {isopen && 
-            <div className='origin-top-right absolute mt-16 rounded-md w-48 h-max right-2 bg-gray-300 border z-50'>
+            <div className='origin-top-right absolute mt-12 rounded-md w-48 h-max right-2 bg-gray-300 border z-50'>
                 <ul>
                     {options.map(itm => {
                         return (
-                            <li className='pt-2 pb-2 border-b'><Link className="text-lg " to={"/"+itm+"Login"}>{itm}</Link></li>
+                            <li className='pt-2 pb-2 border-b'><Link className="text-lg " to={"/"+itm+"Login"}>{itm} Login</Link></li>
                         )
                     })}
                 </ul>

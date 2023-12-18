@@ -8,7 +8,7 @@ import {
   Paper,
 } from "@material-ui/core";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 
 import EmailInput from "../lib/EmailInput";
@@ -133,6 +133,15 @@ const RecruiterLogin = (props) => {
             Login
           </Button>
         </Grid>
+        {/* <Button
+            variant="contained"
+            color="primary"
+            onClick={handleLogin}
+            className={classes.submitButton}
+          >
+            Haven't Signed up Yet? Sign Up
+          </Button> */}
+          <p className="text-lg">Havent Signed Up Yet? Click <Link to="/RecruiterSignUp"className="font-semibold text-blue-800 underline">Here</Link> To Sign Up</p>
       </Grid>
     </Paper>
   </>

@@ -83,7 +83,7 @@ function App() {
       <Route index path="/becomementor" element={<BecomeMenter/>} />
       <Route index path="/tmp" element={<AddJob/>} />
       <Route index path="/RecruiterLogin" element={<RecruiterLogin/>} />
-      <Route index path="/tmp3" element={<RecruiterSignUp/>} />
+      <Route index path="/RecruiterSignUp" element={<RecruiterSignUp/>} />
       <Route index path="/schemes" element={<Schemes/>} />
       <Route index path="/schemes_form" element={<DynamicForm/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />
