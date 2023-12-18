@@ -19,16 +19,16 @@ export default function Coursecard({ course }) {
                 {course.description}
               </p>
               <div class="mt-3  text-xs">
-                <div className="flex flex-rowpt-4">
-                  <div className="bg-green-100 rounded-lg basis-1/3 p-2 mr-2">
+                <div className="flex flex-row pt-2 flex-wrap">
+                  <div className="bg-green-100 rounded-lg w-[150px] p-2 mr-2 mt-2">
                     {/* <div className="font-light text-m">Difficulty Level</div> */}
                     <div className="font-medium text-lg">{course.difficultyLevel}</div>
                   </div>
-                  <div className="bg-green-100 rounded-lg basis-1/3 p-2 mr-2">
+                  <div className="bg-green-100 rounded-lg w-[150px] p-2 mr-2 mt-2">
                     {/* <div className="font-light text-m">Duration</div> */}
                     <div className="font-medium text-lg">{course.duration} Hours</div>
                   </div>
-                  <div className="bg-green-100 rounded-lg basis-1/3 p-2 mr-2">
+                  <div className="bg-green-100 rounded-lg w-[150px] p-2 mr-2 mt-2">
                     {/* <div className="font-light text-m">Rating</div> */}
                     <div className="flex flex-row justify-center">
                       <div className="font-medium text-lg">4.7 &#9733;</div>
@@ -37,7 +37,7 @@ export default function Coursecard({ course }) {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row-reverse">
+              <div className="flex flex-row-reverse mt-4">
                 <div class="mt-4 md:mt-8">
                   <a
                     href="#"
