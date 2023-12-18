@@ -7,6 +7,7 @@ export default function Coursecard2({ course, fun, set_course_id }) {
       }
   return (
     <>
+    
       <div className="p-4">
         <section class="overflow-hidden bg-gray-50 grid grid-cols-2">
           <div class="p-8">
@@ -41,11 +42,11 @@ export default function Coursecard2({ course, fun, set_course_id }) {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row-reverse">
+              <div className="flex flex-row mt-4">
                 <div class="mt-4 md:mt-8">
                   <a
                     href="#"
-                    class="inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                    class="inline-block rounded bg-emerald-600 px-10 py-3 text-m font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
                     onClick={call}
                   >
                     Delete Course

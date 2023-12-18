@@ -6,8 +6,8 @@ export default function DeleteAlert({ fun, id }) {
   };
 
   const delete_job_by_id = () => {
-    const objectId = id;
-    fetch('http://localhost:5000/api/Course/deleteCourseById:${objectId}', {
+    
+    fetch(`http://localhost:5000/api/Course/deleteCourseById/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
