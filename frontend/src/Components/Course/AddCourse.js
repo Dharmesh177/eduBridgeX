@@ -201,7 +201,7 @@ const AddCourse = () => {
     var data = {
     requirements:requirement,
     category:category,
-    whatYouWillLearn:whatYouWillLearn,
+    benifits:whatYouWillLearn,
     }
     var main_data = { ...data, ...formData };
     console.log(main_data);

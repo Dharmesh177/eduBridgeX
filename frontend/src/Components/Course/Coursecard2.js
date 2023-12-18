@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-export default function Coursecard({ course }) {
+export default function Coursecard2({ course, fun, set_course_id }) {
+    const call = () =>{
+        fun()
+        set_course_id(course._id)
+      }
   return (
     <>
       <div className="p-4">
@@ -42,8 +46,9 @@ export default function Coursecard({ course }) {
                   <a
                     href="#"
                     class="inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
+                    onClick={call}
                   >
-                    Get Started Today
+                    Delete Course
                   </a>
                 </div>
               </div>
@@ -55,68 +60,7 @@ export default function Coursecard({ course }) {
             class="h-[350px] w-[500px] object-cover ml-8"
           />
         </section>
-        <div class="space-y-4">
-  <details class="group [&_summary::-webkit-details-marker]:hidden" open>
-    <summary
-      class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg  p-4 text-gray-900 w-[200px] -mt-20 h-4 ml-[30px]"
-    >
-      <button class="font-medium">More Detail</button>
-
-      <svg
-        class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-      </svg>
-    </summary>
-
-    <div className="pt-10 bg-gray-50 pl-8 text-left pb-3">
-        <div>
-            <div className="text-m py-2">Uploaded on 21 March</div>
-            <div className="text-left font-semibold text-left pt-3">what You Will Learn:</div>
-            <ul className="text-left ml-4 list-disc">
-            {course.whatYouWillLearn.map(itm => {
-                  return (
-                    <li className="ml-5">   {itm}</li>
-                  )
-                })}
-            </ul>
         </div>
-        <div>
-            <div className="text-left font-semibold text-left mt-4">Requirements</div>
-            <ul className="text-left ml-4 list-disc">
-            {course.requirements.map(itm => {
-                  return (
-                    <li className="ml-5">   {itm}</li>
-                  )
-                })}
-            </ul>
-        </div>
-        <div>
-            <div className="flex flex-row">
-        <div className="text-m py-4 font-semibold mr-2">Category: </div>
-        <div className="text-m py-4 font flex">
-          {course.category.map(itm => {
-            return (
-              <div className="whitespace-nowrap rounded-full w-max bg-purple-100 px-2.5 py-1.5 text-sm text-purple-700 mr-3 cursor-pointer transition-transform transform hover:scale-105 hover:bg-purple-300 duration-500 -mt-[3px]">
-                  {itm}
-                </div>
-            )
-          })}
-        </div>
-
-        </div>
-        
-        </div>
-    </div>
-  </details>
-
-  
-</div>
-      </div>
     </>
   );
 }

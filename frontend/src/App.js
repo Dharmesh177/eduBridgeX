@@ -45,6 +45,9 @@ import Employ_Dashboard from "./Components/Employment/Dashboard"
 import JobList from './Components/Employment/users/Jobs';
 import AddCourse from './Components/Course/AddCourse'
 import CourseList from './Components/Course/CourseList'
+import ManageCourse from './Components/Course/ManageCourse';
+
+
 function App() {
   return (
     <div className="App">
@@ -84,6 +87,8 @@ function App() {
       <Route index path="/jobs" element={<JobList/>} />
       <Route index path="/course" element={<CourseList/>} />
       <Route index path="/add_course" element={<AddCourse/>} />
+      <Route index path="/manage_course" element={<ManageCourse/>} />
+
 
       
 
