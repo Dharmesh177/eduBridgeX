@@ -45,8 +45,11 @@ import UploadFile from './Components/Common/UploadFile';
 import AddJob from './Components/recruitment/AddJob';
 import RecruiterLogin from './Components/recruitment/RecruiterLogin';
 import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
-import Employ_Dashboard from './Components/recruitment/Dashboard';
+import Employ_Dashboard from './Components/Employment/Dashboard';
 import ViewAllJobs from './Components/recruitment/ViewAllJobs';
+import JobList from './Components/Employment/users/Jobs';
+import AddCourse from './Components/Course/AddCourse'
+import CourseList from './Components/Course/CourseList'
 import LobbyScreen from './Components/videoChat/Lobby';
 import RoomPage from './Components/videoChat/room';
 function App() {
@@ -88,9 +91,14 @@ function App() {
       <Route index path="/schemes_form" element={<DynamicForm/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />
       <Route index path="/schemesPath" element={<SchemesCard />} />
-      <Route index path="/recruiter/page" element={<Employ_Dashboard />} />
-      <Route index path="/videochatLobby" element={<LobbyScreen />} />
-      <Route index path="/room/:id" element={<RoomPage />} />
+      <Route index path="/employ_dashboard" element={<Employ_Dashboard/>} />
+      <Route index path="/jobs" element={<JobList/>} />
+      <Route index path="/course" element={<CourseList/>} />
+      <Route index path="/add_course" element={<AddCourse/>} />
+
+      
+
+
       </Routes>
   
     <Routes>  

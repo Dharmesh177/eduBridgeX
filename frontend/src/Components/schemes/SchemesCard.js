@@ -20,6 +20,7 @@ export default function SchemesCard() {
       if(type === "gov") {
         res = await Axios.get('http://localhost:5000/api/schemes/getAllSchemes/gov');
         // console.log(res.data);
+        console.log(res.data);
         if(res.status === 200) {
           setSchemes(res.data)
           setLoading(false);
@@ -31,6 +32,7 @@ export default function SchemesCard() {
       } else if(type === "private") {
         res = await Axios.get('http://localhost:5000/api/schemes/getAllSchemes/private');
         // console.log(res.data);
+        console.log(res.data);
         if(res.status === 200) {
           setSchemes(res.data)
           setLoading(false);
@@ -42,6 +44,7 @@ export default function SchemesCard() {
       } else {
         res = await Axios.get('http://localhost:5000/api/schemes/getAllSchemes/all');
         // console.log(res.data);
+        console.log(res.data);
         if(res.status === 200) {
           setSchemes(res.data)
           setLoading(false);

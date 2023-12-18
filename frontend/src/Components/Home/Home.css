@@ -194,6 +194,7 @@
       height: 46px;
       align-items: center;
       padding: 36px;
+      justify-content: center;
     }
     .short_filter .title img{
       width: 23px;
@@ -246,6 +247,7 @@
     margin-top: 54px;
     padding: "10px";
     flex-wrap: nowrap;
+    align-items: center;
   }
   
   .a_fillter {

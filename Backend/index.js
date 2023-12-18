@@ -46,6 +46,10 @@ app.use('/api/history', historyRouter);
 app.use('/api/resources', resourceRouter);
 app.use('/api/blog', blogRouter);
 app.use('/api/roadmap' , roadmapRoute);
+app.use('/api/schemes', schemeRouter)
+app.use("/recruiter", RecruiterRouter);
+app.use("/jobs", jobRoute);
+
 
 app.use('/api/schemes', schemeRouter);
 app.use('/api/Course', courseRouter);
