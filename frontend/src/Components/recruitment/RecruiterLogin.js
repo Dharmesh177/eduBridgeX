@@ -8,7 +8,8 @@ import {
   Paper,
 } from "@material-ui/core";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 
 import EmailInput from "../lib/EmailInput";
@@ -42,6 +43,7 @@ const useStyles = makeStyles((theme) => ({
 
 const RecruiterLogin = (props) => {
   const classes = useStyles();
+  const navigate = useNavigate();
 //   const setPopup = useContext(SetPopupContext);
 
 //   const [loggedin, setLoggedin] = useState(isAuth());
@@ -83,8 +85,12 @@ const RecruiterLogin = (props) => {
     const res = await axios.post("http://localhost:5000/recruiter/login", loginDetails);
     if (res.status === 200) {
       console.log("res.data", res.data);
+      const cookies = new Cookies();
+
+      cookies.set("RecruiterToken", res.data.token, { path: "/" });
+
       alert("You're Login successfully, now Please Move on !!!")
-    //   navigate("/recuriterDashboard");
+      navigate("/employ_dashboard", {state: {email: res.data.user.email}});
     } else {
       console.log("res.message", res.message);
       alert("Failed to Register !!!!")

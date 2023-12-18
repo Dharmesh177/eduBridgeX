@@ -11,6 +11,8 @@ import {
 } from "@material-ui/core";
 import axios from "axios";
 import ChipInput from "material-ui-chip-input";
+import { jwtDecode } from "jwt-decode";
+import Cookie from 'universal-cookie';
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -51,8 +53,14 @@ const AddJob = (props) => {
   };
 
   const handleUpdate = async () => {
-    const name_recruiter = "Koinx";
-    const email_recruiter = "dvala453@koinx.com";
+
+    const cookie = new Cookie();
+    const token = cookie.get('RecruiterToken');
+    const jwtData = jwtDecode(token);
+    console.log(jwtData);
+
+    const name_recruiter = jwtData.name;
+    const email_recruiter = jwtData.email;
     const dataa = {
       title: jobDetails.title,
       name_recruiter: name_recruiter,

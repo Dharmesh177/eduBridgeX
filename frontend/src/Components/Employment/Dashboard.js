@@ -2,7 +2,11 @@ import React, { useEffect, useState } from "react";
 import "./dashboard.css";
 import DeleteAlert from "./DeleteAlert";
 import JobList from "./Joblist";
- import AddJob from "./AddJob";
+import AddJob from "./AddJob";
+import { Link } from "react-router-dom";
+import Cookie from 'universal-cookie';
+import { useNavigate } from 'react-router-dom';
+
 import Employedit from "./Employedit"
 export default function Employ_Dashboard() {
   const [showjobs, setjobcomponent] = useState(true);
@@ -10,6 +14,11 @@ export default function Employ_Dashboard() {
   const [delete_card, set_delete_card_visible] = useState(false);
   const [job_id, set_id] = useState("")
   const [addjob,setaddjob] = useState(false);
+  // const [state, steState] = useState(false);
+
+  const navigate = useNavigate();
+  //const location = useLocation();
+  //const email = location.state.email;
 
   const set_job_id = (id) =>{
     set_id(id)
@@ -34,13 +43,16 @@ const delete_card_visible = () =>{
     setaddjob(false);
     set_employ_edit_page(true)
   };
+
   const visible_addjob = () =>{
-   
     setjobcomponent(false);
     set_employ_edit_page(false);
     setaddjob(true);
     
   }
+
+  // useEffect(()=>{},[state]);
+
   return (
     <>
       {delete_card && <DeleteAlert fun={delete_card_visible} id={job_id}/> }
@@ -57,9 +69,9 @@ const delete_card_visible = () =>{
                 </li>
 
                 <li>
-                  <a href="#" className="side_div_li" onClick={visible_addjob}>
+                  <Link to="#" className="side_div_li" onClick={visible_addjob}>
                     Add New Job
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
@@ -68,10 +80,17 @@ const delete_card_visible = () =>{
                   </a>
                 </li>
 
-                <li>
-                  <a href="" className="side_div_li">
+                <li className="cursor-pointer">
+                  <p className="side_div_li pointer-curser"
+                    onClick={()=> {
+                      const cookie = new Cookie();
+                      cookie.remove('RecruiterToken', { path: "/" });
+                      navigate('/RecruiterLogin')
+                    }}
+                  >
                     Log Out
-                  </a>
+                    
+                  </p>
                 </li>
               </ul>
             </div>
@@ -79,7 +98,7 @@ const delete_card_visible = () =>{
         </div>
 
         <div className="right_side_div1">
-          {showjobs && <JobList fun={delete_card_visible} set_job_id={set_job_id}/>}
+          {showjobs && <JobList fun={delete_card_visible} set_job_id={set_job_id} recEmail="dvala@gmail.com"/>}
           {show_employ_edit_page && <Employedit/>}
           {addjob && <AddJob/> }
           {/* { <AddJob/> } */}

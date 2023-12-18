@@ -56,6 +56,8 @@ import ManageCourse from './Components/Course/ManageCourse';
 
 
 function App() {
+
+
   return (
     <div className="App">
     <BrowserRouter>
@@ -99,10 +101,6 @@ function App() {
       <Route index path="/course" element={<CourseList/>} />
       <Route index path="/add_course" element={<AddCourse/>} />
       <Route index path="/manage_course" element={<ManageCourse/>} />
-
-
-      
-
 
       </Routes>
   

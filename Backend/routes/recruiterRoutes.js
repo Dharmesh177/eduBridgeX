@@ -1,5 +1,6 @@
 var express = require("express");
 var router = express.Router();
+const jwt = require('jsonwebtoken')
 
 // Load  model
 const Recruiter = require("../models/recruiterModel.js");
@@ -76,21 +77,34 @@ router.post('/edit_recruiter_profile', (req, res) => {
 
 
 router.post("/login", (req, res) => {
-	const email = req.body.email;
+    try {
+        const email = req.body.email;
 	// Find user by email
-	Recruiter.findOne({ email }).then(user => {
-		// Check if user email exists
-		if (!user) {
-			return res.status(404).json({
-				error: "Email not found",
-			});
-        }
-        else{
-            res.status(200).json(user);
-            console.log(user);
-            return user;
-        }
-	});
+        Recruiter.findOne({ email }).then(user => {
+            // Check if user email exists
+            if (!user) {
+                return res.status(404).json({
+                    error: "Email not found",
+                });
+            }
+            else{
+                const token = jwt.sign({ email:user.email, name: user.name }, process.env.key, { expiresIn: 30 * 24 * 60 * 60 })
+                res.cookie("jwtToken", token, {
+                    httpOnly: true,
+                    sameSite: "strict"
+                })
+                res.status(200).json({
+                    success: true,
+                    message: "Recruiter LogggedIn",
+                    token: token,
+                    user: user
+                })
+            }
+        });
+    } catch (err) {
+        console.log("error while recruiter login");
+        res.status(500).json({"msg":"internal server error"});
+    }
 });
 
 
