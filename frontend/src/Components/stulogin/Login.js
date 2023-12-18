@@ -117,7 +117,7 @@ export default function Login(props) {
                   <NavLink
                     className=""
                     style={{ textDecoration: "none" }}
-                    to="/signup"
+                    to="/ssignup"
                   >
                     <div
                       style={{
