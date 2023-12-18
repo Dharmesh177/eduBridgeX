@@ -50,6 +50,8 @@ import ViewAllJobs from './Components/recruitment/ViewAllJobs';
 import JobList from './Components/Employment/users/Jobs';
 import AddCourse from './Components/Course/AddCourse'
 import CourseList from './Components/Course/CourseList'
+import LobbyScreen from './Components/videoChat/Lobby';
+import RoomPage from './Components/videoChat/room';
 function App() {
   return (
     <div className="App">
@@ -67,9 +69,9 @@ function App() {
       <Route index path="/mentorresources" element={<MResources/>} />
       <Route index path="/temp" element={<FullEvent/>} />
       <Route index path="/editblog/:blogid" element={<EditBlog/>} />
-      <Route index path="/login" element={<Login/>} />
+      <Route index path="/MentorLogin" element={<Login/>} />
       <Route index path="/signup" element={<SignUp/>} />
-      <Route index path="/slogin" element={<LLogin/>} />
+      <Route index path="/UserLogin" element={<LLogin/>} />
       <Route index path="/ssignup" element={<SSignUp/>} />
       <Route index path="/event" element={<EventPage/>} />
       <Route index path="/resources" element={<ResourcePage/>} />
@@ -83,7 +85,7 @@ function App() {
       <Route path="/:adminid" element={<Dashboard />} />
       <Route index path="/becomementor" element={<BecomeMenter/>} />
       <Route index path="/tmp" element={<AddJob/>} />
-      <Route index path="/tmp2" element={<RecruiterLogin/>} />
+      <Route index path="/RecruiterLogin" element={<RecruiterLogin/>} />
       <Route index path="/tmp3" element={<RecruiterSignUp/>} />
       <Route index path="/schemes" element={<Schemes/>} />
       <Route index path="/schemes_form" element={<DynamicForm/>} />

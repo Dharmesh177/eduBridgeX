@@ -77,5 +77,5 @@ app.get('/verify/:token', async(req,res) => {
 
 
 const PORT = 5000||process.env.PORT;
-app.listen(PORT, console.log("Server is running")); 
+app.listen(PORT , '0.0.0.0' , console.log("Server is running")); 
 
