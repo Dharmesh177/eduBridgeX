@@ -49,10 +49,10 @@ const Dropdown = () => {
             <NavLink to="/login">Mentor</NavLink>
           </p>
           <p>
-            <a href="/">Recruiter</a>
+            <a href="/RecruiterLogin">Recruiter</a>
           </p>
           <p>
-            <a href="/">Student</a>
+            <a href="/UserLogin">Student</a>
           </p>
           {/* Add more dropdown content here */}
         </div>
