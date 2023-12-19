@@ -28,7 +28,7 @@ const ListResource = () => {
 
     return (
         <>
-            {state===true ? < AddCourse add_course_page_disable={setState}/> : <div className='h-full flex-col'>
+            {state===true ? < AddCourse add_course_page_disable={setState}/> : <div className='flex-col'>
                 <div style={{display:"flex", justifyContent:"space-between"}} className='w-full items-center'>
                     <h2 className='font-semibold text-md ml-5'>Uploaded Courses</h2>
                     <button
@@ -36,12 +36,12 @@ const ListResource = () => {
                         className='bg-black text-white py-2 px-3 rounded-lg mr-5'
                     >add course</button>
                 </div>
-                <div className='bg-gray-100 pt-2 mt-5 rounded-lg flex flex-col border mr-3 ml-3'>
+                <div className='bg-gray-100 pt-2 h-[20%] mt-5 rounded-lg flex flex-col border mr-3 ml-3'>
                 {/* <div className='bg-white h-full w-[90%] m-auto mt-5 rounded-lg flex-col'> */}
                     {courses.map(course => {
                         return (
                             // <div className="w-[90%] m-auto rounded-lg mt-5 bg-red-400">
-                                <section class="overflow-hidden w-max m-auto bg-gray-200 shadow grid grid-cols-2 mt-5 rounded-lg">
+                                <section class="overflow-hidden w-max m-auto h-min bg-gray-200 shadow grid grid-cols-2 mt-5 rounded-lg">
                                 <div class="p-8">
                                     <div class="mx-auto max-w-xl text-center  ml-3">
                                     <h2 class="text-2xl font-bold text-gray-900 md:text-3xl text-left">

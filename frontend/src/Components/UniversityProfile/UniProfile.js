@@ -66,9 +66,9 @@ function UniProfile() {
     console.log("-----");
     return data;
   };
-  useEffect(() => {
-    sendRequest().then((data) => setUser(data.mentors));
-  }, []);
+  // useEffect(() => {
+  //   sendRequest().then((data) => setUser(data.mentors));
+  // }, []);
 
   return (
     <>

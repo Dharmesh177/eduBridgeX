@@ -8,6 +8,7 @@ import Cookie from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
 
 import Employedit from "./Employedit"
+import Header from "../Common/Header";
 export default function Employ_Dashboard() {
   const [showjobs, setjobcomponent] = useState(true);
   const [show_employ_edit_page, set_employ_edit_page] = useState(false);
@@ -55,6 +56,8 @@ const delete_card_visible = () =>{
 
   return (
     <>
+      <Header />
+
       {delete_card && <DeleteAlert fun={delete_card_visible} id={job_id}/> }
       <div className="main_div">
       

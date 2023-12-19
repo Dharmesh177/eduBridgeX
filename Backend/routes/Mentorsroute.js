@@ -5,6 +5,6 @@ const { getAllMentors, getMentorById,addMentorwithId, getRecommendedMentors, add
 mentorRouter.get('/', getAllMentors);
 mentorRouter.post('/addNewMentor', addNewMentor);
 mentorRouter.get('/recommended-mentors/:interest', getRecommendedMentors);
-mentorRouter.get('/mentor/:mentorId', getMentorById);
+mentorRouter.get('/mentor/:id', getMentorById);
 mentorRouter.post('/addmentor/:id', addMentorwithId);
 module.exports = mentorRouter ;

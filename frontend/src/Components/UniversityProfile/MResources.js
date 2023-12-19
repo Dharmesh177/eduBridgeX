@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 // import ProfileInputField from "../Profile/ProfileInputField";
 // import ProfileInputFieldExtended from "../Profile/ProfileInputFieldExtended";
 import SideBarOption from "../Profile/SideBarOption";
-// import axios from "axios";
+import axios from "axios";
 import "./UniProfile.css";
 import { NavLink } from "react-router-dom";
 // import Cookies from 'universal-cookie'
@@ -36,7 +36,7 @@ function MResources() {
 
   //  const CollegeId = cookies.get('uTypeId')
 
-  const [mentorEmail, setMentorEmail] = useState("");
+  const [mentorData, setMentorData] = useState({});
   // const [showw, setshoww] = useState("false");
 
   // const Handle_toggle = () => {
@@ -80,12 +80,20 @@ function MResources() {
   //   sendRequest().then((data) => setUser(data.college));
   // }, []);
 
+  const fetchMentorData = async () => {
+    try {
+      const token = cookies.get('MentorToken');
+      const tokenData = jwtDecode(token);
+      // console.log(tokenData);
+      const result = await axios.get('http://localhost:5000/api/mentors/mentor/'+tokenData.id);
+      setMentorData(result.data.user);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   useEffect(()=>{
-    const token = cookies.get('MentorToken');
-    const tokenData = jwtDecode(token);
-    setMentorEmail(tokenData.email);
-
-
+    fetchMentorData();
   },[]);
 
   return (
@@ -109,12 +117,13 @@ function MResources() {
               padding: "15px",
             }}
           >
-            <div style={{ marginTop: "auto", marginBottom: "auto" }}>
-              <div className="profile w-5 h-5">
+            <div style={{ marginTop: "auto", marginBottom: "auto" }} className="w-16 h-16">
+              <div className="w-full h-full">
                 <img
-                  src="https://media-exp1.licdn.com/dms/image/C5603AQFjdqTFknnOWw/profile-displayphoto-shrink_800_800/0/1662616747803?e=1670457600&v=beta&t=74tKSSzvo2bryUlYpD5gRLR24FecR6GFT2CcOCuIAc4"
-                  className="w-110 h-110 rounded-circle"
-                  height="100px"
+                  src="https://tse4.mm.bing.net/th?id=OIP.bT_OP-crDSYAGCwQZXCKXQHaFj&pid=Api&P=0&h=180"
+                  // className="rounded-circle"
+                  className="w-full h-full rounded-full"
+                  // height="100px"
                 />
               </div>
             </div>
@@ -134,7 +143,7 @@ function MResources() {
                   textAlign: "start",
                 }}
               >
-                {mentorEmail}
+                {mentorData.name}
               </div>
 
               <div
@@ -145,7 +154,7 @@ function MResources() {
                   fontWeight: "500",
                 }}
               >
-                Dvala453@gmail.com
+                {mentorData.email}
               </div>
             </div>
           </div>
@@ -154,48 +163,40 @@ function MResources() {
 
           {/* options */}
           <div
-            className="editing"
-            style={{ position: "sticky", top: "130px", padding: "10px" }}
+            className="flex flex-col h-[80%] w-[18%] bg-gray-300 rounded-lg border fixed mt-28"
+            // style={{ position: "sticky", top: "130px", padding: "10px" }}
           >
-          <NavLink
+            <NavLink
+              className="w-full"
+              style={{ textDecoration: "none", color: "black" }}
+              to="/mentorpage"
+            >
+              <SideBarOption icon="person" title="Profile" />
+            </NavLink>
+
+            {/* <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/CourseOfMentor"
+            >
+              <SideBarOption icon="book" title="Courses" />
+            </NavLink> */}
+
+            <NavLink
+              className=""
+              style={{ textDecoration: "none", color: "black" }}
+              to="/mentorevents"
+            >
+              <SideBarOption icon="event" title="Events" />
+            </NavLink>
+
+            <NavLink
             className=""
             style={{ textDecoration: "none", color: "black" }}
-            to="/mentorpage"
-          >
-            <SideBarOption icon="person" title="Profile" />
-          </NavLink>
-
-          <NavLink
-            className=""
-            style={{ textDecoration: "none", color: "black" }}
-            to="/dashboard"
-          >
-            <SideBarOption icon="dashboard" title="Resourses" />
-          </NavLink>
-
-          <NavLink
-            className=""
-            style={{ textDecoration: "none", color: "black" }}
-            to="/CourseOfMentor"
-          >
-            <SideBarOption icon="book" title="Courses" />
-          </NavLink>
-
-          <NavLink
-            className=""
-            style={{ textDecoration: "none", color: "black" }}
-            to="/mentorevents"
-          >
-            <SideBarOption icon="event" title="Events" />
-          </NavLink>
-
-          <NavLink
-          className=""
-          style={{ textDecoration: "none", color: "black" }}
-          to="/mentorresources"
-        >
-          <SideBarOption icon="book" title="resources" />
-        </NavLink>
+            to="/mentorresources"
+            >
+              <SideBarOption icon="book" title="resources" />
+            </NavLink>
 
           <NavLink
             className=""
@@ -218,7 +219,7 @@ function MResources() {
           </NavLink>
         </div>
         </div>
-        <div className="w-full">
+        <div className="w-full overflow-scroll">
           {recOpen && <ListCourses />}
         </div>
       </div>
