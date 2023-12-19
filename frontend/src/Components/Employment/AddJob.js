@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const AddJob = (props) => {
+const AddJob = ({ fun, fun1 }) => {
   const classes = useStyles();
   //   const setPopup = useContext(SetPopupContext);
 
@@ -76,12 +76,15 @@ const AddJob = (props) => {
     };
 
     const res = await axios.post("http://localhost:5000/jobs/job/add", dataa);
+    console.log(res);
     if (res.status === 200) {
-      console.log("res.data", res.data);
+      console.log(res.data);
+      fun(true)
+      fun1(false)
       alert("You're Added Job successfully !!!");
       //   navigate("/slogin");
     } else {
-      console.log("res.message", res.message);
+      console.log(res.message);
       alert("Failed to Register !!!!");
     }
   };

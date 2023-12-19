@@ -52,16 +52,14 @@ const delete_card_visible = () =>{
     
   }
 
-  // useEffect(()=>{},[state]);
+  useEffect(()=>{},[showjobs]);
 
   return (
     <>
-      <Header />
-
       {delete_card && <DeleteAlert fun={delete_card_visible} id={job_id}/> }
-      <div className="main_div">
+      <div className="main_div h-screen">
       
-        <div className="side_div1">
+        <div className="side_div1 bg-gray-100 rounded-lg">
           <div className="side_div_container1">
             <div className="side_div_container1">
               <ul className="side_div_ul">
@@ -101,10 +99,10 @@ const delete_card_visible = () =>{
           </div>
         </div>
 
-        <div className="right_side_div1">
-          {showjobs && <JobList fun={delete_card_visible} set_job_id={set_job_id} recEmail="dvala@gmail.com"/>}
+        <div className="right_side_div1 h-full">
+          {showjobs && <JobList fun={delete_card_visible} set_job_id={set_job_id}/>}
           {show_employ_edit_page && <Employedit/>}
-          {addjob && <AddJob/> }
+          {addjob && <AddJob fun={setjobcomponent} fun1={setaddjob}/> }
           {/* { <AddJob/> } */}
           
         </div>
