@@ -45,7 +45,7 @@ import UploadFile from './Components/Common/UploadFile';
 import AddJob from './Components/recruitment/AddJob';
 import RecruiterLogin from './Components/recruitment/RecruiterLogin';
 import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
-import Chat from './Components/chat/chat';
+import CarrierCouncelling from './Components/carriercouncelling/carriercouncelling';
 
 function App() {
   return (
@@ -85,7 +85,8 @@ function App() {
           <Route index path="/schemes_form" element={<DynamicForm />} />
           <Route index path="/dashboard" element={<Dashboard />} />
           <Route index path="/schemesPath" element={<SchemesCard />} />
-          <Route index path="/chat" element={<Chat />} />
+          <Route index path="/carriercouneclling" element={<CarrierCouncelling />} />
+
         </Routes>
 
         <Routes>
