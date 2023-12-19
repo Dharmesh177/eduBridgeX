@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import Cookies from 'universal-cookie';
 import ListCourses from './ListCourses';
 import { jwtDecode } from "jwt-decode";
+import ProfilePage from "./ProfilePage";
 
 
 // import Popup from 'reactjs-popup';
@@ -23,6 +24,7 @@ function MResources() {
     // const [tagList, setTaglist] = useState([]);
 
     const [recOpen, setRecOpen] = useState(true);
+    const [profOpen, setProfOpen] = useState(false);
 
   // const [explist, setExplist] = useState([]);
   // const [timeframe, setTimeFrame] = useState("");
@@ -97,7 +99,7 @@ function MResources() {
   },[]);
 
   return (
-    <div>
+    <div className="bg-gray-50">
     <>
     {
       <div
@@ -107,7 +109,7 @@ function MResources() {
           justifyContent: "left",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
+        <div style={{ display: "flex", flexDirection: "column" }} className="w-[23%]">
           <div
             style={{
               display: "flex",
@@ -115,6 +117,7 @@ function MResources() {
               position: "sticky",
               top: "0",
               padding: "15px",
+              width: "8%"
             }}
           >
             <div style={{ marginTop: "auto", marginBottom: "auto" }} className="w-16 h-16">
@@ -163,13 +166,17 @@ function MResources() {
 
           {/* options */}
           <div
-            className="flex flex-col h-[80%] w-[18%] bg-gray-300 rounded-lg border fixed mt-28"
+            className="flex flex-col h-[90%] w-[18%] bg-gray-100 rounded-lg border fixed mt-28"
             // style={{ position: "sticky", top: "130px", padding: "10px" }}
           >
             <NavLink
               className="w-full"
               style={{ textDecoration: "none", color: "black" }}
-              to="/mentorpage"
+              onClick={()=>{
+                setProfOpen(true);
+                setRecOpen(false);
+              }}
+              // to="/mentorpage"
             >
               <SideBarOption icon="person" title="Profile" />
             </NavLink>
@@ -193,9 +200,13 @@ function MResources() {
             <NavLink
             className=""
             style={{ textDecoration: "none", color: "black" }}
-            to="/mentorresources"
+            onClick={()=>{
+              setRecOpen(true);
+              setProfOpen(false);
+            }}
+            // to="/mentorresources"
             >
-              <SideBarOption icon="book" title="resources" />
+              <SideBarOption icon="book" title="course" />
             </NavLink>
 
           <NavLink
@@ -212,15 +223,17 @@ function MResources() {
             to="/MentorLogin"
             onClick={()=>{
               cookies.remove('MentorToken', {path: "/"});
-              navigate('/MentorLogin')
+              // navigate('/MentorLogin')
+              navigate('/landing')
             }}
           >
             <SideBarOption icon="logout" title="Logout" />
           </NavLink>
         </div>
         </div>
-        <div className="w-full overflow-scroll">
+        <div className="w-full">
           {recOpen && <ListCourses />}
+          {profOpen && <ProfilePage fun={setProfOpen} fun2={setRecOpen}/>}
         </div>
       </div>
     }

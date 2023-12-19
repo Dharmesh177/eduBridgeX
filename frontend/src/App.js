@@ -54,6 +54,7 @@ import CourseList from './Components/Course/CourseList'
 import Landing from "./screens/Landing"
 import ManageCourse from './Components/Course/ManageCourse';
 import CourseOfMentor from './Components/Employment/CourseOfMentor';
+import ProfilePage from './Components/UniversityProfile/ProfilePage';
 
 
 function App() {
@@ -112,6 +113,7 @@ function App() {
 
       <Route index path="/manage_course" element={<ManageCourse/>} />
       <Route index path="/CourseOfMentor" element={<CourseOfMentor />} />
+      <Route index path='/tmptmp' element={<ProfilePage />} />
 
       </Routes>
   

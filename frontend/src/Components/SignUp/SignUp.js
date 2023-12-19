@@ -49,7 +49,7 @@ const SignUp = () => {
 
         if (result.data.success) {
             window.alert("please verify your email to continue");
-            navigate("/");
+            navigate("/MentorLogin");
         } else {
             window.alert("something bad heppen, try again");
         }

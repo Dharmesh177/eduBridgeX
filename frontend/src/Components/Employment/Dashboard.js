@@ -88,7 +88,8 @@ const delete_card_visible = () =>{
                     onClick={()=> {
                       const cookie = new Cookie();
                       cookie.remove('RecruiterToken', { path: "/" });
-                      navigate('/RecruiterLogin')
+                      // navigate('/RecruiterLogin')
+                      navigate('/landing')
                     }}
                   >
                     Log Out

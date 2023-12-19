@@ -14,11 +14,10 @@ const ListResource = () => {
         try {
             const token = cookie.get('MentorToken');
             const tokendata = jwtDecode(token);
-            console.log(tokendata);
+            // console.log(tokendata);
 
             const result = await Axios.get('http://localhost:5000/api/Course/CourseOfMentor/' + tokendata.email);
             setCourses(result.data);
-            // console.log(result);
         } catch (err) {
             
         }
@@ -27,21 +26,21 @@ const ListResource = () => {
     useEffect(()=>{fetchCourse()},[state,setState]);
 
     return (
-        <>
-            {state===true ? < AddCourse add_course_page_disable={setState}/> : <div className='flex-col'>
-                <div style={{display:"flex", justifyContent:"space-between"}} className='w-full items-center'>
-                    <h2 className='font-semibold text-md ml-5'>Uploaded Courses</h2>
+        <div className='w-full h-screen overflow-scroll'>
+            {state===true ? < AddCourse add_course_page_disable={setState}/> : <div className='flex-col h-[85%] w-full items-center'>
+                <div style={{display:"flex", justifyContent:"space-between"}} className='w-full items-center pt-4'>
+                    <h2 className='font-semibold text-md ml-24 mb-0'>Uploaded Courses</h2>
                     <button
                         onClick={()=>setState(prev => !prev)}
                         className='bg-black text-white py-2 px-3 rounded-lg mr-5'
                     >add course</button>
                 </div>
-                <div className='bg-gray-100 pt-2 h-[20%] mt-5 rounded-lg flex flex-col border mr-3 ml-3'>
+                <div className='overflow-scroll bg-gray-100 pt-2 mt-4 rounded-lg h-full flex flex-col border mr-3 ml-3 w-[90%] m-auto'>
                 {/* <div className='bg-white h-full w-[90%] m-auto mt-5 rounded-lg flex-col'> */}
-                    {courses.map(course => {
+                    {courses.length <= 0 ? <div className='text-3xl mt-16'>No Courses added Yet</div> : courses.map(course => {
                         return (
                             // <div className="w-[90%] m-auto rounded-lg mt-5 bg-red-400">
-                                <section class="overflow-hidden w-max m-auto h-min bg-gray-200 shadow grid grid-cols-2 mt-5 rounded-lg">
+                                <section class="overflow-visible w-[90%] m-auto h-min bg-gray-200 shadow grid grid-cols-2 mt-5 rounded-lg">
                                 <div class="p-8">
                                     <div class="mx-auto max-w-xl text-center  ml-3">
                                     <h2 class="text-2xl font-bold text-gray-900 md:text-3xl text-left">
@@ -90,7 +89,7 @@ const ListResource = () => {
                                 <img
                                     alt="Student"
                                     src="https://images.unsplash.com/photo-1464582883107-8adf2dca8a9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                    class="h-[350px] w-[500px] object-cover ml-24"
+                                    class="h-[100%] w-[70%] object-cover ml-24"
                                 />
                                 </section>
                             // </div>
@@ -99,7 +98,7 @@ const ListResource = () => {
                 {/* </div> */}
                 </div>
             </div>}
-        </>
+        </div>
     );
 };
 
