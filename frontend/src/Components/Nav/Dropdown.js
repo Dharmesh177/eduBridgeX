@@ -46,7 +46,7 @@ const Dropdown = () => {
         <div className="dropdown-content">
           {/* Dropdown Content */}
           <p>
-            <NavLink to="/login">Mentor</NavLink>
+            <NavLink to="/MentorLogin">Mentor</NavLink>
           </p>
           <p>
             <a href="/RecruiterLogin">Recruiter</a>

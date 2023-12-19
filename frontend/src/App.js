@@ -51,9 +51,7 @@ import ViewAllJobs from './Components/recruitment/ViewAllJobs';
 import JobList from './Components/Employment/users/Jobs';
 import AddCourse from './Components/Course/AddCourse'
 import CourseList from './Components/Course/CourseList'
-import LobbyScreen from './Components/videoChat/Lobby';
 import Landing from "./screens/Landing"
-import RoomPage from './Components/videoChat/room';
 import ManageCourse from './Components/Course/ManageCourse';
 import CourseOfMentor from './Components/Employment/CourseOfMentor';
 

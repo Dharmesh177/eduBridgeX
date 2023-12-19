@@ -58,7 +58,7 @@ export default function Header(props) {
             <div className="tab-container-header">
               <div className="tab-container">
                 <NavLink className=
-                  {(index === 1) ? "nav-link active black" : "nav-link"} to="/mentor">
+                  {(index === 1) ? "nav-link active black" : "nav-link"} to="/">
                  {t("Find Mentor")}
                 </NavLink>
               </div>
@@ -91,21 +91,16 @@ export default function Header(props) {
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 7) ? "nav-link active" : "nav-link"} to="/aboutus">
+                <NavLink className={(index == 7) ? "nav-link " : "nav-link"} to="/">
                   {t("About")}
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 8) ? "nav-link active" : "nav-link"} to="/contact">
+                <NavLink className={(index == 8) ? "nav-link " : "nav-link"} to="/">
                  {t("Contact")}
                 </NavLink>
               </div>
 
-              <div className="tab-container">
-              <NavLink className={(index == 8) ? "nav-link active" : "nav-link"} to="/contact">
-               {t("Admin Login")}
-              </NavLink>
-            </div>
             <div className="tab-container">
               <NavLink className={(index == 9) ? "nav-link active" : "nav-link"} to="/jobs">
                {t("Jobs")}
