@@ -44,7 +44,7 @@ function Me(props) {
                           <svg viewBox="0 0 12 16" fill="none" class="svgstyle">
                             <path d="M11.5 6c0 4.5-5.5 9.5-5.5 9.5S.5 10.5.5 6a5.5 5.5 0 1111 0v0z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path><path d="M6 8.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
                             </path></svg>
-                          Athens, Greece (+02:00 UTC) </span>
+                          Mumbai, India (+02:00 UTC) </span>
                         <span class="launage">
                           <svg viewBox="0 0 16 16" fill="none" class="svgstyle">
                             <path d="M3.707 1.85c.49.372.9.84 1.205 1.376.3.51.98 1.928.361 2.73-.7.904-2.728 1.21-2.728 2.044 0 .628.889 1.344 1.364 2.045a2.433 2.433 0 010 2.728 2.543 2.543 0 01-.882.841M13.91 3.382a16.228 16.228 0 01-3.865 1.209c-.712.05-.818-.535-1.363-1.364-.409-.622-1.364-1.4-1.364-2.045a2.1 2.1 0 01.089-.66" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
@@ -130,7 +130,7 @@ function Me(props) {
                 <div class="schedule">
                   <svg viewBox="0 0 15 15" fill="none" class="svgstyle"><path d="M13.242 1.172h-.703V0h-1.172v1.172H3.633V0H2.46v1.172h-.703A1.76 1.76 0 000 2.93v10.312C0 14.212.789 15 1.758 15h11.484A1.76 1.76 0 0015 13.242V2.93a1.76 1.76 0 00-1.758-1.758zm.586 12.07a.587.587 0 01-.586.586H1.758a.587.587 0 01-.586-.586V5.508h12.656v7.734zm0-8.906H1.172V2.93c0-.323.263-.586.586-.586h.703v1.172h1.172V2.344h7.734v1.172h1.172V2.344h.703c.323 0 .586.263.586.586v1.406z" fill="currentColor"></path>
                     <path d="M3.398 6.738H2.227V7.91h1.171V6.738zm2.344 0H4.57V7.91h1.172V6.738zm2.344 0H6.914V7.91h1.172V6.738zm2.344 0H9.258V7.91h1.172V6.738zm2.343 0h-1.171V7.91h1.171V6.738zM3.398 9.082H2.227v1.172h1.171V9.082zm2.344 0H4.57v1.172h1.172V9.082zm2.344 0H6.914v1.172h1.172V9.082zm2.344 0H9.258v1.172h1.172V9.082zm-7.032 2.344H2.227v1.172h1.171v-1.172zm2.344 0H4.57v1.172h1.172v-1.172zm2.344 0H6.914v1.172h1.172v-1.172zm2.344 0H9.258v1.172h1.172v-1.172zm2.343-2.344h-1.171v1.172h1.171V9.082z" fill="currentColor"></path></svg>
-                  <span> Next available - Monday, <br /> October 10, 2022 3:30 PM IST </span></div>
+                  <span> Next available - Friday, <br /> December 22, 2024 3:30 PM IST </span></div>
 
                 <div class="tw-mt-4 tw-flex tw-flex-col tw-space-y-2" style={{ marginTop: "1rem", display: "flex", flexDirection: "column" }}>
                   <div class="tw-inline-block">

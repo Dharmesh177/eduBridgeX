@@ -27,6 +27,7 @@ import EventPage from './Components/Event/EventPage';
 import ResourcePage from './Components/Resource/ResourcePage';
 import MHistory from './Components/UniversityProfile/MHistory';
 import Myprofilehistory from './Components/Profile/MyProfileHistory';
+import {Helmet} from "react-helmet";
 import MResources from './Components/UniversityProfile/MResources';
 import StudentProfile from './Components/Profile/StudentProfile';
 import MyProfile from './Components/Profile/MyProfile';
@@ -50,6 +51,7 @@ import ViewAllJobs from './Components/recruitment/ViewAllJobs';
 import JobList from './Components/Employment/users/Jobs';
 import AddCourse from './Components/Course/AddCourse'
 import CourseList from './Components/Course/CourseList'
+import Landing from "./screens/Landing"
 import ManageCourse from './Components/Course/ManageCourse';
 import CourseOfMentor from './Components/Employment/CourseOfMentor';
 
@@ -59,6 +61,12 @@ function App() {
 
   return (
     <div className="App">
+    <Helmet>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;800&display=swap" rel="stylesheet" />
+  </Helmet>
+  
     <BrowserRouter>
     <Routes>
       <Route index path="/" element={<Home/>} />
@@ -99,6 +107,9 @@ function App() {
       <Route index path="/jobs" element={<JobList/>} />
       <Route index path="/course" element={<CourseList/>} />
       <Route index path="/add_course" element={<AddCourse/>} />
+      <Route index path="/landing" element={<Landing/>} />
+      
+
       <Route index path="/manage_course" element={<ManageCourse/>} />
       <Route index path="/CourseOfMentor" element={<CourseOfMentor />} />
 
