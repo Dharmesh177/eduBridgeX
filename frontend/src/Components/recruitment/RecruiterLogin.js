@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Grid,
   TextField,
@@ -44,6 +44,8 @@ const useStyles = makeStyles((theme) => ({
 const RecruiterLogin = (props) => {
   const classes = useStyles();
   const navigate = useNavigate();
+  const cookies = new Cookies();
+
 //   const setPopup = useContext(SetPopupContext);
 
 //   const [loggedin, setLoggedin] = useState(isAuth());
@@ -81,16 +83,23 @@ const RecruiterLogin = (props) => {
     });
   };
 
+
+  useEffect(() => {
+    const token = cookies.get('RecruiterToken');
+    if(token) {
+      navigate('/employ_dashboard')
+    }
+  },[])
+
   const handleLogin = async () => {
     const res = await axios.post("http://localhost:5000/recruiter/login", loginDetails);
     if (res.status === 200) {
       console.log("res.data", res.data);
-      const cookies = new Cookies();
 
       cookies.set("RecruiterToken", res.data.token, { path: "/" });
 
       alert("You're Login successfully, now Please Move on !!!")
-      navigate("/employ_dashboard", {state: {email: res.data.user.email}});
+      navigate("/employ_dashboard");
     } else {
       console.log("res.message", res.message);
       alert("Failed to Register !!!!")

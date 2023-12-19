@@ -105,6 +105,30 @@ const addMentorwithId = async (req, res) => {
         })
     }
 
+};
+
+const addNewMentor = async (req,res) => {
+    try {
+        const formdata = req.body;
+        const newMentor = new mentor({
+            name: formdata.name,
+            email: formdata.email,
+            moblle: formdata.mobile,
+            password: formdata.password,
+            language: formdata.language,
+            intro: formdata.intro,
+            // qualification: formdata.qualification,
+            institute: formdata.institute,
+            photo: formdata.photo,
+            district: formdata.district,
+            state: formdata.state,
+            expertise: formdata.expertise,
+            // docLink: formdata.docLink,
+        });
+        await newMentor.save();
+    } catch (err) {
+        console.log(err);
+    }
 }
 
-module.exports = { getAllMentors, getMentorById, addMentorwithId, getRecommendedMentors };
+module.exports = { getAllMentors, getMentorById, addMentorwithId, getRecommendedMentors, addNewMentor };

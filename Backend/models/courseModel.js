@@ -48,6 +48,10 @@ const courseSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: "link.to.course",
+    },
+    provider: {
+        type: String,
+        required: true,
     }
 },{timestamps: true},);
 

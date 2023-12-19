@@ -86,3 +86,17 @@ exports.deleteAllCourse = async (req,res) => {
         console.log("error while deleteAllCourse");
     }
 }
+
+exports.getCourseOfMentor = async (req,res) => {
+    try {
+        const result = await Course.find({provider: req.params.email});
+        if(result) {
+            res.status(200).json(result);
+        } else {
+            res.status(200).json({"msg": "Error ]fetching mentor wise course"});
+            return;
+        }
+    } catch (err) {
+        console.log(err);
+    }
+}

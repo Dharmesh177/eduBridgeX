@@ -50,9 +50,8 @@ import ViewAllJobs from './Components/recruitment/ViewAllJobs';
 import JobList from './Components/Employment/users/Jobs';
 import AddCourse from './Components/Course/AddCourse'
 import CourseList from './Components/Course/CourseList'
-import LobbyScreen from './Components/videoChat/Lobby';
-import RoomPage from './Components/videoChat/room';
 import ManageCourse from './Components/Course/ManageCourse';
+import CourseOfMentor from './Components/Employment/CourseOfMentor';
 
 
 function App() {
@@ -101,6 +100,7 @@ function App() {
       <Route index path="/course" element={<CourseList/>} />
       <Route index path="/add_course" element={<AddCourse/>} />
       <Route index path="/manage_course" element={<ManageCourse/>} />
+      <Route index path="/CourseOfMentor" element={<CourseOfMentor />} />
 
       </Routes>
   
