@@ -28,7 +28,7 @@ router.get("/job/:id",function(req,res){
             console.log(resp);
             return resp;
         })
-        .catch(resp => {
+        .catch(err => {
             res.status(400).json(err);
             console.log(err);
             return err;
@@ -138,8 +138,8 @@ router.post("/salaryfilter",(req,res) => {
 
 // find all job from perticular recruiter
 router.post("/job/view",(req,res) => {
-    var email = req.body.email_rec;
-    Job.find({email_recruiter: email , status:"present" , deadline_of_application : { $gt : Date.now() } })
+    var email = req.body.email;
+    Job.find({email_recruiter: email})
     .then(resp => {
         res.status(200).json(resp);
         console.log(resp);
@@ -147,19 +147,35 @@ router.post("/job/view",(req,res) => {
     })
 });
 
+router.get('/jobsOf/:recEmail', async (req,res) => {
+    try {
+        const email = req.params.recEmail.toString();
+        // console.log(email);
+        const result = await Job.find({email_recruiter: email});
+        // console.log(result);
+        res.json(result);
+    } catch (err) {
+        console.log(err);
+    }
+})
+
 // delete a job by recruiter
-router.post("/job/delete",(req,res) => {
-    var id = req.body.id;
-    var query = { _id: id };
-    var set = { $set: { status: "deleted" } };
-    Job.updateMany(query , set , function(err , resp){
-        if (err) throw err;
-    })
-    .then(resp => {
-        res.status(200).json(resp);
-        console.log(resp);
-        return resp;
-    })
+router.get("/deleteJob/:id",async (req,res) => {
+    var id = req.params.id;
+    try {
+        const result = await Job.deleteOne({id});
+        if(result) {
+            // console.log(id);
+            res.status(200).json({"msg": "job deleted successfull"});
+        } else {
+            res.status(200).json({"msg": "some error occurred"});
+        }
+    } catch (err) {
+        console.log("error while deleing job by id");
+        console.log(err);
+    }
+
+    
 });
 
 // get a job by id
@@ -177,10 +193,8 @@ router.post("/get_a_job_by_id",(req,res) => {
 });
 
 // Add a job
-router.post('/job/add', (req, res) => {
-    console.log(req);
-    Job.findOne({email_recruiter : req.body.email_recruiter , title:req.body.title})
-    .then(jobb =>{
+router.post('/job/add', async (req, res) => {
+    // console.log(req.body);
         let job = new Job({
             title: req.body.title,
             max_applications: req.body.max_applications,
@@ -196,16 +210,13 @@ router.post('/job/add', (req, res) => {
             apply_link: req.body.apply_link,
             others: req.body.others
         });
-        console.log(job);
-        job.save()
-        .then(job => {
-            res.status(200).json(job);
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(400).send(err);
-        });
-    })
+        // console.log(job);
+        const result = await job.save();
+        if(result) {
+            res.status(200).json({"msg": "new job added successfull"});
+        } else {
+            res.status(200).json({"msg": "some error occurred"});
+        }
 });
 
 // Add a job

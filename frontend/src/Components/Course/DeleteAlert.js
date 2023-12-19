@@ -5,15 +5,20 @@ export default function DeleteAlert({ fun, id }) {
     fun();
   };
 
-
   const delete_job_by_id = () => {
-    fetch(`http://localhost:5000/jobs/deleteJob/${id}`)
+    
+    fetch(`http://localhost:5000/api/Course/deleteCourseById/${id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      
+    })
       .then(response => response.json())
       .then(data => {
-        // console.log('Job deleted:', data);
+        console.log('Job deleted:', data);
         // Call onDelete callback to handle any additional logic in the parent component
-        alert("Job Deleted Successfully");
-        // refreshFun(prev => !prev);
+       
       })
       .catch(error => {
         console.error('Error deleting job:', error);
@@ -21,13 +26,14 @@ export default function DeleteAlert({ fun, id }) {
       fun()
   };
   
+
   return (
     <div className="flex items-center justify-center h-[100vh] w-full fixed bg-[#00000070]">
         <div class="rounded-lg bg-white p-8 shadow-2xl items-center w-[50hv]">
           <h2 class="text-lg font-bold ">Are you sure you want to delete that?</h2>
 
           <p class="mt-2 text-sm text-gray-500">
-            Doing that will delete data from database which will not display for any user
+            Doing that will delete data from database which will not display for any user {id}
           </p>
 
           <div class="mt-4 flex gap-2 justify-between">

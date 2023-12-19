@@ -108,7 +108,7 @@ const saveMentor = async (req, res, email) => {
         newMentor.district = req.body.district
         newMentor.state = req.body.state
         newMentor.expertise = req.body.expertise
-        newMentor.docLink = docLinks
+        // newMentor.docLink = docLinks
 
         await newMentor.save()
         res.status(200).json({
@@ -128,10 +128,10 @@ const saveMentor = async (req, res, email) => {
 
 const loginMentor = async (req, res, next) => {
 
-    const { email, password } = req.body
+    var { email, password } = req.body;
     try {
         // console.log("Email:",email," pass : ",password);
-        const old = await mentorModel.findOne({ email: email })
+        const old = await mentorModel.findOne({ email: email });
         if (!old) {
             res.status(400).json({
                 success: false,
@@ -139,12 +139,11 @@ const loginMentor = async (req, res, next) => {
             })
         }
         else {
-            // console.log("old user",old);
-            const checkPass = bcrypt.compare(password, old.password)
+            const checkPass = await bcrypt.compare(password, old.password);
+            console.log(checkPass);
             if (checkPass) {
                 const key = process.env.Key
-                console.log("old(Json) ", old.email);
-                const token = jwt.sign({ email: old.email }, key, { expiresIn: 30 * 24 * 60 * 60 })
+                const token = jwt.sign({ email: old.email, id: old._id }, key, { expiresIn: 30 * 24 * 60 * 60 })
                 res.cookie("jwtToken", token, {
                     httpOnly: true,
                     sameSite: "strict"

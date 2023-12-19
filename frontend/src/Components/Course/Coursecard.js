@@ -19,16 +19,16 @@ export default function Coursecard({ course }) {
                 {course.description}
               </p>
               <div class="mt-3  text-xs">
-                <div className="flex flex-rowpt-4">
-                  <div className="bg-green-100 rounded-lg basis-1/3 p-2 mr-2">
+                <div className="flex flex-row pt-2 flex-wrap">
+                  <div className="bg-green-100 rounded-lg w-[150px] p-2 mr-2 mt-2">
                     {/* <div className="font-light text-m">Difficulty Level</div> */}
                     <div className="font-medium text-lg">{course.difficultyLevel}</div>
                   </div>
-                  <div className="bg-green-100 rounded-lg basis-1/3 p-2 mr-2">
+                  <div className="bg-green-100 rounded-lg w-[150px] p-2 mr-2 mt-2">
                     {/* <div className="font-light text-m">Duration</div> */}
                     <div className="font-medium text-lg">{course.duration} Hours</div>
                   </div>
-                  <div className="bg-green-100 rounded-lg basis-1/3 p-2 mr-2">
+                  <div className="bg-green-100 rounded-lg w-[150px] p-2 mr-2 mt-2">
                     {/* <div className="font-light text-m">Rating</div> */}
                     <div className="flex flex-row justify-center">
                       <div className="font-medium text-lg">4.7 &#9733;</div>
@@ -37,7 +37,7 @@ export default function Coursecard({ course }) {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-row-reverse">
+              <div className="flex flex-row-reverse mt-4">
                 <div class="mt-4 md:mt-8">
                   <a
                     href="#"
@@ -78,19 +78,35 @@ export default function Coursecard({ course }) {
             <div className="text-m py-2">Uploaded on 21 March</div>
             <div className="text-left font-semibold text-left pt-3">what You Will Learn:</div>
             <ul className="text-left ml-4 list-disc">
-                {course.whatYouWillLearn.join(", ")}
+            {course.whatYouWillLearn.map(itm => {
+                  return (
+                    <li className="ml-5">   {itm}</li>
+                  )
+                })}
             </ul>
         </div>
         <div>
             <div className="text-left font-semibold text-left mt-4">Requirements</div>
             <ul className="text-left ml-4 list-disc">
-                {course.requirements.join(", ")}
+            {course.requirements.map(itm => {
+                  return (
+                    <li className="ml-5">   {itm}</li>
+                  )
+                })}
             </ul>
         </div>
         <div>
             <div className="flex flex-row">
         <div className="text-m py-4 font-semibold mr-2">Category: </div>
-        <div className="text-m py-4 font">{course.category.join(", ")}</div>
+        <div className="text-m py-4 font flex">
+          {course.category.map(itm => {
+            return (
+              <div className="whitespace-nowrap rounded-full w-max bg-purple-100 px-2.5 py-1.5 text-sm text-purple-700 mr-3 cursor-pointer transition-transform transform hover:scale-105 hover:bg-purple-300 duration-500 -mt-[3px]">
+                  {itm}
+                </div>
+            )
+          })}
+        </div>
 
         </div>
         

@@ -8,18 +8,18 @@ import {
   Paper,
 } from "@material-ui/core";
 
-import { Redirect } from "react-router-dom";
-
 import InputLabel from "@mui/material/InputLabel";
 import OutlinedInput from "@mui/material/OutlinedInput";
 import FormControl from "@mui/material/FormControl";
 import EmailInput from "../lib/EmailInput";
 import EmailInput2 from "../lib/PasswordInput";
 import axios from "../../helpers/axios";
+import { Link, useNavigate } from "react-router-dom";
 // import { SetPopupContext } from "../App";
 
 // import apiList from "../lib/apiList";
 // import isAuth from "../lib/isAuth";
+
 
 const useStyles = makeStyles((theme) => ({
   body: {
@@ -48,6 +48,8 @@ const RecruiterSignUp = (props) => {
   //   const setPopup = useContext(SetPopupContext);
 
   //   const [loggedin, setLoggedin] = useState(isAuth());
+
+  const navigate = useNavigate();
 
   const [loginDetails, setLoginDetails] = useState({
     name: "",
@@ -107,7 +109,7 @@ const RecruiterSignUp = (props) => {
     if (res.status === 200) {
       console.log("res.data", res.data);
       alert("You're SIgn`up successfully, now Please Login !!!")
-    //   navigate("/slogin");
+      navigate("/RecruiterLogin");
     } else {
       console.log("res.message", res.message);
       alert("Failed to Register !!!!")
@@ -235,6 +237,7 @@ const RecruiterSignUp = (props) => {
               Register
             </Button>
           </Grid>
+          <p className="text-lg">Already Logged in? Click <Link to="/RecruiterLogin"className="font-semibold text-blue-800 underline">Here</Link> To Log in</p>
         </Grid>
       </Paper>
     </>

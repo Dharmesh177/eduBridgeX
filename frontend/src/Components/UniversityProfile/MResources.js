@@ -1,31 +1,34 @@
 
 import React, { useEffect, useState } from "react";
-import MaterialIcon, { colorPalette } from "material-icons-react";
-import Button from "../Common/Button";
-import ProfileInputField from "../Profile/ProfileInputField";
-import ProfileInputFieldExtended from "../Profile/ProfileInputFieldExtended";
+// import MaterialIcon, { colorPalette } from "material-icons-react";
+// import Button from "../Common/Button";
+// import ProfileInputField from "../Profile/ProfileInputField";
+// import ProfileInputFieldExtended from "../Profile/ProfileInputFieldExtended";
 import SideBarOption from "../Profile/SideBarOption";
-import axios from "axios";
+// import axios from "axios";
 import "./UniProfile.css";
 import { NavLink } from "react-router-dom";
 // import Cookies from 'universal-cookie'
-import { Navigate } from "react-router-dom";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
-import EventCard from "../Event/EventCard";
-import Addresources from "./Addresources";
-
+import { useNavigate } from "react-router-dom";
+// import AccountBoxIcon from "@mui/icons-material/AccountBox";
+// import EventCard from "../Event/EventCard";
+// import Addresources from "./Addresources";
+import Cookies from 'universal-cookie';
+import ListCourses from './ListCourses';
 
 
 // import Popup from 'reactjs-popup';
 function MResources() {
     const [tagList, setTaglist] = useState([]);
+
+    const [recOpen, setRecOpen] = useState(true);
+
   const [explist, setExplist] = useState([]);
-
   const [timeframe, setTimeFrame] = useState("");
-
   const [timeframe2, setTimeFrame2] = useState("");
 
-  //  const cookies = new Cookies();
+   const cookies = new Cookies();
+   const navigate = useNavigate();
   //  const UserType = cookies.get('userType');
 
   //  const CollegeId = cookies.get('uTypeId')
@@ -73,6 +76,14 @@ function MResources() {
   // useEffect(() => {
   //   sendRequest().then((data) => setUser(data.college));
   // }, []);
+
+  const fetchResourseOfMentor = async (req,res) => {
+    try {
+      
+    } catch (err) {
+      
+    }
+  }
 
   return (
     <div>
@@ -156,7 +167,15 @@ function MResources() {
             style={{ textDecoration: "none", color: "black" }}
             to="/dashboard"
           >
-            <SideBarOption icon="dashboard" title="Dashboard" />
+            <SideBarOption icon="dashboard" title="Resourses" />
+          </NavLink>
+
+          <NavLink
+            className=""
+            style={{ textDecoration: "none", color: "black" }}
+            to="/CourseOfMentor"
+          >
+            <SideBarOption icon="book" title="Courses" />
           </NavLink>
 
           <NavLink
@@ -183,97 +202,22 @@ function MResources() {
             <SideBarOption icon="history" title="History" />
           </NavLink>
 
-
-          
-
           <NavLink
             className=""
             style={{ textDecoration: "none", color: "black" }}
-            to="/Logout"
+            to="/MentorLogin"
+            onClick={()=>{
+              cookies.remove('MentorToken', {path: "/"});
+              navigate('/MentorLogin')
+            }}
           >
             <SideBarOption icon="logout" title="Logout" />
           </NavLink>
         </div>
         </div>
-        <div
-          style={{
-            border: "2px solid #F5F7F9",
-            // height: "-webkit-fill-available",
-            // marginTop: "auto",
-            // marginBottom: "auto",
-            marginLeft: 20,
-          }}
-        >
-          {/* this is for line */}
+        <div className="bg-red-400 w-full">
+          {recOpen && <ListCourses />}
         </div>
-
-        {/* profile section */}
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            marginRight: "auto",
-            marginLeft: "auto",
-            textAlign: "start",
-            marginLeft: 40,
-            width: "-webkit-fill-available",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              marginTop: 20,
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "poppins",
-                fontWeight: "600",
-                fontSize: 26,
-                marginLeft: 30,
-              }}
-            >
-              Your Events
-            </div>
-            <div
-              style={{
-                border: "2px solid #F5F7F9",
-                marginLeft: "auto",
-                marginRight: "auto",
-                height: 1,
-                marginTop: 5,
-                width: "-webkit-fill-available",
-              }}
-            ></div>
-          </div>
- 
-   
-
-          <div className="container">
-          <div className="row">
-         resources will come here
-         
-          </div>
-          </div>
-          
-        
-              <div
-                style={{
-                  marginTop: 20,
-                  justifyContent: "end",
-
-                  display: "flex",
-                  marginBottom: "50px",
-                  marginRight:"55px"
-                }}
-              >
-                  <Addresources/>
-         
-              </div>
-            </div>
-          
-          
       </div>
     }
   </>

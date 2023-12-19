@@ -29,42 +29,23 @@ const addresources = async (req, res, next) => {
 }
 const getAllresources = async (req, res, next) => {
 
-    let myresources;
     try {
-        myresources = await resources.find().populate('provider');
+        const result = await resources.find();
+        // console.log(result);
+        res.status(200).json(result);
+    } catch (err) {
+        console.log(err);
     }
-    catch (err) {
-        console.log("Error while fetching all resources : ", err);
-        res.status(400).json({
-            success: false,
-            message: "Can not get resources"
-        })
-    }
-    if (!myresources) {
-        return res.status(404).json({
-            success: false,
-            message: "Resources can not be found"
-        })
-    }
-    res.status(200).json({
-        success: true,
-        myresources
-    })
 
-}
-
-const getResourcesByMentorId = async (req, res, next) => {
-
-    // let id = req.params;
-    // let myresources;
+    // var myresources;
     // try {
-    //     myresources = resources.findOne({ _id: id }).populate('provider')
+    //     myresources = await resources.find().populate('provider');
     // }
     // catch (err) {
-    //     console.log("Error while fetching resources by :", err);
+    //     console.log("Error while fetching all resources : ", err);
     //     res.status(400).json({
     //         success: false,
-    //         message: "Resources are not avaiable"
+    //         message: "Can not get resources"
     //     })
     // }
     // if (!myresources) {
@@ -77,23 +58,53 @@ const getResourcesByMentorId = async (req, res, next) => {
     //     success: true,
     //     myresources
     // })
-    const { id } = req.params
 
-    if (id) {
-        resources.findOne({ provider: id })
-            .populate('provider')
-            .exec((error, resources) => {
-                if (error) {
-                    return res.status(400).send({ error: error })
-                }
-                if (resources) {
-                    return res.status(200).send({ resources })
-                }
+}
 
+const getResourcesByMentorId = async (req, res, next) => {
+
+    // var id = req.params;
+    var myresources;
+    var { id } = req.params
+    try {
+        // console.log(id);
+        myresources = await resources.find({ provider: id }).populate('provider');
+        // console.log(myresources);
+
+        if (!myresources) {
+            res.status(404).json({
+                success: false,
+                message: "Resources can not be found"
             })
-    } else {
-        return res.status(200).send({ error: "params required" })
+        } else {
+            res.status(200).json({
+                success: true,
+                myresources
+            })
+        }
     }
+    catch (err) {
+        console.log("Error while fetching resources by :", err);
+        res.status(400).json({
+            success: false,
+            message: "Resources are not avaiable"
+        })
+    }
+    // if (id) {
+    //     resources.findOne({ provider: id })
+    //         .populate('provider')
+    //         .exec((error, resources) => {
+    //             if (error) {
+    //                 return res.status(400).send({ error: error })
+    //             }
+    //             if (resources) {
+    //                 return res.status(200).send({ resources })
+    //             }
+
+    //         })
+    // } else {
+    //     return res.status(200).send({ error: "params required" })
+    // }
 }
 
 module.exports = { addresources, getAllresources, getResourcesByMentorId };

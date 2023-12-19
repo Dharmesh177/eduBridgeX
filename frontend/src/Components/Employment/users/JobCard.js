@@ -79,24 +79,24 @@ export default function JobsCard({ job }) {
             {formatTimeAgo(job.date_of_posting)}
           </span>
         </div>
-        <div className="flex pt-4">
-          <div className="bg-gray-100 rounded-lg basis-1/5 p-2 mr-2">
+        <div className="flex pt-4 flex-wrap">
+          <div className="bg-gray-100 rounded-lg w-[210px] p-2 mr-2 mt-2">
             <div className="font-light">Salary Per Month</div>
             <div className="font-medium">{job.salary_per_month}</div>
           </div>
-          <div className="bg-gray-100 rounded-lg basis-1/5 p-2 mr-2">
+          <div className="bg-gray-100 rounded-lg w-[210px] p-2 mr-2 mt-2">
             <div className="font-light">Deadline</div>
             <div className="font-medium">{deadline}</div>
           </div>
-          <div className="bg-gray-100 rounded-lg basis-1/5 p-2 mr-2">
+          <div className="bg-gray-100 rounded-lg w-[210px] p-2 mr-2 mt-2">
             <div className="font-light">Job Type</div>
             <div className="font-medium">{job.type_of_job}</div>
           </div>
-          <div className="bg-gray-100 rounded-lg basis-1/5 p-2 mr-2">
+          <div className="bg-gray-100 rounded-lg w-[210px] p-2 mr-2 mt-2">
             <div className="font-light">Number Of Opening</div>
             <div className="font-medium">{job.max_applications}</div>
           </div>
-          <div className="bg-gray-100 rounded-lg basis-1/5 p-2 mr-2">
+          <div className="bg-gray-100 rounded-lg w-[210px] p-2 mr-2 mt-2">
             <div className="font-light">{job.rate_count} Rating</div>
             <div className="font-medium">{job.rating} out of 5</div>
           </div>

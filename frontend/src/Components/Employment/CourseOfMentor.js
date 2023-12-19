@@ -1,11 +1,25 @@
+// import React from 'react';
+
+// const CourseOfMentor = () => {
+//   return (
+//     <div>
+      
+//     </div>
+//   );
+// };
+
+// export default CourseOfMentor;
+
+
 import React, { useEffect, useState } from "react";
-import "./dashboard.css";
+import "../Employment/dashboard.css";
 import DeleteAlert from "./DeleteAlert";
 import JobList from "./Joblist";
 import AddJob from "./AddJob";
 import { Link } from "react-router-dom";
 import Cookie from 'universal-cookie';
 import { useNavigate } from 'react-router-dom';
+import CourseOfMentorList from '../Course/CourseOfMentorList';
 
 import Employedit from "./Employedit"
 export default function Employ_Dashboard() {
@@ -64,13 +78,13 @@ const delete_card_visible = () =>{
               <ul className="side_div_ul">
                 <li>
                   <a href="#" className="side_div_li" onClick={jobs_visible}>
-                    Manage Jobs
+                    Manage Course
                   </a>
                 </li>
 
                 <li>
                   <Link to="#" className="side_div_li" onClick={visible_addjob}>
-                    Add New Job
+                    Add New Course
                   </Link>
                 </li>
 
@@ -84,12 +98,11 @@ const delete_card_visible = () =>{
                   <p className="side_div_li pointer-curser"
                     onClick={()=> {
                       const cookie = new Cookie();
-                      cookie.remove('RecruiterToken', { path: "/" });
-                      navigate('/RecruiterLogin')
+                      cookie.remove('MentorToken', { path: "/" });
+                      navigate('/MentorLogin');
                     }}
                   >
                     Log Out
-                    
                   </p>
                 </li>
               </ul>
@@ -98,7 +111,7 @@ const delete_card_visible = () =>{
         </div>
 
         <div className="right_side_div1">
-          {showjobs && <JobList fun={delete_card_visible} set_job_id={set_job_id} recEmail="dvala@gmail.com"/>}
+          {showjobs && <CourseOfMentorList fun={delete_card_visible} set_job_id={set_job_id}/>}
           {show_employ_edit_page && <Employedit/>}
           {addjob && <AddJob/> }
           {/* { <AddJob/> } */}

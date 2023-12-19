@@ -21,7 +21,7 @@ export default function Login(props) {
       email: email,
       password: pass,
     };
-    console.log("res.data", data);
+    // console.log("res.data", data);
     try {
       const res = await axios.post("/auth/studentlogin", data);
       if (res.status === 200) {
@@ -30,10 +30,8 @@ export default function Login(props) {
         
         const cookies = new Cookies();
 
-        cookies.set("authToken", res.data.token, { path: "/" });
-        cookies.set("isAuth", "true", { path: "/" });
-        
-        
+        cookies.set("UserToken", res.data.token, { path: "/" });
+        // cookies.set("isAuth", "true", { path: "/" });
         navigate("/");
       } else {
         console.log("res.message", res.message);

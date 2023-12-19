@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   Grid,
   TextField,
@@ -8,7 +8,8 @@ import {
   Paper,
 } from "@material-ui/core";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Cookies from 'universal-cookie';
 
 
 import EmailInput from "../lib/EmailInput";
@@ -42,6 +43,9 @@ const useStyles = makeStyles((theme) => ({
 
 const RecruiterLogin = (props) => {
   const classes = useStyles();
+  const navigate = useNavigate();
+  const cookies = new Cookies();
+
 //   const setPopup = useContext(SetPopupContext);
 
 //   const [loggedin, setLoggedin] = useState(isAuth());
@@ -79,12 +83,23 @@ const RecruiterLogin = (props) => {
     });
   };
 
+
+  useEffect(() => {
+    const token = cookies.get('RecruiterToken');
+    if(token) {
+      navigate('/employ_dashboard')
+    }
+  },[])
+
   const handleLogin = async () => {
     const res = await axios.post("http://localhost:5000/recruiter/login", loginDetails);
     if (res.status === 200) {
       console.log("res.data", res.data);
+
+      cookies.set("RecruiterToken", res.data.token, { path: "/" });
+
       alert("You're Login successfully, now Please Move on !!!")
-    //   navigate("/recuriterDashboard");
+      navigate("/employ_dashboard");
     } else {
       console.log("res.message", res.message);
       alert("Failed to Register !!!!")
@@ -133,6 +148,15 @@ const RecruiterLogin = (props) => {
             Login
           </Button>
         </Grid>
+        {/* <Button
+            variant="contained"
+            color="primary"
+            onClick={handleLogin}
+            className={classes.submitButton}
+          >
+            Haven't Signed up Yet? Sign Up
+          </Button> */}
+          <p className="text-lg">Havent Signed Up Yet? Click <Link to="/RecruiterSignUp"className="font-semibold text-blue-800 underline">Here</Link> To Sign Up</p>
       </Grid>
     </Paper>
   </>

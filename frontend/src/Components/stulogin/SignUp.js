@@ -54,7 +54,7 @@ const SignUp = () => {
     if (res.status === 200) {
       console.log("res.data", res.data);
       alert("You're SIgnup successfully, now Please Login !!!")
-      navigate("/slogin");
+      navigate("/UserLogin");
     } else {
       console.log("res.message", res.message);
       setError(res.message);

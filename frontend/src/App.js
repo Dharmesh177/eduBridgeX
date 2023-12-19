@@ -54,8 +54,13 @@ import CourseList from './Components/Course/CourseList'
 import LobbyScreen from './Components/videoChat/Lobby';
 import Landing from "./screens/Landing"
 import RoomPage from './Components/videoChat/room';
+import ManageCourse from './Components/Course/ManageCourse';
+import CourseOfMentor from './Components/Employment/CourseOfMentor';
+
 
 function App() {
+
+
   return (
     <div className="App">
     <Helmet>
@@ -95,7 +100,7 @@ function App() {
       <Route index path="/becomementor" element={<BecomeMenter/>} />
       <Route index path="/tmp" element={<AddJob/>} />
       <Route index path="/RecruiterLogin" element={<RecruiterLogin/>} />
-      <Route index path="/tmp3" element={<RecruiterSignUp/>} />
+      <Route index path="/RecruiterSignUp" element={<RecruiterSignUp/>} />
       <Route index path="/schemes" element={<Schemes/>} />
       <Route index path="/schemes_form" element={<DynamicForm/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />
@@ -107,6 +112,8 @@ function App() {
       <Route index path="/landing" element={<Landing/>} />
       
 
+      <Route index path="/manage_course" element={<ManageCourse/>} />
+      <Route index path="/CourseOfMentor" element={<CourseOfMentor />} />
 
       </Routes>
   
