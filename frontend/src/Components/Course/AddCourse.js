@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./form.css";
 import Header from "../Common/Header";
 import Axios from "axios";
+import Cookie from 'universal-cookie';
+import { jwtDecode } from "jwt-decode";
+
+
 const AddCourse = ({ add_course_page_disable }) => {
   const [formData, setFormData] = useState({
     // Initialize your form fields here
@@ -15,7 +19,10 @@ const AddCourse = ({ add_course_page_disable }) => {
     instructor: "",
     courseUrl: "",
     videos: "video link",
+    provider: "",
   });
+
+  const cookie = new Cookie()
 
   const back_button_click = () => {
     add_course_page_disable();
@@ -30,6 +37,8 @@ const AddCourse = ({ add_course_page_disable }) => {
   const [requirement, setrequirements] = useState({
     requirements: [],
   });
+
+  const [mentorEmail, setMentorEmail] = useState("");
 
   const [loading, setLoading] = useState(false);
 
@@ -109,6 +118,13 @@ const AddCourse = ({ add_course_page_disable }) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
+
+  useEffect(()=> {
+    const token = cookie.get('MentorToken');
+    const tokenData = jwtDecode(token);
+    setMentorEmail(tokenData.email);
+    formData.provider = tokenData.email;
+  })
 
   function add_category() {
     var newEligibilityDiv = document.createElement("div");
@@ -467,6 +483,20 @@ const AddCourse = ({ add_course_page_disable }) => {
                 name="instructor"
                 value={formData.instructor}
                 onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label className="sr-only" htmlFor="name">
+                Provider Email
+              </label>
+              <input
+                className="w-full rounded-lg border-gray-400 border p-3 text-m text-black-600 opacity-50 cursor-not-allowed"
+                placeholder="Provider Email"
+                type="text"
+                name="provider"
+                // onChange={handleInputChange}
+                value={mentorEmail}
+
               />
             </div>
             <div>

@@ -15,17 +15,20 @@ import { useNavigate } from "react-router-dom";
 // import Addresources from "./Addresources";
 import Cookies from 'universal-cookie';
 import ListCourses from './ListCourses';
+import { jwtDecode } from "jwt-decode";
 
 
 // import Popup from 'reactjs-popup';
 function MResources() {
-    const [tagList, setTaglist] = useState([]);
+    // const [tagList, setTaglist] = useState([]);
 
     const [recOpen, setRecOpen] = useState(true);
 
-  const [explist, setExplist] = useState([]);
-  const [timeframe, setTimeFrame] = useState("");
-  const [timeframe2, setTimeFrame2] = useState("");
+  // const [explist, setExplist] = useState([]);
+  // const [timeframe, setTimeFrame] = useState("");
+  // const [timeframe2, setTimeFrame2] = useState("");
+
+
 
    const cookies = new Cookies();
    const navigate = useNavigate();
@@ -33,35 +36,35 @@ function MResources() {
 
   //  const CollegeId = cookies.get('uTypeId')
 
+  const [mentorEmail, setMentorEmail] = useState("");
+  // const [showw, setshoww] = useState("false");
 
-  const [showw, setshoww] = useState("false");
+  // const Handle_toggle = () => {
+  //   const img = document.getElementById("pop_Container");
+  //   console.log(img);
+  // };
 
-  const Handle_toggle = () => {
-    const img = document.getElementById("pop_Container");
-    console.log(img);
-  };
+  // const handleeditclick = () => {
+  //   setshoww("true");
+  //   console.log(showw);
+  // };
 
-  const handleeditclick = () => {
-    setshoww("true");
-    console.log(showw);
-  };
-
-  const handlesubmit = (e) => {
-    setshoww("false");
-  };
-  const setToTaglist = (e, k) => {
-    if (e.keyCode == 13) {
-      setTaglist([...tagList, k]);
-      e.target.value = "";
-    }
-  };
+  // const handlesubmit = (e) => {
+  //   setshoww("false");
+  // };
+  // const setToTaglist = (e, k) => {
+  //   if (e.keyCode == 13) {
+  //     setTaglist([...tagList, k]);
+  //     e.target.value = "";
+  //   }
+  // };
   
-  const setToExplist = (e, k) => {
-    if (e.keyCode == 13) {
-      setExplist([...tagList, k]);
-      e.target.value = "";
-    }
-  };
+  // const setToExplist = (e, k) => {
+  //   if (e.keyCode == 13) {
+  //     setExplist([...tagList, k]);
+  //     e.target.value = "";
+  //   }
+  // };
   // const [user, setUser] = useState();
 
   // const sendRequest = async () => {
@@ -77,13 +80,13 @@ function MResources() {
   //   sendRequest().then((data) => setUser(data.college));
   // }, []);
 
-  const fetchResourseOfMentor = async (req,res) => {
-    try {
-      
-    } catch (err) {
-      
-    }
-  }
+  useEffect(()=>{
+    const token = cookies.get('MentorToken');
+    const tokenData = jwtDecode(token);
+    setMentorEmail(tokenData.email);
+
+
+  },[]);
 
   return (
     <div>
@@ -131,7 +134,7 @@ function MResources() {
                   textAlign: "start",
                 }}
               >
-                Dharmesh Va..
+                {mentorEmail}
               </div>
 
               <div
@@ -151,9 +154,9 @@ function MResources() {
 
           {/* options */}
           <div
-          className="editing"
-          style={{ position: "sticky", top: "130px", padding: "10px" }}
-        >
+            className="editing"
+            style={{ position: "sticky", top: "130px", padding: "10px" }}
+          >
           <NavLink
             className=""
             style={{ textDecoration: "none", color: "black" }}
@@ -215,7 +218,7 @@ function MResources() {
           </NavLink>
         </div>
         </div>
-        <div className="bg-red-400 w-full">
+        <div className="w-full">
           {recOpen && <ListCourses />}
         </div>
       </div>
