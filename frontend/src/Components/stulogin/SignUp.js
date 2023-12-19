@@ -51,6 +51,7 @@ const SignUp = () => {
       name: name,
     };
     const res = await axios.post("/auth/studentsignup", data);
+    console.log(res);
     if (res.status === 200) {
       console.log("res.data", res.data);
       alert("You're SIgnup successfully, now Please Login !!!")

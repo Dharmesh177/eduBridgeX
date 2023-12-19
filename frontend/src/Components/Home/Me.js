@@ -3,9 +3,13 @@ import "./me.css"
 import Tabs from 'react-bootstrap/Tabs';
 import Tag from "../Common/Tag";
 import Tab from 'react-bootstrap/Tab';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+
 function Me(props) {
   const Tags = ['WEB', 'REACT', 'MERN', 'COUNCELLING'];
+  const navigate = useNavigate();
+
   const visibilityStyle = {
     backgroundColor: "#D5E3FE",
     color: "#2C5EFF",
@@ -139,10 +143,12 @@ function Me(props) {
                         Request a Call </button>
                     </a>
                   </div>
-                  <a href = '/profilehistory'>
-                    <button href="https://app.growthmentor.com/mentors/foti-panagio" target="_blank" class="search-bar-button edited1 edited2">
+                  {/* <a href = '/profilehistory'> */}
+                    <button class="search-bar-button edited1 edited2"
+                      onClick={()=>navigate('/profilehistory', {state: {id: props.id}})}
+                    >
                       View Profile </button>
-                  </a>
+                  {/* </a> */}
                 </div>
 
               </div>

@@ -55,6 +55,7 @@ import Landing from "./screens/Landing"
 import ManageCourse from './Components/Course/ManageCourse';
 import CourseOfMentor from './Components/Employment/CourseOfMentor';
 import ProfilePage from './Components/UniversityProfile/ProfilePage';
+import UserProfile from './Components/Profile/UserProfile';
 
 
 function App() {
@@ -88,7 +89,7 @@ function App() {
       <Route index path="/ssignup" element={<SSignUp/>} />
       <Route index path="/event" element={<EventPage/>} />
       <Route index path="/resources" element={<ResourcePage/>} />
-      <Route index path="/profile" element={<Profile/>} />
+      <Route index path="/profile" element={<UserProfile />} />
       <Route index path="/profilehistory" element={<StudentProfile/>} />
       <Route index path="/0" element={<MyProfile/>} />
       <Route index path="/pop" element={<Pop/>} />
@@ -113,7 +114,10 @@ function App() {
 
       <Route index path="/manage_course" element={<ManageCourse/>} />
       <Route index path="/CourseOfMentor" element={<CourseOfMentor />} />
+
+
       <Route index path='/tmptmp' element={<ProfilePage />} />
+      <Route index path='/tmptmp2' element={<UserProfile />} />
 
       </Routes>
   

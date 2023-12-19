@@ -201,7 +201,7 @@ function MResources() {
             className=""
             style={{ textDecoration: "none", color: "black" }}
             onClick={()=>{
-              setRecOpen(true);
+              setRecOpen();
               setProfOpen(false);
             }}
             // to="/mentorresources"

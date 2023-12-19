@@ -280,6 +280,7 @@ export default function Home() {
                         <Me style={{ marginTop: "15px" }}
                             name={mentor?.name}
                             intro={mentor?.intro}
+                            id={mentor?._id}
                         />
                     )
                 })}
