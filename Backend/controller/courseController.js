@@ -17,6 +17,7 @@ exports.addNewCourse = async (req,res) => {
             rating: formdata.rating,
             numRating: formdata.numOfRating,
             courseLink: formdata.courseLink,
+            provider: formdata.provider,
         });
         const result = await newCourse.save();
         if(result) {
