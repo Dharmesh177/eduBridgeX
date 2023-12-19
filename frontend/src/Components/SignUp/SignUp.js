@@ -133,33 +133,13 @@ const SignUp = () => {
                         <button
                             onClick={handleClick}
                             className="sign-in-button"
-                            style={{ width: "80%", height: "6vh", marginTop: 17 }}
+                            style={{ width: "100%", height: "6vh", marginTop: 17 }}
                         >
-                            Sign In
+                            Sign Up
                         </button>
   
-  </NavLink>                      </div>
-                    <div style={{ textAlign: "center" }}>
-                        <button
-                            className="sign-in-with-google-button"
-                            style={{ height: "6vh" }}
-                        >
-                            <div style={{ display: "flex" }}>
-                                <div style={{ margin: "auto" }}>
-                                    <img src={google_logo} alt="" width="70%" height="70%" />
-                                </div>
-                                <div
-                                    style={{
-                                        fontFamily: "poppins",
-                                        fontWeight: "bold",
-                                        margin: "auto",
-                                    }}
-                                >
-                                    Sign in with Google
-                                </div>
-                            </div>
-                        </button>
-                    </div>
+                    </NavLink>                      </div>
+                
                 </div>
             </div>
         </>
