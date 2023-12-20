@@ -1,3 +1,4 @@
+import Axios from "axios";
 import React, { useEffect, useState } from "react";
 function formatDeadline(dateString) {
   const date = new Date(dateString);
@@ -44,6 +45,13 @@ export default function JobsCard({ job, fun, set_job_id }) {
     set_job_id(job._id)
   }
 
+  const handleEdit = async() => {
+    try {
+      const res = await Axios.get()
+    } catch (err) {
+      
+    }
+  }
   // console.log(time_ago);
   return (
     <>
@@ -65,12 +73,12 @@ export default function JobsCard({ job, fun, set_job_id }) {
             >
               DELETE
             </a>
-            <a
+            {/* <p
               class="inline-block rounded w-20 border border-indigo-600 bg-black px-3 py-2 text-sm font-medium text-white hover:bg-white hover:text-indigo-600 "
-              href={job.apply_link}
+              onClick={handleEdit}
             >
               EDIT
-            </a>
+            </p> */}
           </div>
         </div>
         <div className="text-left pt-3 -ml-1" id="i1">

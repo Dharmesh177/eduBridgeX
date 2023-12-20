@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
-
+import {
+  Button,
+  Grid,
+  Typography,
+  Modal,
+  Paper,
+  makeStyles,
+  TextField,
+  MenuItem,
+} from "@material-ui/core";
 import "./form.css";
 import Header from "../Common/Header";
 import Axios from "axios";
@@ -21,6 +30,8 @@ const AddCourse = ({ add_course_page_disable }) => {
     videos: "video link",
     provider: "",
   });
+  const [difficultyLevel, setDifficultyLevel] = useState('');
+  const difficultyLevels = ['Easy', 'Intermediate', 'Advanced'];
 
   const cookie = new Cookie()
 
@@ -310,16 +321,23 @@ const AddCourse = ({ add_course_page_disable }) => {
             <div className="flex flex-row justify-between">
               <div className="basis-1/2 pr-2">
                 <label className="sr-only" htmlFor="name">
-                  DifficultyLevel
+                Difficulty Level:
                 </label>
-                <input
+                <select
                   className="w-full rounded-lg border-gray-400 border p-3 text-m text-black-600 "
                   placeholder="Difficulty Level"
                   type="text"
                   name="difficultyLevel"
                   value={formData.difficultyLevel}
                   onChange={handleInputChange}
-                />
+                >
+                  <option value="">Select Difficulty Level</option>
+          {difficultyLevels.map((level) => (
+            <option key={level} value={level}>
+              {level}
+            </option>
+          ))}
+                  </select>
               </div>
               <div className="basis-1/2">
                 <label className="sr-only" htmlFor="name">

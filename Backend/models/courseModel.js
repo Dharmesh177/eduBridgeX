@@ -52,6 +52,14 @@ const courseSchema = new mongoose.Schema({
     provider: {
         type: String,
         required: true,
+    },
+    price: {
+        type: Number,
+        default: 0,
+    },
+    counter: {
+        type: Number,
+        default: 0,
     }
 },{timestamps: true},);
 

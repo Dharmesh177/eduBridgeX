@@ -129,4 +129,13 @@ const addNewMentor = async (req,res) => {
     }
 }
 
-module.exports = { getAllMentors, getMentorById, addMentorwithId, getRecommendedMentors, addNewMentor };
+const deleteMentorByEmail = async (rew,res) => {
+    try {
+        const result = await mentor.deleteOne({email: req.params.email});
+        res.status(200).json(result);
+    } catch (err) { 
+        console.log(err);
+    }
+}
+
+module.exports = { getAllMentors, getMentorById, addMentorwithId, getRecommendedMentors, addNewMentor, deleteMentorByEmail };

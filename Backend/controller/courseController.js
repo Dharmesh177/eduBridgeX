@@ -18,6 +18,7 @@ exports.addNewCourse = async (req,res) => {
             numRating: formdata.numOfRating,
             courseLink: formdata.courseLink,
             provider: formdata.provider,
+            price: formdata.price || 0,
         });
         const result = await newCourse.save();
         if(result) {
@@ -99,5 +100,15 @@ exports.getCourseOfMentor = async (req,res) => {
         }
     } catch (err) {
         console.log(err);
+    }
+};
+
+exports.increaseCounter = async (req,res) => {
+    try {
+        const result = await Course.findByIdAndUpdate(req.params.id, { $inc: { counter: 1 } }, { new: true })
+        console.log(result);
+        res.status(200).json(result);
+    } catch (err) {
+        res.status(500).json({"msg":"errorrrr"})
     }
 }

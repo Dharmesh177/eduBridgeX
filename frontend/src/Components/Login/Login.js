@@ -51,7 +51,7 @@ export default function Login(props) {
           marginTop: 38,
         }}
       >
-        Login
+       Mentor Login
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div
@@ -146,7 +146,7 @@ export default function Login(props) {
                     justifyContent: "center",
                   }}
                 >
-                  <div>Forgot Password?</div>
+                  {/* <div>Forgot Password?</div>
                   <div
                     style={{
                       color: "#2C5EFF",
@@ -155,7 +155,7 @@ export default function Login(props) {
                     }}
                   >
                     Click here
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </form>

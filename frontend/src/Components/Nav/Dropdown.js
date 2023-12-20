@@ -54,6 +54,9 @@ const Dropdown = () => {
           <p>
             <a href="/UserLogin">Student</a>
           </p>
+          <p>
+            <a href="/InstructorLogin">Instructor</a>
+          </p>
           {/* Add more dropdown content here */}
         </div>
       )}

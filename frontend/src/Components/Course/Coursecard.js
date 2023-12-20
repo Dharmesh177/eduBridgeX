@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Coursecard({ course }) {
+
+  const navigate = useNavigate();
+  
   return (
     <>
-      <div className="p-4">
+      <div className="p-4 mr-[-20%]">
         <section class="overflow-hidden bg-gray-50 grid grid-cols-2">
           <div class="p-8">
             <div class="mx-auto max-w-xl text-center  ml-3">
@@ -29,6 +34,10 @@ export default function Coursecard({ course }) {
                     <div className="font-medium text-lg">{course.duration} Hours</div>
                   </div>
                   <div className="bg-green-100 rounded-lg w-[150px] p-2 mr-2 mt-2">
+                    {/* <div className="font-light text-m">Duration</div> */}
+                    <div className="font-medium text-lg">{course.price} Rs.</div>
+                  </div>
+                  <div className="bg-green-100 rounded-lg w-[150px] p-2 mr-2 mt-2">
                     {/* <div className="font-light text-m">Rating</div> */}
                     <div className="flex flex-row justify-center">
                       <div className="font-medium text-lg">4.7 &#9733;</div>
@@ -39,12 +48,12 @@ export default function Coursecard({ course }) {
               </div>
               <div className="flex flex-row-reverse mt-4">
                 <div class="mt-4 md:mt-8">
-                  <a
-                    href="#"
+                  <p
+                    onClick={()=>navigate('/CheckOut', {state: {id: course._id}})}
                     class="inline-block rounded bg-emerald-600 px-12 py-3 text-sm font-medium text-white transition hover:bg-emerald-700 focus:outline-none focus:ring focus:ring-yellow-400"
                   >
-                    Get Started Today
-                  </a>
+                    Ckeckout
+                  </p>
                 </div>
               </div>
             </div>
@@ -60,7 +69,7 @@ export default function Coursecard({ course }) {
     <summary
       class="flex cursor-pointer items-center justify-between gap-1.5 rounded-lg  p-4 text-gray-900 w-[200px] -mt-20 h-4 ml-[30px]"
     >
-      <button class="font-medium">More Detail</button>
+      <button class="font-medium ml-32 w-max">More Detail</button>
 
       <svg
         class="h-5 w-5 shrink-0 transition duration-300 group-open:-rotate-180"
@@ -73,7 +82,7 @@ export default function Coursecard({ course }) {
       </svg>
     </summary>
 
-    <div className="pt-10 bg-gray-50 pl-8 text-left pb-3">
+    <div className="pt-10 bg-gray-50 pl-44 text-left pb-3">
         <div>
             <div className="text-m py-2">Uploaded on 21 March</div>
             <div className="text-left font-semibold text-left pt-3">what You Will Learn:</div>

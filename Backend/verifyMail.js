@@ -14,7 +14,7 @@ const verify = async (link,email) => {
         from: 'yashcode2003@gmail.com',
         to: email,
         subject: "Verify Email",
-        html:`<a href=${link}>Click here to Verify</a>`
+        html:`Hello Sir!! <br/> Kindly proceed with verification (link valid only for 10 mins) <br/> <a href=${link}>Click here to Verify</a>`
         
     }, (err, info) => {
         if (err)

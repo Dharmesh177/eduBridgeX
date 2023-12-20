@@ -143,8 +143,7 @@ export default function BecomeMenter() {
   };
   return (
     <>
-      <Header index="2" />
-      <div className="container " style={{ fontFamily: 'poppins', marginTop: -30 }}>
+      <div className="container pt-24 pb-24" style={{ fontFamily: 'poppins', marginTop: -30 }}>
         <div className=" p-3 ">
           <form  >
             <div className="form-group row">

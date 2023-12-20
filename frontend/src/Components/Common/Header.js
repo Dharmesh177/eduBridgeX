@@ -115,20 +115,16 @@ export default function Header(props) {
                   {t("Resources")}
                 </NavLink>
               </div>
-              <div className="tab-container">
-                <NavLink className={(index === 7) ? "nav-link active" : "nav-link"} to="/">
-                  {t("About")}
-                </NavLink>
-              </div>
-              <div className="tab-container">
-                <NavLink className={(index === 8) ? "nav-link active" : "nav-link"} to="/">
-                 {t("Contact")}
-                </NavLink>
-              </div>
+              
 
               <div className="tab-container">
               <NavLink className={(index === 8) ? "nav-link active" : "nav-link"} to="/schemesPath">
                {t("Schemes")}
+              </NavLink>
+            </div>
+            <div className="tab-container">
+              <NavLink className={(index === 7) ? "nav-link active" : "nav-link"} to="/course">
+               {t("Course")}
               </NavLink>
             </div>
             <div className="tab-container">
@@ -137,7 +133,10 @@ export default function Header(props) {
               </NavLink>
             </div>
               
-
+            <div className="tab-container">
+            <Languageoption onChange={(e)=> handleClick(e)}/>
+            </div>
+              
             </div>
           </div>
 
@@ -184,7 +183,7 @@ export default function Header(props) {
         </div>
         <hr className="horizontal-line"></hr>
       </div>
-      <Languageoption onChange={(e)=> handleClick(e)}/>
+      
     </>
   );
 }

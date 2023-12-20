@@ -21,7 +21,8 @@ export default function CourseList() {
         const fetchData = async () => {
           try {
             const response = await Axios.get('http://localhost:5000/api/Course/getAllCourses');
-            setCourse(response.data);
+            console.log(response.data.reverse());
+            setCourse(response.data.reverse());
             setLoading(false);
           } catch (error) {
             console.error('Error fetching data:', error);
@@ -105,7 +106,7 @@ export default function CourseList() {
         </div>
       </div>
       </div>
-<div>
+      <div className="">
       {courses.map((course) => (
         <Coursecard course={course}/> 
       ))

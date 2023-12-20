@@ -1,23 +1,36 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+from model import chat, create_teacher_prompt, create_teacher_model, create_phone_model, create_career_model
 
-from model import comp
+prompt = create_teacher_prompt()
+model1 = create_teacher_model(prompt)
+model2 = create_phone_model()
+model3 = create_career_model()
 
-@app.route('/data', methods=['POST'])
-def get_data():
-    prompt = '''
-i will provide you some answer for question which asked for counselling and basis of my provided answers you'll understand what are my current skills, interests and capabilities. and after understanding them can you sugeest me couple of career options which are suitable for me.'''
-    end = '''answer must be very short and straightforward''' 
-    data= request.get_json()
-    for q in data:
-        prompt += q
-        prompt += data[q]
-    prompt += end 
-    ans = comp(prompt)
-    return jsonify(ans)
-@app.route('/', methods=['GET'])
-def hello():
-    return "hello"
 
-app.run(port=4000)
+end_message = "based on this conversation give me small (less than 120 words) suggestion or correction which can help me to improve my communication skill"
+
+@app.route('/teacher', methods=['POST'])
+def communication_route_fun():
+    data = request.get_json()
+    if data['input'] == 'stop':return {'output':chat(end_message,model1)}
+    return {'output':chat(data['input'], model1)}
+    
+   
+@app.route('/phone', methods=['POST'])
+def telephone_route_fun():
+    data = request.get_json()
+    if data['input'] == 'stop':return {'output':chat(end_message,model2)}
+    return {'output':chat(data['input'], model2)}
+    
+
+@app.route('/career', methods=['POST'])
+def career_route_fun():
+    data = request.get_json()
+    if data['input'] == 'stop':return {'output':chat(end_message,model3)}
+    return {'output':chat(data['input'], model3)}
+
+app.run(port=2000)

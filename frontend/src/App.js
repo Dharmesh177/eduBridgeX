@@ -56,7 +56,8 @@ import ManageCourse from './Components/Course/ManageCourse';
 import CourseOfMentor from './Components/Employment/CourseOfMentor';
 import ProfilePage from './Components/UniversityProfile/ProfilePage';
 import UserProfile from './Components/Profile/UserProfile';
-
+import Scenario from './Components/CommunicationML/Scenario';
+import CheckOut from './Components/Course/CheckOut'
 
 function App() {
 
@@ -110,6 +111,8 @@ function App() {
       <Route index path="/course" element={<CourseList/>} />
       <Route index path="/add_course" element={<AddCourse/>} />
       <Route index path="/landing" element={<Landing/>} />
+      <Route index path="/communicationPractice" element={<Scenario />} />
+      <Route index path='/checkOut' element={<CheckOut />} />
       
 
       <Route index path="/manage_course" element={<ManageCourse/>} />
