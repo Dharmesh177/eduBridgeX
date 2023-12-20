@@ -90,14 +90,14 @@ function UniProfile() {
                 padding: "15px",
               }}
             >
-              <div style={{ marginTop: "auto", marginBottom: "auto" }}>
-                <div className="profile w-5 h-5">
+              <div style={{ marginTop: "auto", marginBottom: "auto" }} className="w-24 h-24 flex">
+                {/* <div className=""> */}
                   <img
-                    src="https://media-exp1.licdn.com/dms/image/C5603AQFjdqTFknnOWw/profile-displayphoto-shrink_800_800/0/1662616747803?e=1670457600&v=beta&t=74tKSSzvo2bryUlYpD5gRLR24FecR6GFT2CcOCuIAc4"
-                    className="w-110 h-110 rounded-circle"
-                    height="100px"
+                    src="https://1.bp.blogspot.com/-bq8vJPZRO0E/TjqRhuwIBMI/AAAAAAAAA9o/bgFEpHcA3ak/s1600/cool-wallpaper-11.jpg"
+                    className="rounded-circle"
+                    alt=""
                   />
-                </div>
+                {/* </div> */}
               </div>
               <div
                 style={{

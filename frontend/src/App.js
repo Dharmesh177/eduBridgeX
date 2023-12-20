@@ -27,6 +27,7 @@ import EventPage from './Components/Event/EventPage';
 import ResourcePage from './Components/Resource/ResourcePage';
 import MHistory from './Components/UniversityProfile/MHistory';
 import Myprofilehistory from './Components/Profile/MyProfileHistory';
+import {Helmet} from "react-helmet";
 import MResources from './Components/UniversityProfile/MResources';
 import StudentProfile from './Components/Profile/StudentProfile';
 import MyProfile from './Components/Profile/MyProfile';
@@ -45,53 +46,83 @@ import UploadFile from './Components/Common/UploadFile';
 import AddJob from './Components/recruitment/AddJob';
 import RecruiterLogin from './Components/recruitment/RecruiterLogin';
 import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
+
 import CarrierCouncelling from './Components/carriercouncelling/carriercouncelling';
 
+import Employ_Dashboard from './Components/Employment/Dashboard';
+import ViewAllJobs from './Components/recruitment/ViewAllJobs';
+import JobList from './Components/Employment/users/Jobs';
+import AddCourse from './Components/Course/AddCourse'
+import CourseList from './Components/Course/CourseList'
+import Landing from "./screens/Landing"
+import ManageCourse from './Components/Course/ManageCourse';
+import CourseOfMentor from './Components/Employment/CourseOfMentor';
+
+
 function App() {
+
+
   return (
     <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route index path="/" element={<Home />} />
-          <Route index path="/blog" element={<Blogs />} />
-          <Route index path="/voice" element={<VoiceSearch />} />
-          <Route index path="/blogpage" element={<BlogPage />} />
-          <Route index path="/addblog" element={<AddBlog />} />
-          <Route index path="/myblog" element={<MyBlogs />} />
-          <Route index path="/mentorpage" element={<UniProfile />} />
-          <Route index path="/mentorevents" element={<MEvents />} />
-          <Route index path="/mentorhistory" element={<MHistory />} />
-          <Route index path="/mentorresources" element={<MResources />} />
-          <Route index path="/temp" element={<FullEvent />} />
-          <Route index path="/editblog/:blogid" element={<EditBlog />} />
-          <Route index path="/login" element={<Login />} />
-          <Route index path="/signup" element={<SignUp />} />
-          <Route index path="/slogin" element={<LLogin />} />
-          <Route index path="/ssignup" element={<SSignUp />} />
-          <Route index path="/event" element={<EventPage />} />
-          <Route index path="/resources" element={<ResourcePage />} />
-          <Route index path="/profile" element={<Profile />} />
-          <Route index path="/profilehistory" element={<StudentProfile />} />
-          <Route index path="/0" element={<MyProfile />} />
-          <Route index path="/pop" element={<Pop />} />
-          <Route index path="/roadmap" element={<Roadmap />} />
-          <Route index path="/FullRoadmapShow" element={<FullRoadmapShow />} />
-          <Route path="/:adminid" element={<Dashboard />} />
-          <Route index path="/becomementor" element={<BecomeMenter />} />
-          <Route index path="/tmp" element={<AddJob />} />
-          <Route index path="/tmp2" element={<RecruiterLogin />} />
-          <Route index path="/tmp3" element={<RecruiterSignUp />} />
-          <Route index path="/schemes" element={<Schemes />} />
-          <Route index path="/schemes_form" element={<DynamicForm />} />
-          <Route index path="/dashboard" element={<Dashboard />} />
-          <Route index path="/schemesPath" element={<SchemesCard />} />
-          <Route index path="/carriercouneclling" element={<CarrierCouncelling />} />
 
-        </Routes>
+    <Helmet>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Khula:wght@400;600;800&display=swap" rel="stylesheet" />
+  </Helmet>
+  
+    <BrowserRouter>
+    <Routes>
+      <Route index path="/" element={<Home/>} />
+      <Route index path="/blog" element={<Blogs/>} />
+      <Route index path="/voice" element={<VoiceSearch/>} />
+      <Route index path="/blogpage" element={<BlogPage/>} />
+      <Route index path="/addblog" element={<AddBlog/>} />
+      <Route index path="/myblog" element={<MyBlogs/>} />
+      <Route index path="/mentorpage" element={<UniProfile/>} />
+      <Route index path="/mentorevents" element={<MEvents/>} />
+      <Route index path="/mentorhistory" element={<MHistory/>} />
+      <Route index path="/mentorresources" element={<MResources/>} />
+      <Route index path="/temp" element={<FullEvent/>} />
+      <Route index path="/editblog/:blogid" element={<EditBlog/>} />
+      <Route index path="/MentorLogin" element={<Login/>} />
+      <Route index path="/signup" element={<SignUp/>} />
+      <Route index path="/UserLogin" element={<LLogin/>} />
+      <Route index path="/ssignup" element={<SSignUp/>} />
+      <Route index path="/event" element={<EventPage/>} />
+      <Route index path="/resources" element={<ResourcePage/>} />
+      <Route index path="/profile" element={<Profile/>} />
+      <Route index path="/profilehistory" element={<StudentProfile/>} />
+      <Route index path="/0" element={<MyProfile/>} />
+      <Route index path="/pop" element={<Pop/>} />
+      <Route index path="/viewalljobs" element={<ViewAllJobs/>} />
+      <Route index path="/roadmap" element={<Roadmap/>} />
+      <Route index path="/FullRoadmapShow" element={<FullRoadmapShow/>} />
+      <Route path="/:adminid" element={<Dashboard />} />
+      <Route index path="/becomementor" element={<BecomeMenter/>} />
+      <Route index path="/tmp" element={<AddJob/>} />
+      <Route index path="/RecruiterLogin" element={<RecruiterLogin/>} />
+      <Route index path="/RecruiterSignUp" element={<RecruiterSignUp/>} />
+      <Route index path="/schemes" element={<Schemes/>} />
+      <Route index path="/schemes_form" element={<DynamicForm/>} />
+      <Route index path="/dashboard" element={<Dashboard/>} />
+      <Route index path="/schemesPath" element={<SchemesCard />} />
+      <Route index path="/employ_dashboard" element={<Employ_Dashboard/>} />
+      <Route index path="/jobs" element={<JobList/>} />
+      <Route index path="/course" element={<CourseList/>} />
+      <Route index path="/add_course" element={<AddCourse/>} />
+      <Route index path="/landing" element={<Landing/>} />
+      
+ <Route index path="/carriercouneclling" element={<CarrierCouncelling />} />
+      <Route index path="/manage_course" element={<ManageCourse/>} />
+      <Route index path="/CourseOfMentor" element={<CourseOfMentor />} />
 
-        <Routes>
-        </Routes>
-      </BrowserRouter>
+      </Routes>
+  
+    <Routes>  
+  </Routes>   
+  </BrowserRouter>
+
     </div>
   );
 }

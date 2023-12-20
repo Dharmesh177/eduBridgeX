@@ -8,6 +8,7 @@ import Popover from 'react-bootstrap/Popover';
 import Languageoption from '../multilang/language-dropdown'
 import {useTranslation} from 'react-i18next'
 import i18next from "i18next"
+import DropDown from '../DropDown'
 
 export default function Header(props) {
   const {t} = useTranslation();
@@ -57,7 +58,7 @@ export default function Header(props) {
             <div className="tab-container-header">
               <div className="tab-container">
                 <NavLink className=
-                  {(index === 1) ? "nav-link active black" : "nav-link"} to="/mentor">
+                  {(index === 1) ? "nav-link active black" : "nav-link"} to="/">
                  {t("Find Mentor")}
                 </NavLink>
               </div>
@@ -90,19 +91,19 @@ export default function Header(props) {
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 7) ? "nav-link active" : "nav-link"} to="/aboutus">
+                <NavLink className={(index == 7) ? "nav-link " : "nav-link"} to="/">
                   {t("About")}
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 8) ? "nav-link active" : "nav-link"} to="/contact">
+                <NavLink className={(index == 8) ? "nav-link " : "nav-link"} to="/">
                  {t("Contact")}
                 </NavLink>
               </div>
 
-              <div className="tab-container">
-              <NavLink className={(index == 8) ? "nav-link active" : "nav-link"} to="/contact">
-               {t("Admin Login")}
+            <div className="tab-container">
+              <NavLink className={(index == 9) ? "nav-link active" : "nav-link"} to="/jobs">
+               {t("Jobs")}
               </NavLink>
             </div>
               
@@ -125,7 +126,8 @@ export default function Header(props) {
             </div>
            
             <div style={{ marginTop: "auto", marginBottom: "auto" }}>
-              <NavLink className="nav-link" to="/login">
+              <DropDown />
+              {/* <NavLink className="nav-link" to="/login">
                 <div className="profile w-1 h-5">
                   <img
 
@@ -138,7 +140,7 @@ export default function Header(props) {
                     alt=''
                   />
                 </div>
-              </NavLink>
+              </NavLink> */}
             </div>
           </div>
         </div>

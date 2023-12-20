@@ -54,7 +54,7 @@ const SignUp = () => {
     if (res.status === 200) {
       console.log("res.data", res.data);
       alert("You're SIgnup successfully, now Please Login !!!")
-      navigate("/slogin");
+      navigate("/UserLogin");
     } else {
       console.log("res.message", res.message);
       setError(res.message);
@@ -158,32 +158,11 @@ const SignUp = () => {
               <button
                   onClick={submitSignUpForm}
                   className="sign-in-button"
-                  style={{ width: "80%", height: "6vh", marginTop: 17 }}
+                  style={{ width: "100%", height: "6vh", marginTop: 17 }}
               >
                   Sign Up
               </button>
           </NavLink>  
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <button
-              className="sign-in-with-google-button"
-              style={{ height: "6vh" }}
-            >
-              <div style={{ display: "flex" }}>
-                <div style={{ margin: "auto" }}>
-                  <img src={google_logo} alt="" width="70%" height="70%" />
-                </div>
-                <div
-                  style={{
-                    fontFamily: "poppins",
-                    fontWeight: "bold",
-                    margin: "auto",
-                  }}
-                >
-                  Sign in with Google
-                </div>
-              </div>
-            </button>
           </div>
         </div>
       </div>

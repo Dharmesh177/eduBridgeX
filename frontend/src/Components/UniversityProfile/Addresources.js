@@ -36,8 +36,7 @@ function Addresources() {
                 description,
                 pdfLink,
                 provider,
-                tags
-                
+                tags,
             });
             console.log("res.data", res.data);
         } catch (err) {
