@@ -35,7 +35,6 @@ export default function BecomeMenter() {
     if (!e.target.files) {
       return;
     }
-
     setCertificate(e.target.files[0]);
   };
 

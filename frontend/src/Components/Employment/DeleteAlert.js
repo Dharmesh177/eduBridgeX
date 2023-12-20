@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-export default function DeleteAlert({ fun, id }) {
+export default function DeleteAlert({ fun, id, fun1 }) {
   const click = () => {
     fun();
   };
@@ -12,6 +12,7 @@ export default function DeleteAlert({ fun, id }) {
       .then(data => {
         // console.log('Job deleted:', data);
         // Call onDelete callback to handle any additional logic in the parent component
+        fun1(prev => !prev);
         alert("Job Deleted Successfully");
         // refreshFun(prev => !prev);
       })

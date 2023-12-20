@@ -15,7 +15,7 @@ export default function Employ_Dashboard() {
   const [delete_card, set_delete_card_visible] = useState(false);
   const [job_id, set_id] = useState("")
   const [addjob,setaddjob] = useState(false);
-  // const [state, steState] = useState(false);
+  const [state, setState] = useState(false);
 
   const navigate = useNavigate();
   //const location = useLocation();
@@ -52,42 +52,43 @@ const delete_card_visible = () =>{
     
   }
 
-  useEffect(()=>{},[showjobs]);
+  useEffect(()=>{},[showjobs, state]);
 
   return (
     <>
-      <Header /> 
-      {delete_card && <DeleteAlert fun={delete_card_visible} id={job_id}/> }
+      <Header />
+      {delete_card && <DeleteAlert fun={delete_card_visible} id={job_id} fun1={setState}/> }
       <div className="main_div h-screen">
       
-        <div className="side_div1 bg-gray-100 rounded-lg">
+        <div className="side_div1 bg-gray-100 border-r-2 mt-3" style={{borderRight:"2px solid gray"}}>
           <div className="side_div_container1">
             <div className="side_div_container1">
               <ul className="side_div_ul">
-                <li>
-                  <a href="#" className="side_div_li" onClick={jobs_visible}>
+                <li className="w-[80%] m-auto" style={{borderBottom:"2px solid gray"}}>
+                  <a href="#" className="side_div_li text-center" onClick={jobs_visible}>
                     Manage Jobs
                   </a>
                 </li>
 
-                <li>
-                  <Link to="#" className="side_div_li" onClick={visible_addjob}>
+                <li className="w-[80%] m-auto" style={{borderBottom:"2px solid gray"}}>
+                  <Link to="#" className="side_div_li text-center" onClick={visible_addjob}>
                     Add New Job
                   </Link>
                 </li>
 
-                <li>
-                  <a href="#" className="side_div_li" onClick={employ_edit_page_visible}>
+                <li className="w-[80%] m-auto" style={{borderBottom:"2px solid gray"}}>
+                  <a href="#" className="side_div_li text-center" onClick={employ_edit_page_visible}>
                     Edit Profile
                   </a>
                 </li>
 
                 <li className="cursor-pointer">
-                  <p className="side_div_li pointer-curser"
+                  <p className="side_div_li pointer-curser text-center"
                     onClick={()=> {
                       const cookie = new Cookie();
                       cookie.remove('RecruiterToken', { path: "/" });
-                      navigate('/RecruiterLogin')
+                      // navigate('/RecruiterLogin')
+                      navigate('/landing')
                     }}
                   >
                     Log Out

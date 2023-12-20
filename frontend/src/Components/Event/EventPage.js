@@ -252,7 +252,7 @@ const EventPage = () => {
                 </div>
             </div>
             <div className=' d-flex justify-content-around mt-5 mb-3' style={{ backgroundColor: 'aliceblue' }}>
-                <div className='d-flex justify-content-around my-2 ' style={{ width: '80%' }}>
+                <div className='d-flex justify-content-around my-2 pb-24' style={{ width: '80%' }}>
                     {
                         events && events.length > 0 &&
                         events.map(event =>

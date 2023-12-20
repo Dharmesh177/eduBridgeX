@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 
 import axios from "axios";
 // import Cookies from "universal-cookie";
-import { Navigate, Link, useParams } from "react-router-dom";
+import { Navigate, Link, useParams, useLocation } from "react-router-dom";
 import Header from "../Common/Header";
 import "./StudentProfile.css";
 import Beginner from "../../Assets/Images/beginner.jpg";
@@ -11,7 +11,7 @@ import Master from "../../Assets/Images/master.jpg";
 import StarIcon from '@mui/icons-material/Star';
 import ProjectCard from "../Profile/ProjectCard";
 import Tag from "../Common/Tag";
-
+ 
 export default function StudentProfile() {
   const [rating, setRating] = useState();
   const { id } = useParams();
@@ -19,6 +19,7 @@ export default function StudentProfile() {
   const [projects, setProjects] = useState();
   const [title, setTitle] = useState("Follow");
   const [icon, setIcon] = useState("person_add");
+
   const projectStyle = {
     backgroundColor: "#D5E3FE",
     color: "#2C5EFF",
@@ -28,30 +29,38 @@ export default function StudentProfile() {
     marginTop: 8
   };
   
+
+
   // const cookies = new Cookies();
   // const UserType = cookies.get("userType");
 
   // const studentId = cookies.get("uTypeId");
 
-  const sendReq = async () => {
-    const res = await axios
-      .get(`http://localhost:5000/api/Project/UserId/${id}`)
-      .catch((err) => console.log(err));
-    const data = await res.data;
-    console.log(data);
-    return data;
-  };
+  // const sendReq = async () => {
+  //   const res = await axios
+  //     .get(`http://localhost:5000/api/Project/UserId/${id}`)
+  //     .catch((err) => console.log(err));
+  //   const data = await res.data;
+  //   console.log(data);
+  //   return data;
+  // };
 
-  useEffect(() => {
-    sendReq().then((data) => {
-      setProjects(data.project);
-      console.log(projects);
-      console.log(data.project);
-    });
-  }, []);
+  // useEffect(() => {
+  //   sendReq().then((data) => {
+  //     setProjects(data.project);
+  //     console.log(projects);
+  //     console.log(data.project);
+  //   });
+  // }, []);
+
+  const location = useLocation();
+  
+
+  const [mentorData, setMentorData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleClickEvent = () => {
-    if (title == "Follow") {
+    if (title === "Follow") {
       setTitle("Unfollow");
       setIcon("person_remove");
     } else {
@@ -60,31 +69,48 @@ export default function StudentProfile() {
     }
   };
 
+  const fetchMentorData = async(data) => {
+    try {
+      setLoading(true);
+      const result = await axios.get('http://localhost:5000/api/mentors/mentor/' + data.id);
+      // console.log(result.data.user);
+      setMentorData(result.data.user);
+      setLoading(false);
+    } catch (err) {
+      console.log(err);
+      setLoading(false);
+    }
+  }
+
+  useEffect(()=>{
+    const data = location.state;
+    console.log(data);
+    fetchMentorData(data);
+  },[])
+
   return (
     <>
       <Header index="1"/>
-      <div className="parent">
+      {loading === true ? <div>Loading...</div> : <div className="parent">
         <div
           className="profile-background-card profile-main-container"
           style={{ marginLeft: 10 }}
         >
           <div>
-            <div className="row-container-cust">
+            <div className="row-container-cust items-center">
               {/* User Photo */}
-              <div className="profile w-1 h-5">
+              <div className="w-14 h-14 ">
                 <img
                   src="https://picsum.photos/200"
-                  className="w-110 h-110 rounded-circle"
-                  style={{ width: 70, height: 70 }}
-                  height="100px"
+                  className="rounded-full"
                 />
               </div>
               {/* User name */}
               <div className="column-container">
-                <div className="name-title-container">Nikunj Patel</div>
-                <div className=" button-display" onClick={handleClickEvent}>
+                <div className="name-title-container font-bold">{mentorData?.name}</div>
+                <div className=" button-display px-5" onClick={handleClickEvent}>
                   <i
-                    className="material-icons circle"
+                    className="material-icons"
                     style={{
                       marginTop: 3,
                       fontSize: 28,
@@ -98,8 +124,8 @@ export default function StudentProfile() {
                 </div>
               </div>
             </div>
-            <div className="about-us-container">
-              Hello everyone, this is Nikunj Patel. I am an Android developer
+            <div className="w-full overflow-hidden flex flex-row justify-center flex-wrap mt-3">
+              {mentorData?.intro}
             </div>
             <hr className="horizontal-line"></hr>
             <div className="college-container" style={{ marginTop: 10 }}>
@@ -114,7 +140,7 @@ export default function StudentProfile() {
                 apartment
               </i>
               <div className="college-text-container">
-                Surat, Gujarat
+                {mentorData?.district}, {mentorData?.state}
               </div>
             </div>
 
@@ -130,7 +156,7 @@ export default function StudentProfile() {
                 email
               </i>
               <div className="college-text-container">
-                ndpatel.tech@gmail.com
+                {mentorData?.email}
               </div>
             </div>
 
@@ -166,9 +192,14 @@ export default function StudentProfile() {
             <hr className="horizontal-line"></hr>
             <div className="skills-container">Laungauges</div>
             <div className="skills-inner-container">
-              <Tag title="English" customeStyle={projectStyle} />
+              {mentorData?.language.map(itm => {
+                return (
+                  <Tag title={itm} customeStyle={projectStyle} />
+                )
+              })}
+{/*               
               <Tag title="Hindi" customeStyle={projectStyle} />
-              <Tag title="Gujarati" customeStyle={projectStyle} />
+              <Tag title="Gujarati" customeStyle={projectStyle} /> */}
             </div>
           </div>
         </div>
@@ -183,20 +214,22 @@ export default function StudentProfile() {
           <div style={{marginRight: 100, marginTop:"22px", marginLeft:"14px"}}>
           <div className="skills-container" ><span style={{fontSize:"20px"}}>Laungauges</span></div>
           <div className="skills-inner-container">
-            <Tag title="English" customeStyle={projectStyle} />
-            <Tag title="Hindi" customeStyle={projectStyle} />
-            <Tag title="Gujarati" customeStyle={projectStyle} />
+              {mentorData?.language.map(itm => {
+                return (
+                  <Tag title={itm} customeStyle={projectStyle} />
+                )
+              })}
           </div>
           </div>
 
           <div style={{marginRight: 100, marginTop:"22px", marginLeft:"14px"}}>
           <div className="skills-container" ><span style={{fontSize:"20px"}}>Expertise</span></div>
           <div className="skills-inner-container">
-            <Tag title="Software" customeStyle={projectStyle} />
-            <Tag title="MERN Stack" customeStyle={projectStyle} />
-            <Tag title="Counceling" customeStyle={projectStyle} />
-            <Tag title="Blockchain" customeStyle={projectStyle} />
-            <Tag title="Machine Learning" customeStyle={projectStyle} />
+              {mentorData?.expertise.map(itm => {
+                return (
+                  <Tag title={itm} customeStyle={projectStyle} />
+                )
+              })}
           </div>
           </div>
 
@@ -247,7 +280,7 @@ export default function StudentProfile() {
         </section>
           
         </div>
-      </div>
+      </div>}
     </>
   );
 }

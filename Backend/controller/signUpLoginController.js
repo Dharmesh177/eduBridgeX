@@ -181,7 +181,7 @@ const loginStudent = async (req, res, next) => {
             if (checkPass) {
                 const key = process.env.Key
                 console.log("old(Json) ", old.email);
-                const token = jwt.sign({ email: old.email }, key, { expiresIn: 30 * 24 * 60 * 60 })
+                const token = jwt.sign({ email: old.email, id: old._id }, key, { expiresIn: 30 * 24 * 60 * 60 })
                 res.cookie("jwtToken", token, {
                     httpOnly: true,
                     sameSite: "strict"

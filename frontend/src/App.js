@@ -59,6 +59,8 @@ import ManageCourse from './Components/Course/ManageCourse';
 import CourseOfMentor from './Components/Employment/CourseOfMentor';
 import InstructorLogin from "./Components/instructor/Login"
 import InstructorSignUp from "./Components/instructor/SignUp"
+import ProfilePage from './Components/UniversityProfile/ProfilePage';
+import UserProfile from './Components/Profile/UserProfile';
 
 
 function App() {
@@ -67,6 +69,7 @@ function App() {
   return (
     <div className="App">
 
+    <div className="App bg-gray-100">
     <Helmet>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -93,7 +96,7 @@ function App() {
       <Route index path="/ssignup" element={<SSignUp/>} />
       <Route index path="/event" element={<EventPage/>} />
       <Route index path="/resources" element={<ResourcePage/>} />
-      <Route index path="/profile" element={<Profile/>} />
+      <Route index path="/profile" element={<UserProfile />} />
       <Route index path="/profilehistory" element={<StudentProfile/>} />
       <Route index path="/0" element={<MyProfile/>} />
       <Route index path="/pop" element={<Pop/>} />
@@ -121,12 +124,16 @@ function App() {
       <Route index path="/manage_course" element={<ManageCourse/>} />
       <Route index path="/CourseOfMentor" element={<CourseOfMentor />} />
 
+
+      <Route index path='/tmptmp' element={<ProfilePage />} />
+      <Route index path='/tmptmp2' element={<UserProfile />} />
+
       </Routes>
   
     <Routes>  
   </Routes>   
   </BrowserRouter>
-
+</div>
     </div>
   );
 }

@@ -119,7 +119,7 @@ export default function SchemesCard() {
     <Header />
     {loading===true ? <div className="h-screen w-screen text-5xl flex flex-col justify-center items-center">loading...</div> :
       <div className="flex w-full justify-between mt-3 h-[60%]">
-      <div className="w-[30%] bg-gray-100 ml-2 rounded-lg flex flex-col" style={{Height:"42rem", border:"1px solid gray"}}>
+      <div className="w-[25%] bg-gray-100 ml-2 rounded-lg flex flex-col" style={{Height:"42rem", border:"1px solid gray"}}>
         <h1 className="text-3xl ml-[-70%] mt-3 mb-3">
           Filters 
         </h1>
@@ -154,15 +154,15 @@ export default function SchemesCard() {
           onClick={()=>setType("all")}
         >Clear Filters</button>
       </div>
-      <div className="bg-gray-100 h-max w-[68.5%] flex flex-col overflow-scroll items-center rounded-lg text-black mr-2" style={{maxHeight:"42rem", border:"1px solid gray"}}>
-        <h1 className="fixed text-3xl w-[61%] px-3 font-bold backdrop-blur py-3"
+      <div className="bg-gray-100 h-max w-[73%] flex flex-col overflow-scroll items-center rounded-lg text-black mr-2" style={{maxHeight:"42rem", border:"1px solid gray"}}>
+        <h1 className="fixed text-3xl w-[66%] px-3 font-bold backdrop-blur py-3"
           style={{borderBottom:"3px solid black",borderRadius:"2px"}}
         >
           {type.toUpperCase() === "" ? tag.toUpperCase() + " - Tag Related Schemes" : type.toUpperCase() + " Schemes"}</h1>
         <div className="flex flex-col w-[100%] mt-16 justify-center items-center">
           {schemes.map(itm => {
           return (
-            <div class="p-4 m-2 w-[90%] border bg-gray-300 rounded-lg shadow-sm text-black">
+            <div class="p-4 m-2 w-[90%] border bg-gray-200 shadow rounded-lg shadow-sm text-black">
             <div class="text-left">
               <p>
                 <a href="" class="no-underline text-slate-500 text-base font-thin">

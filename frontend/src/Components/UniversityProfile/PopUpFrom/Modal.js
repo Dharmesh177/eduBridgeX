@@ -19,10 +19,10 @@ const Modal = ({ handleClose, show, children,index }) => {
           marginRight: "20px",
         }}
       >
-        <Button
+        {/* <Button
         title={"Close"}
           onClick={(e) => this.handleSubmit(e)}
-        />
+        /> */}
       </div>
         </a>
       </div>

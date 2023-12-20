@@ -1,209 +1,82 @@
-import React, { useEffect, useState } from "react";
-import MaterialIcon, { colorPalette } from "material-icons-react";
-import Button from "../Common/Button";
-import ProfileInputField from "../Profile/ProfileInputField";
-import ProfileInputFieldExtended from "../Profile/ProfileInputFieldExtended";
-import SideBarOption from "../Profile/SideBarOption";
-import axios from "axios";
-import "./UniProfile.css";
-import { NavLink } from "react-router-dom";
-// import Cookies from 'universal-cookie'
-import { Navigate } from "react-router-dom";
-import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import React,{useState, useEffect} from 'react';
+import ProfileInputField from '../Profile/ProfileInputField';
+import Button from '../Common/Button';
+import axios from 'axios';
+import Cookie from 'universal-cookie';
+import { jwtDecode } from 'jwt-decode';
 
-// import Popup from 'reactjs-popup';
+var data = {};
 
-function UniProfile() {
-  const [tagList, setTaglist] = useState([]);
-  const [explist, setExplist] = useState([]);
+const ProfilePage = ({ fun, fun2 }) => {
 
-  const [timeframe, setTimeFrame] = useState("");
+    const [tagList, setTaglist] = useState([]);
+    const [explist, setExplist] = useState([]);
 
-  const [timeframe2, setTimeFrame2] = useState("");
+    const [timeframe, setTimeFrame] = useState("");
 
-  //  const cookies = new Cookies();
-  //  const UserType = cookies.get('userType');
+    const [timeframe2, setTimeFrame2] = useState("");
+const [ddata,setddata] = useState();
 
-  //  const CollegeId = cookies.get('uTypeId')
+     const cookies = new Cookie();
+    //  const UserType = cookies.get('userType');
+
+    //  const CollegeId = cookies.get('uTypeId')
 
 
-  const [showw, setshoww] = useState("false");
+    const [showw, setshoww] = useState("false");
+    const [userData, setUserData] = useState({
+        data: {}
+    });
 
-  const Handle_toggle = () => {
-    const img = document.getElementById("pop_Container");
-    console.log(img);
-  };
+    const Handle_toggle = () => {
+        const img = document.getElementById("pop_Container");
+        console.log(img);
+    };
 
-  const handleeditclick = () => {
-    setshoww("true");
-    console.log(showw);
-  };
+    const handleeditclick = () => {
+        setshoww("true");
+        console.log(showw);
+    };
 
-  const handlesubmit = (e) => {
-    setshoww("false");
-  };
-  const setToTaglist = (e, k) => {
-    if (e.keyCode == 13) {
-      setTaglist([...tagList, k]);
-      e.target.value = "";
+    const handlesubmit = (e) => {
+        setshoww("false");
+    };
+    const setToTaglist = (e, k) => {
+        if (e.keyCode == 13) {
+        setTaglist([...tagList, k]);
+        e.target.value = "";
+        }
+    };
+    
+    const setToExplist = (e, k) => {
+        if (e.keyCode == 13) {
+        setExplist([...tagList, k]);
+        e.target.value = "";
+        }
+    };
+
+    const fetchUser = async () => {
+        try {
+            const token = cookies.get('MentorToken');
+            const tokendata = jwtDecode(token);
+            data = await axios.get('http://localhost:5000/api/mentors/mentor/'+tokendata.id);
+            data = data.data.user;
+            console.log(data);
+            setUserData(data);
+        } catch (err) {
+            console.log(err);
+        }
     }
-  };
-  
-  const setToExplist = (e, k) => {
-    if (e.keyCode == 13) {
-      setExplist([...tagList, k]);
-      e.target.value = "";
-    }
-  };
-  const [user, setUser] = useState();
 
-  const sendRequest = async () => {
-    const res = await axios
-      .get(`http://localhost:5000/api/mentors/mentor/507f1f77bcf86cd799439011`)
-      .catch((err) => console.log(err));
-    const data = await res.data;
-    console.log(data);
-    console.log("-----");
-    return data;
-  };
-  // useEffect(() => {
-  //   sendRequest().then((data) => setUser(data.mentors));
-  // }, []);
+    useEffect(() => {
+        fetchUser();
+        console.log(data);
+        console.log(userData);
+    }, [data]);
 
-  return (
-    <>
-      {
-        <div
-          style={{
-            display: "flex",
-            textAlign: "center",
-            justifyContent: "left",
-          }}
-        >
-          <div style={{ display: "flex", flexDirection: "column" }}>
+    return (
+        <div>
             <div
-              style={{
-                display: "flex",
-                flexDirection: "row",
-                position: "sticky",
-                top: "0",
-                padding: "15px",
-              }}
-            >
-              <div style={{ marginTop: "auto", marginBottom: "auto" }} className="w-24 h-24 flex">
-                {/* <div className=""> */}
-                  <img
-                    src="https://1.bp.blogspot.com/-bq8vJPZRO0E/TjqRhuwIBMI/AAAAAAAAA9o/bgFEpHcA3ak/s1600/cool-wallpaper-11.jpg"
-                    className="rounded-circle"
-                    alt=""
-                  />
-                {/* </div> */}
-              </div>
-              <div
-                style={{
-                  marginTop: "auto",
-                  marginBottom: "auto",
-                }}
-              >
-                <div
-                  style={{
-                    // marginTop: 50,
-                    marginLeft: 20,
-                    fontFamily: "poppins",
-                    fontWeight: "bold",
-                    fontSize: 22,
-                    textAlign: "start",
-                  }}
-                >
-                  Dharmesh Va..
-                </div>
-
-                <div
-                  style={{
-                    marginLeft: 20,
-                    fontSize: 16,
-                    color: "#9B9B9B",
-                    fontWeight: "500",
-                  }}
-                >
-                  Dvala453@gmail.com
-                </div>
-              </div>
-            </div>
-            {/* horizontal line */}
-            <div style={{ border: "2px solid #F5F7F9", marginTop: 20 }}></div>
-
-            {/* options */}
-            <div
-            className="editing"
-            style={{ position: "sticky", top: "130px", padding: "10px" }}
-          >
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorpage"
-            >
-              <SideBarOption icon="person" title="Profile" />
-            </NavLink>
-
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/dashboard"
-            >
-              <SideBarOption icon="dashboard" title="Dashboard" />
-            </NavLink>
-
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorevents"
-            >
-              <SideBarOption icon="event" title="Events" />
-            </NavLink>
-
-            <NavLink
-            className=""
-            style={{ textDecoration: "none", color: "black" }}
-            to="/mentorresources"
-          >
-            <SideBarOption icon="book" title="resources" />
-          </NavLink>
-
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/mentorhistory"
-            >
-              <SideBarOption icon="history" title="History" />
-            </NavLink>
-
-
-            
-
-            <NavLink
-              className=""
-              style={{ textDecoration: "none", color: "black" }}
-              to="/Logout"
-            >
-              <SideBarOption icon="logout" title="Logout" />
-            </NavLink>
-          </div>
-          </div>
-          <div
-            style={{
-              border: "2px solid #F5F7F9",
-              // height: "-webkit-fill-available",
-              // marginTop: "auto",
-              // marginBottom: "auto",
-              marginLeft: 20,
-            }}
-          >
-            {/* this is for line */}
-          </div>
-
-          {/* profile section */}
-          <div
             style={{
               display: "flex",
               flexDirection: "column",
@@ -231,6 +104,13 @@ function UniProfile() {
               >
                 My Profile
               </div>
+              <button
+                className='bg-black text-white w-max px-3 py-2 ml-[75%] rounded-lg'
+                onClick={()=>{
+                    fun(false);
+                    fun2(true);
+                }}
+              >back</button>
               <div
                 style={{
                   border: "2px solid #F5F7F9",
@@ -249,7 +129,7 @@ function UniProfile() {
                   <ProfileInputField
                     title={"Menter Name"}
                     placeholder={"Ex: Dharmesh Vala"}
-                    vale={"Dharmesh Vala"}
+                    vale={data?.name}
                   />
                 </div>
 
@@ -259,9 +139,10 @@ function UniProfile() {
                     placeholder={
                       "Ex: Re-engineer curricula to meet global  employment requirements. Promote innovative practices at all levels."
                     }
-                    vale={
-                      "Re-engineer curricula to meet global  employment requirements. Promote innovative practices at all levels."
-                    }
+                    // vale={
+                    //   "Re-engineer curricula to meet global  employment requirements. Promote innovative practices at all levels."
+                    // }
+                    vale={data.intro}
                   />
                 </div>
 
@@ -275,7 +156,7 @@ function UniProfile() {
                   <ProfileInputField
                     title={"Email"}
                     placeholder={"Ex: Dvala453@gmail.com"}
-                    vale={"dvala453@gmail.com"}
+                    vale={data?.email}
                   />
                   <div style={{ marginLeft: 10, flexGrow: "1" }}>
                     <ProfileInputField
@@ -304,13 +185,13 @@ function UniProfile() {
                   <ProfileInputField
                     title={"District"}
                     placeholder={"Ex: Anand"}
-                    vale={"Anand"}
+                    vale={data?.district}
                   />
                   <div style={{ marginLeft: 10, flexGrow: "1" }}>
                     <ProfileInputField
                       title={"State"}
                       placeholder={"Ex: Gujarat"}
-                      vale={"Gujarat"}
+                      vale={data.state}
                     />
                   </div>
                 </div>
@@ -319,7 +200,7 @@ function UniProfile() {
                   <ProfileInputField
                     title={"Laungauges"}
                     placeholder={"Ex: English"}
-                    vale={"English"}
+                    vale={"English, Hindi"}
                   />
                 </div>
 
@@ -419,9 +300,7 @@ function UniProfile() {
             </div>
           </div>
         </div>
-      }
-    </>
-  );
-}
+    );
+};
 
-export default UniProfile;
+export default ProfilePage;

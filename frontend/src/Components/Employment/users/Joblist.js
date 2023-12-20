@@ -9,7 +9,7 @@ const JobList = () => {
     const fetchData = async () => {
       try {
         const response = await Axios.get('http://localhost:5000/jobs/jobs');
-        setJobs(response.data);
+        setJobs(response.data.reverse());
         setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -20,7 +20,7 @@ const JobList = () => {
 
   return (
 
-    <div>
+    <div className='h-[100%] overflow-scroll bg-gray-100 rounded-lg'>
       {jobs.map((job) => (
         <JobsCard job={job}/> 
       ))

@@ -55,8 +55,9 @@
 
 .name-title-container {
     font-family: 'poppins';
-    margin-left: 70px;
-    font-weight: 500;
+    font-size: larger;
+    margin-left: 1rem;
+    font-weight: bold;
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -129,10 +130,9 @@
     flex-direction: row;
     justify-content: center;
     border-radius: 8px;
-    margin-left: 30px;
     background-color: #2C5EFF;
     padding: 3px 0px;
-    margin-left: 65px;
+    margin-left: 1rem;
 }
 
 .button-display:hover {

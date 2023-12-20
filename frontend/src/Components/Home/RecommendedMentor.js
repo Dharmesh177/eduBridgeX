@@ -148,7 +148,9 @@ function RecommendedMentor({ mentor }) {
                         Request a Call </button>
                     </a>
                   </div>
-                  <button href="https://app.growthmentor.com/mentors/foti-panagio" target="_blank" class="search-bar-button edited1 edited2">
+                  <button href="https://app.growthmentor.com/mentors/foti-panagio" target="_blank" class="search-bar-button edited1 edited2"
+                    onClick={console.log(mentor.id)}
+                  >
                     View Profile </button></div>
               </div>
             </div>

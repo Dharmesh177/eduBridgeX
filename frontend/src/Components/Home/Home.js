@@ -271,16 +271,16 @@ export default function Home() {
             <div className="container">
 
                 <>
-                    {mentors.length > 0 && mentors?.map((mentor, index) => {
-                        return (
-                            <Me style={{ marginTop: "15px" }}
-                                key={index}
-                                name={mentor?.name}
-                                intro={mentor?.intro}
-                            />
-                        )
-                    })}
-
+                {mentors.length > 0 && mentors?.map((mentor) => {
+                    return (
+                        <Me style={{ marginTop: "15px" }}
+                            name={mentor?.name}
+                            intro={mentor?.intro}
+                            id={mentor?._id}
+                        />
+                    )
+                })}
+                   
                 </>
 
 

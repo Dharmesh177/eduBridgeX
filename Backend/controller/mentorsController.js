@@ -50,11 +50,9 @@ const getAllMentors = async (req, res, next) => {
 
 const getMentorById = async (req, res, next) => {
 
-    const id = req.params
-    const userId = id.id
-    let user;
+    var user;
     try {
-        user = await mentor.find({ _id: userId })
+        user = await mentor.findOne({ _id: req.params.id })
     }
     catch (err) {
         res.status(400).json({

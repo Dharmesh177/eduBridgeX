@@ -39,6 +39,7 @@ const applicationRoute = require("./routes/applicationRoutes");
 const schemeRouter = require('./routes/schemeRoute');
 const courseRouter = require('./routes/courseRoutes');
 const InstructorRoute = require('./routes/instructorRoute');
+const UserRoute = require('./routes/userRoutes');
 
 app.use('/api/auth', signupLoginRoute);
 app.use('/api/mentors', mentorRoute);
@@ -60,6 +61,8 @@ app.use("/jobs", jobRoute);
 app.use("/api/apply",applicationRoute)
 app.use('/api/schemes', schemeRouter)
 app.use('/api/instructor',InstructorRoute)
+
+app.use('/api/users',UserRoute);
 
 
 const verifyToken = async (token) => verify(token, process.env.Key);
