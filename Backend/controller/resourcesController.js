@@ -1,16 +1,21 @@
 const resources = require('../models/resourcesModel')
 
 const addresources = async (req, res, next) => {
-
+    let docLinks = []
+    if (req.files.length > 0) {
+        docLinks = req.files.map(file => {
+            return file.location
+        })
+    }
 
     try {
-        const { name, provider, tags, description, pdfLink } = req.body
+        const { name, provider, tags, description } = req.body
         let newresource = new resources();
         newresource.name = name
         newresource.provider = provider
         newresource.description = description
         newresource.tags = tags
-        newresource.pdfLink = pdfLink
+        newresource.pdfLink = docLinks
 
         newresource.save();
 
