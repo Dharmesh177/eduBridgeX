@@ -115,7 +115,7 @@ const SignUp = () => {
                         <NavLink
                     className=""
                     style={{ textDecoration: "none" }}
-                    to="/login"
+                    to="/MentorLogin"
                   ><div
                   style={{ color: "#2C5EFF", fontWeight: "bolder", marginLeft: 5 }}
               >

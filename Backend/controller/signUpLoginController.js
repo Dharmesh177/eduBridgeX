@@ -108,7 +108,7 @@ const saveMentor = async (req, res, email) => {
         newMentor.district = req.body.district
         newMentor.state = req.body.state
         newMentor.expertise = req.body.expertise
-        // newMentor.docLink = docLinks
+        newMentor.docLink = docLinks
 
         await newMentor.save()
         res.status(200).json({

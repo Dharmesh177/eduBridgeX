@@ -54,6 +54,8 @@ import CourseList from './Components/Course/CourseList'
 import Landing from "./screens/Landing"
 import ManageCourse from './Components/Course/ManageCourse';
 import CourseOfMentor from './Components/Employment/CourseOfMentor';
+import InstructorLogin from "./Components/instructor/Login"
+import InstructorSignUp from "./Components/instructor/SignUp"
 
 
 function App() {
@@ -99,6 +101,8 @@ function App() {
       <Route index path="/tmp" element={<AddJob/>} />
       <Route index path="/RecruiterLogin" element={<RecruiterLogin/>} />
       <Route index path="/RecruiterSignUp" element={<RecruiterSignUp/>} />
+      <Route index path="/InstructorLogin" element={<InstructorLogin/>} />
+      <Route index path="/InstructorSignUp" element={<InstructorSignUp/>} />
       <Route index path="/schemes" element={<Schemes/>} />
       <Route index path="/schemes_form" element={<DynamicForm/>} />
       <Route index path="/dashboard" element={<Dashboard/>} />

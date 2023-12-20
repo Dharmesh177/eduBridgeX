@@ -16,8 +16,8 @@ const storage = multer.diskStorage({
 })
 
 const s3 = new aws.S3({
-  accessKeyId: 'AKIA46BJ26HAJIVHXPMC',
-  secretAccessKey: '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'
+  accessKeyId: 'AKIA3UY247NG3WNBHLUL',
+  secretAccessKey: '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'
 })
 
 exports.upload = multer({ storage })
@@ -28,7 +28,7 @@ exports.uploadS3 = multer({
     acl: 'public-read',
     contentType: multerS3.AUTO_CONTENT_TYPE,
     contentDisposition: 'inline',
-    bucket: 'mentor-portal',
+    bucket: 'mymaterials231',
     metadata: function (req, file, cb) {
       cb(null, { fieldName: file.fieldname });
     },
