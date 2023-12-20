@@ -118,9 +118,10 @@ const RecruiterLogin = (props) => {
             Recruitor Login
           </Typography>
         </Grid>
-        <Grid item>
+        <Grid item className="text-black">
           <EmailInput
             label="Email"
+            // style={{font:"black"}}
             value={loginDetails.email}
             onChange={(event) => handleInput("email", event.target.value)}
             inputErrorHandler={inputErrorHandler}

@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./Login.css";
 import axios from "../../helpers/axios";
-import { useNavigate } from "react-router-dom";
 import Cookies from "universal-cookie";
 
 // var inp = {
@@ -11,7 +10,7 @@ import Cookies from "universal-cookie";
 // };
 
 export default function Login(props) {
-  let navigate = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [error, setError] = useState();
@@ -42,6 +41,14 @@ export default function Login(props) {
     }
     console.log("res.data", data);
   };
+
+  useEffect(() => {
+    const cookie = new Cookies();
+    const token = cookie.get('UserToken');
+    if(token) {
+      navigate('/')
+    }
+  },[])
   
   return (
     <>

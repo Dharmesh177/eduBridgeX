@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Header.css";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../GeneralCSS/main.css"
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
@@ -9,12 +9,18 @@ import Languageoption from '../multilang/language-dropdown'
 import {useTranslation} from 'react-i18next'
 import i18next from "i18next"
 import DropDown from '../DropDown'
+import Cookie from 'universal-cookie';
 
 export default function Header(props) {
   const {t} = useTranslation();
   const handleClick=(e)=>{
       i18next.changeLanguage(e.target.value)
   }
+
+  const [isloggedin, setIsloggedin] = useState(false);
+  const [which, setWhich] = useState("");
+  const cookie = new Cookie();
+  const navigate = useNavigate();
 
   const popover = (
     <Popover id="popover-basic">
@@ -37,6 +43,25 @@ export default function Header(props) {
   );
   let index = props.index;
   console.log('index', index);
+
+
+  useEffect(()=>{
+    const token1 = cookie.get('MentorToken');
+    const token2 = cookie.get('UserToken');
+    const token3 = cookie.get('RecruiterToken');
+
+    if(token1 || token2 || token3) {
+      setIsloggedin(true);
+      if(token1)
+        setWhich("MentorToken")
+      else if(token2)
+        setWhich("UserToken");
+      else if(token3)
+        setWhich("RecruiterToken");
+    } else {
+      setIsloggedin(false);
+    }
+  },[])
 
   return (
     <>
@@ -76,38 +101,38 @@ export default function Header(props) {
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 4) ? "nav-link active" : "nav-link"} to="/roadmap">
+                <NavLink className={(index === 4) ? "nav-link active" : "nav-link"} to="/roadmap">
                   {t("Roadmap")}
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 5) ? "nav-link active" : "nav-link"} to="/community">
+                <NavLink className={(index === 5) ? "nav-link active" : "nav-link"} to="/community">
                   {t("Community")}
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 6) ? "nav-link active" : "nav-link"} to="/resources">
+                <NavLink className={(index === 6) ? "nav-link active" : "nav-link"} to="/resources">
                   {t("Resources")}
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 7) ? "nav-link " : "nav-link"} to="/">
+                <NavLink className={(index === 7) ? "nav-link active" : "nav-link"} to="/">
                   {t("About")}
                 </NavLink>
               </div>
               <div className="tab-container">
-                <NavLink className={(index == 8) ? "nav-link " : "nav-link"} to="/">
+                <NavLink className={(index === 8) ? "nav-link active" : "nav-link"} to="/">
                  {t("Contact")}
                 </NavLink>
               </div>
 
               <div className="tab-container">
-              <NavLink className={(index == 8) ? "nav-link active" : "nav-link"} to="/schemesPath">
+              <NavLink className={(index === 8) ? "nav-link active" : "nav-link"} to="/schemesPath">
                {t("Schemes")}
               </NavLink>
             </div>
             <div className="tab-container">
-              <NavLink className={(index == 9) ? "nav-link active" : "nav-link"} to="/jobs">
+              <NavLink className={(index === 9) ? "nav-link active" : "nav-link"} to="/jobs">
                {t("Jobs")}
               </NavLink>
             </div>
@@ -131,7 +156,15 @@ export default function Header(props) {
             </div>
            
             <div style={{ marginTop: "auto", marginBottom: "auto" }}>
-              <DropDown />
+              {isloggedin ? <button
+                className="bg-black text-white rounded-lg px-2 py-1 flex justify-center items-center"
+                onClick={()=>{
+                  cookie.remove(''+which+'');
+                  setWhich("");
+                  setIsloggedin(false);
+                  navigate('/landing')
+                }}
+              >Logout</button> : <DropDown />}
               {/* <NavLink className="nav-link" to="/login">
                 <div className="profile w-1 h-5">
                   <img

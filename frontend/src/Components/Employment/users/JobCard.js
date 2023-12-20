@@ -44,7 +44,7 @@ export default function JobsCard({ job }) {
   // console.log(time_ago);
   return (
     <>
-      <div class="p-4 m-3  border rounded-lg shadow-sm">
+      <div class="p-4 m-3  border rounded-lg shadow-sm bg-gray-200">
         <div className="flex justify-between">
           <div>
             <div className="font-sans text-lg text-left font-medium">

@@ -19,8 +19,8 @@ export default function Jobs() {
   return (
     <>
       <Header />
-      <div className="flex items-center justify-center">
-      <div className="short_filter">
+      <div className="flex items-center justify-center bg-gray-100 mt-3">
+      <div className="short_filter bg-gray-100 shadow">
         <div className="title">
           <img src={"img/Vector.png"} alt="short icon" />
           <p>Short Filters</p>
@@ -91,7 +91,7 @@ export default function Jobs() {
         </div>
       </div>
       </div>
-      <div className="p-4 m-4">
+      <div className="p-4 m-auto ml-4 mr-4 mb-4 w-[95%] h-screen bg-gray-100">
         <JobList />
       </div>
     </>

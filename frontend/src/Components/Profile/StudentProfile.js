@@ -124,7 +124,7 @@ export default function StudentProfile() {
                 </div>
               </div>
             </div>
-            <div className="about-us-container">
+            <div className="w-full overflow-hidden flex flex-row justify-center flex-wrap mt-3">
               {mentorData?.intro}
             </div>
             <hr className="horizontal-line"></hr>

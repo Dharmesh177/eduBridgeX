@@ -60,23 +60,23 @@ const delete_card_visible = () =>{
       {delete_card && <DeleteAlert fun={delete_card_visible} id={job_id} fun1={setState}/> }
       <div className="main_div h-screen">
       
-        <div className="side_div1 bg-gray-100 rounded-lg">
+        <div className="side_div1 bg-gray-100 border-r-2 mt-3" style={{borderRight:"2px solid gray"}}>
           <div className="side_div_container1">
             <div className="side_div_container1">
               <ul className="side_div_ul">
-                <li>
+                <li className="w-[80%] m-auto" style={{borderBottom:"2px solid gray"}}>
                   <a href="#" className="side_div_li text-center" onClick={jobs_visible}>
                     Manage Jobs
                   </a>
                 </li>
 
-                <li>
+                <li className="w-[80%] m-auto" style={{borderBottom:"2px solid gray"}}>
                   <Link to="#" className="side_div_li text-center" onClick={visible_addjob}>
                     Add New Job
                   </Link>
                 </li>
 
-                <li>
+                <li className="w-[80%] m-auto" style={{borderBottom:"2px solid gray"}}>
                   <a href="#" className="side_div_li text-center" onClick={employ_edit_page_visible}>
                     Edit Profile
                   </a>
