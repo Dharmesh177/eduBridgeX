@@ -46,6 +46,9 @@ import UploadFile from './Components/Common/UploadFile';
 import AddJob from './Components/recruitment/AddJob';
 import RecruiterLogin from './Components/recruitment/RecruiterLogin';
 import RecruiterSignUp from './Components/recruitment/RecruiterSignUp';
+
+import CarrierCouncelling from './Components/carriercouncelling/carriercouncelling';
+
 import Employ_Dashboard from './Components/Employment/Dashboard';
 import ViewAllJobs from './Components/recruitment/ViewAllJobs';
 import JobList from './Components/Employment/users/Jobs';
@@ -61,6 +64,7 @@ function App() {
 
   return (
     <div className="App">
+
     <Helmet>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -109,7 +113,7 @@ function App() {
       <Route index path="/add_course" element={<AddCourse/>} />
       <Route index path="/landing" element={<Landing/>} />
       
-
+ <Route index path="/carriercouneclling" element={<CarrierCouncelling />} />
       <Route index path="/manage_course" element={<ManageCourse/>} />
       <Route index path="/CourseOfMentor" element={<CourseOfMentor />} />
 
@@ -118,6 +122,7 @@ function App() {
     <Routes>  
   </Routes>   
   </BrowserRouter>
+
     </div>
   );
 }
