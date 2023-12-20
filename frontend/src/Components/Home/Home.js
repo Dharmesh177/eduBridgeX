@@ -1,12 +1,7 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import Header from '../Common/Header'
-import { Link } from "react-router-dom";
 import "./Home.css"
 import "./Search/search.css"
-import MenterCard from './MenterCard';
-import ThumbUpIcon from '@mui/icons-material/ThumbUp';
-import SearchIcon from '@mui/icons-material/Search';
 import Me from './Me';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllMentors } from '../../actions/mentor.action';
@@ -150,9 +145,9 @@ export default function Home() {
 
                     <p className="tag" style={{ fontSize: "25px" }}>Applied Fillter</p>
                     <div className="tags">
-                        {tagList.map((ele) => {
+                        {tagList.map((ele, index) => {
                             return (
-                                <div className="tag">
+                                <div key={index} className="tag">
                                     <p>{ele}</p>
                                     {/* <img src={('img/close.png')} alt="cross" className='close' onClick={}/> */}
                                 </div>
@@ -260,9 +255,10 @@ export default function Home() {
             <div className="container">
 
                 <>
-                    {recommendedMentors.length > 0 && recommendedMentors.map((mentor) => {
+                    {recommendedMentors.length > 0 && recommendedMentors.map((mentor, index) => {
                         return (
                             <RecommendedMentor style={{ marginTop: "15px" }}
+                                key={index}
                                 mentor={mentor}
                             />
                         )
@@ -275,15 +271,16 @@ export default function Home() {
             <div className="container">
 
                 <>
-                {mentors.length > 0 && mentors?.map((mentor) => {
-                    return (
-                        <Me style={{ marginTop: "15px" }}
-                            name={mentor?.name}
-                            intro={mentor?.intro}
-                        />
-                    )
-                })}
-                   
+                    {mentors.length > 0 && mentors?.map((mentor, index) => {
+                        return (
+                            <Me style={{ marginTop: "15px" }}
+                                key={index}
+                                name={mentor?.name}
+                                intro={mentor?.intro}
+                            />
+                        )
+                    })}
+
                 </>
 
 
