@@ -66,7 +66,7 @@ const SignUp = () => {
                     marginTop: 38,
                 }}
             >
-                Sign Up
+                Mentor Sign Up
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
                 <div

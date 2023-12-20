@@ -51,7 +51,7 @@ export default function Login(props) {
           marginTop: 38,
         }}
       >
-        Login
+        Mentor Login
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <div
