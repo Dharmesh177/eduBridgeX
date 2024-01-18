@@ -163,7 +163,7 @@ router.get('/jobsOf/:recEmail', async (req,res) => {
 router.get("/deleteJob/:id",async (req,res) => {
     var id = req.params.id;
     try {
-        const result = await Job.deleteOne({id});
+        const result = await Job.deleteOne({_id: id});
         if(result) {
             // console.log(id);
             res.status(200).json({"msg": "job deleted successfull"});

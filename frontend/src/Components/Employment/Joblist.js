@@ -31,7 +31,7 @@ const JobList = ({ fun, set_job_id, recEmail }) => {
   return (
 
     <div className='bg-gray-100 h-full overflow-scroll rounded-lg'>
-      {jobs.map((job) => (
+      {jobs.reverse().map((job) => (
         <JobsCard job={job} fun={fun} set_job_id={set_job_id}/> 
       ))
       }

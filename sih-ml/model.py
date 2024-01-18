@@ -55,27 +55,27 @@ ai:
 ])
 
 def create_model():
-    llm = ChatOpenAI(temperature=0.9, openai_api_key='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')
+    llm = ChatOpenAI(temperature=0.9, openai_api_key='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')
     memory = ConversationBufferMemory(return_messages=True)
     conversation = ConversationChain(memory=memory, prompt=prompt, llm=llm)
     return conversation
 
 
 def create_teacher_model(prompt):
-    llm = ChatOpenAI(temperature=0.9, openai_api_key='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')
+    llm = ChatOpenAI(temperature=0.9, openai_api_key='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')
     memory = ConversationBufferMemory(return_messages=True)
     conversation = ConversationChain(memory=memory, prompt=prompt, llm=llm)
     return conversation
 
 
 def create_phone_model():
-    llm = ChatOpenAI(temperature=0.9, openai_api_key='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')
+    llm = ChatOpenAI(temperature=0.9, openai_api_key='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')
     memory = ConversationBufferMemory(return_messages=True)
     conversation = ConversationChain(memory=memory, prompt=phone_prompt, llm=llm)
     return conversation   
 
 def create_career_model():
-    llm = ChatOpenAI(temperature=0.9, openai_api_key='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')
+    llm = ChatOpenAI(temperature=0.9, openai_api_key='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')
     memory = ConversationBufferMemory(return_messages=True)
     conversation = ConversationChain(memory=memory, prompt=career, llm=llm)
     return conversation   

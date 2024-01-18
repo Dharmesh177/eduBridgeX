@@ -12,7 +12,7 @@ const EventCard = ({event}) => {
     return (
         <>
 
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem', margin:"20px" }}>
                 <Card.Img variant="top" src="https://cdn-az.allevents.in/banners/e3137d25c10c1b049601026a8a7f0b17-rimg-w1024-h500-dc29bde4-gmir.jpeg" />
                 <Card.Body>
                     <Card.Title className='d-flex justify-content-center'>{name}</Card.Title>

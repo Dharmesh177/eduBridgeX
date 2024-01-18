@@ -234,6 +234,7 @@ const AddCourse = ({ add_course_page_disable }) => {
     console.log(main_data);
     try {
       setLoading(true);
+      console.log(main_data);
       const res = await Axios.post(
         "http://localhost:5000/api/Course/addNewCourse",
         main_data

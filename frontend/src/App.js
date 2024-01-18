@@ -58,6 +58,7 @@ import ProfilePage from './Components/UniversityProfile/ProfilePage';
 import UserProfile from './Components/Profile/UserProfile';
 import Scenario from './Components/CommunicationML/Scenario';
 import CheckOut from './Components/Course/CheckOut'
+import SpeechToTextAndTextToSpeech from './Components/CommunicationML/SpeechToText';
 
 function App() {
 
@@ -121,6 +122,8 @@ function App() {
 
       <Route index path='/tmptmp' element={<ProfilePage />} />
       <Route index path='/tmptmp2' element={<UserProfile />} />
+
+      <Route index path='/tm' element={<SpeechToTextAndTextToSpeech />} />
 
       </Routes>
   

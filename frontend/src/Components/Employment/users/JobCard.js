@@ -81,7 +81,7 @@ export default function JobsCard({ job }) {
         </div>
         <div className="flex pt-4 flex-wrap">
           <div className="bg-gray-100 rounded-lg w-[210px] p-2 mr-2 mt-2">
-            <div className="font-light">Salary Per Month</div>
+            <div className="font-light">Salary</div>
             <div className="font-medium">{job.salary_per_month}</div>
           </div>
           <div className="bg-gray-100 rounded-lg w-[210px] p-2 mr-2 mt-2">

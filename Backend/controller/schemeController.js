@@ -47,7 +47,7 @@ exports.getAllSChemes = async (req,res) => {
         }
         // console.log(allSchemes);
         if(allSchemes) {
-            res.status(200).json(allSchemes);
+            res.status(200).json(Array.from(allSchemes).reverse());
         } else {
             res.status(500).json({"success":false,"msg":"server error while fetching allSchemes"});
         }
@@ -122,4 +122,9 @@ exports.getSchemeById = async (req,res) => {
         console.log("error while getSchemeById");
         res.status(500).json({"msg":"internal server error"});
     }
+}
+
+exports.deleteOne = async(req,res) => {
+    const r = await Scheme.deleteOne({id : req.params.id})
+    res.json(r);
 }

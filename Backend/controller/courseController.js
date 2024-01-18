@@ -5,7 +5,7 @@ exports.addNewCourse = async (req,res) => {
         const formdata = req.body;
         const newCourse = new Course({
             title: formdata.title,
-            imageUrl: formdata.imgURL,
+            imageUrl: formdata.imageUrl,
             category: formdata.category,
             difficultyLevel: formdata.difficultyLevel,
             description: formdata.description,
@@ -18,7 +18,7 @@ exports.addNewCourse = async (req,res) => {
             numRating: formdata.numOfRating,
             courseLink: formdata.courseLink,
             provider: formdata.provider,
-            price: formdata.price || 0,
+            price: 499,
         });
         const result = await newCourse.save();
         if(result) {
@@ -40,7 +40,7 @@ exports.getAllCourses = async (req,res) => {
             res.status(500).json({"msg": "NO Courses awailable"});
             return;
         } else {
-            res.status(200).json(result);
+            res.status(200).json(Array.from(result).reverse());
         }
     } catch (err) {
         console.log("error while getAllCourses");
@@ -93,7 +93,7 @@ exports.getCourseOfMentor = async (req,res) => {
     try {
         const result = await Course.find({provider: req.params.email});
         if(result) {
-            res.status(200).json(result);
+            res.status(200).json(Array.from(result).reverse());
         } else {
             res.status(200).json({"msg": "Error ]fetching mentor wise course"});
             return;

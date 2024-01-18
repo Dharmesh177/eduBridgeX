@@ -97,13 +97,14 @@ const EventPage = () => {
             <Header />
             <div style={{ width: "100%" }}>
                 <div
-                    style={{ paddingLeft: 40, paddingRight: 40, justifyContent: "left" }}
+                    style={{ paddingLeft: 40, paddingRight: 40, justifyContent: "left", display:"flex", flexWrap:"wrap" }}
                 >
                     <div style={{ marginTop: 40 }} />
                     <div
                         style={{
                             display: "flex",
                             flexDirection: "row",
+                            flexWrap: "wrap",
                             justifyContent: "center",
                         }}
                     >
@@ -251,8 +252,8 @@ const EventPage = () => {
                     </div>
                 </div>
             </div>
-            <div className=' d-flex justify-content-around mt-5 mb-3' style={{ backgroundColor: 'aliceblue' }}>
-                <div className='d-flex justify-content-around my-2 pb-24' style={{ width: '80%' }}>
+            <div className=' d-flex justify-content-around mt-5 mb-3 mt-16' style={{ backgroundColor: 'aliceblue', flexWrap:"wrap" }}>
+                <div className='d-flex justify-content-around my-2 pb-24' style={{ width: '80%', flexWrap:"wrap" }}>
                     {
                         events && events.length > 0 &&
                         events.map(event =>

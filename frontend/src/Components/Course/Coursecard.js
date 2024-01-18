@@ -60,7 +60,7 @@ export default function Coursecard({ course }) {
           </div>
           <img
             alt="Student"
-            src="https://images.unsplash.com/photo-1464582883107-8adf2dca8a9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
+            src={course.imageUrl}
             class="h-[350px] w-[500px] object-cover ml-8"
           />
         </section>

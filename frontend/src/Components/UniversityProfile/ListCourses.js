@@ -88,8 +88,8 @@ const ListResource = () => {
                                 </div>
                                 <img
                                     alt="Student"
-                                    src="https://images.unsplash.com/photo-1464582883107-8adf2dca8a9f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
-                                    class="h-[100%] w-[70%] object-cover ml-24"
+                                    src={course.imageUrl}
+                                    class="h-[100%] w-[70%] object-contain ml-24"
                                 />
                                 </section>
                             // </div>
